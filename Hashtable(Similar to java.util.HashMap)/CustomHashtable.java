@@ -74,7 +74,7 @@ public class CustomHashtable<K, V> {
 	}
 	
 	public void remove(K key){
-		// Fetching the bucket(i.e. index) in which this element(key, value pair) needs to be stored.
+		// Fetching the bucket(i.e. index) in which the underlying element(key, value pair) is stored.
 		int index = getIndex(key);
 		
 		// Fetching the first element present(stored) in this bucket, if bucket is not empty. otherwise storedNode will be null.
