@@ -51,4 +51,15 @@ public class LinkedListUtil {
 		}
 		return allElts;
     }
+    
+    /**
+     * Delete a node from a singly linked list, Given only a pointer/reference to a node to be deleted.
+     * @param nodeToBeDeleted Pointer/reference to a node to be deleted.
+     */
+    public static void deleteNode(Node<Integer> nodeToBeDeleted) {
+    	Node<Integer> nextNode = nodeToBeDeleted.getNext();
+    	nodeToBeDeleted.setValue(nextNode.getValue());
+    	nodeToBeDeleted.setNext(nextNode.getNext());
+    	nextNode = null;
+    }
 }

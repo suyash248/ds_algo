@@ -23,6 +23,8 @@ public class ConsumeLinkedListUtil {
 	}
 	
     public static void main( String[] args ) {
-    	System.out.println(LinkedListUtil.mergeSortedLinkedLists(sll1, sll2));
+    	System.out.println("Before deletion : " + sll1);
+    	LinkedListUtil.deleteNode(sll1.getStart().getNext());
+    	System.out.println("After deletion : " + sll1);
     }
 }
