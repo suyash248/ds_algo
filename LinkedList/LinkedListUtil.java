@@ -1,7 +1,7 @@
-package com.soni.ds;
+package custom.linked.list;
 
-import com.soni.lib.SinglyLinkedList;
-import com.soni.lib.SinglyLinkedList.Node;
+import custom.linked.list.SinglyLinkedList;
+import custom.linked.list.SinglyLinkedList.Node;
 
 public class LinkedListUtil {
 	
