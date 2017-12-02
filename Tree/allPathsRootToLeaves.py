@@ -1,49 +1,28 @@
-# Python program to find predecessor and successor in a BST
+from commons.commons import insert, print_tree, is_leaf
 
-# A BST node
-class Node:
-    # Constructor to create a new node
-    def __init__(self, key):
-        self.key = key
-        self.left = None
-        self.right = None
-
-# A utility function to insert a new node in with given key in BST
-def insert(node, key):
-    if node is None:
-        return Node(key)
-
-    if key < node.key:
-        node.left = insert(node.left, key)
-
-    else:
-        node.right = insert(node.right, key)
-
-    return node
-
-def all_paths_root_to_leaves(root):
+def all_paths_root_to_leaves_v1(root):
     if root == None:
         return
-    all_paths_root_to_leaves.paths.append(root.key)
-    all_paths_root_to_leaves(root.left)
+    all_paths_root_to_leaves_v1.paths.append(root.key)
+    all_paths_root_to_leaves_v1(root.left)
     if root.left == None and root.right == None:
-        print all_paths_root_to_leaves.paths
-    all_paths_root_to_leaves(root.right)
-    all_paths_root_to_leaves.paths.pop()
+        print all_paths_root_to_leaves_v1.paths
+    all_paths_root_to_leaves_v1(root.right)
+    all_paths_root_to_leaves_v1.paths.pop()
 
-def path_to_target(root, target_key):
+def all_paths_root_to_leaves_v2(root, path, path_len):
     if root == None:
-        return False
-    if root.left == None and root.right == None:
-        path_to_target.paths.append(root.key)
-        return True
-    lpath = path_to_target(root.left, target_key)
-    rpath = path_to_target(root.right, target_key)
-    if lpath or rpath:
-        path_to_target.paths.append(root.key)
+        return
+    path[path_len] = root.key
+    path_len += 1
 
-    return lpath or rpath
-
+    if is_leaf(root):
+        for i in xrange(0, path_len):
+            print path[i],
+        print
+    else:
+        all_paths_root_to_leaves_v2(root.left, path, path_len)
+        all_paths_root_to_leaves_v2(root.right, path, path_len)
 
 def print_tree(root):
     if root is None:
@@ -76,10 +55,9 @@ insert(root, 70);
 insert(root, 60);
 insert(root, 80);
 
-#all_paths_root_to_leaves.paths = []
-#all_paths_root_to_leaves(root)
+print "\n-------- Using v1 ---------\n"
+all_paths_root_to_leaves_v1.paths = []
+all_paths_root_to_leaves_v1(root)
 
-path_to_target.paths = []
-path_to_target(root, 60)
-print path_to_target.paths[::-1]
-#print_tree(root)
+print "\n-------- Using v2 ---------\n"
+all_paths_root_to_leaves_v2(root, [None] * 20, 0)
