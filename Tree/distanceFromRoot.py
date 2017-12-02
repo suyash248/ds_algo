@@ -1,4 +1,4 @@
-from commons.commons import insert, print_tree, is_leaf
+from commons.commons import insert
 
 def distance_from_root_v1(root, key, distance=0):
     """
