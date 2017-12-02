@@ -1,15 +1,5 @@
 from commons.commons import insert, print_tree, is_leaf
 
-def print_tree(root):
-    if root is None:
-        return
-    else:
-        left = str(root.left.key) if root.left is not None else "NULL"
-        right = str(root.right.key) if root.right is not None else "NULL"
-        print str(root.key) + " : left->{left} , right->{right}".format(left=left, right=right)
-    print_tree(root.left)
-    print_tree(root.right)
-
 # Driver program to test above function
 if __name__ == "__main__":
     """ Let us create following BST

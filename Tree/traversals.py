@@ -1,25 +1,4 @@
-# Python program to find predecessor and successor in a BST
-
-# A BST node
-class Node:
-    # Constructor to create a new node
-    def __init__(self, key):
-        self.key = key
-        self.left = None
-        self.right = None
-
-# A utility function to insert a new node in with given key in BST
-def insert(node, key):
-    if node is None:
-        return Node(key)
-
-    if key < node.key:
-        node.left = insert(node.left, key)
-
-    else:
-        node.right = insert(node.right, key)
-
-    return node
+from commons.commons import insert, print_tree, is_leaf
 
 def preorder(root):
     if root:
