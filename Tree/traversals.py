@@ -48,26 +48,25 @@ def print_tree(root):
         print str(root.key) + " : left->{left} , right->{right}".format(left=left, right=right)
     print_tree(root.left)
     print_tree(root.right)
+
 # Driver program to test above function
+if __name__ == "__main__":
+    """ Let us create following BST
+            50
+         /		\
+        30		70
+        / 	\   / 	\
+        20 	40	60 	80
+    """
+    root = None
+    root = insert(root, 50)
+    insert(root, 30);
+    insert(root, 20);
+    insert(root, 40);
+    insert(root, 70);
+    insert(root, 60);
+    insert(root, 80);
 
-""" Let us create following BST
-		50
-	 /		\
-	30		70
-	/ 	\   / 	\
-	20 	40	60 	80
-"""
-root = None
-root = insert(root, 50)
-insert(root, 30);
-insert(root, 20);
-insert(root, 40);
-insert(root, 70);
-insert(root, 60);
-insert(root, 80);
-
-print "Inorder is - ", inorder(root)
-print "Preorder is - ", preorder(root)
-print "Postorder is - ", postorder(root)
-
-#print_tree(root)
+    print "Inorder is - ", inorder(root)
+    print "Preorder is - ", preorder(root)
+    print "Postorder is - ", postorder(root)

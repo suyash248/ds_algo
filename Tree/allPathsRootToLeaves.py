@@ -33,31 +33,32 @@ def print_tree(root):
         print str(root.key) + " : left->{left} , right->{right}".format(left=left, right=right)
     print_tree(root.left)
     print_tree(root.right)
+
 # Driver program to test above function
+if __name__ == "__main__":
+    """ Let us create following BST
+            50
+         /		 \
+        30		  70
+       /  \     / 	 \
+      20   40  60 	  80
+     /   \
+    15   25
+    """
+    root = None
+    root = insert(root, 50)
+    insert(root, 30);
+    insert(root, 20);
+    insert(root, 15);
+    insert(root, 25);
+    insert(root, 40);
+    insert(root, 70);
+    insert(root, 60);
+    insert(root, 80);
 
-""" Let us create following BST
-		50
-	 /		 \
-	30		  70
-   /  \     / 	 \
-  20   40  60 	  80
- /   \
-15   25
-"""
-root = None
-root = insert(root, 50)
-insert(root, 30);
-insert(root, 20);
-insert(root, 15);
-insert(root, 25);
-insert(root, 40);
-insert(root, 70);
-insert(root, 60);
-insert(root, 80);
+    print "\n-------- Using v1 ---------\n"
+    all_paths_root_to_leaves_v1.paths = []
+    all_paths_root_to_leaves_v1(root)
 
-print "\n-------- Using v1 ---------\n"
-all_paths_root_to_leaves_v1.paths = []
-all_paths_root_to_leaves_v1(root)
-
-print "\n-------- Using v2 ---------\n"
-all_paths_root_to_leaves_v2(root, [None] * 20, 0)
+    print "\n-------- Using v2 ---------\n"
+    all_paths_root_to_leaves_v2(root, [None] * 20, 0)

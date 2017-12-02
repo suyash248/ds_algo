@@ -26,8 +26,9 @@ def print_tree(root):
         print str(root.key) + " : left->{left} , right->{right}".format(left=left, right=right)
     print_tree(root.left)
     print_tree(root.right)
-# Driver program to test above function
 
-arr = [1, 2, 3, 4, 5, 6, 7, 8]
-root = build_bst(arr, 0, len(arr)-1)
-print_tree(root)
+# Driver program to test above function
+if __name__ == "__main__":
+    arr = [1, 2, 3, 4, 5, 6, 7, 8]
+    root = build_bst(arr, 0, len(arr)-1)
+    print_tree(root)
