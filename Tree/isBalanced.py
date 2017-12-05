@@ -1,14 +1,27 @@
 from commons.commons import insert, is_leaf
 from treeHeight import calculate_height
 
-def is_balanced(root):
+# O(n^2)
+def is_balanced_v1(root):
     if root == None:
         return True
 
     lh = calculate_height(root.left)
     rh = calculate_height(root.right)
 
-    return abs(lh - rh) <= 1 and is_balanced(root.left) and is_balanced(root.right)
+    return abs(lh - rh) <= 1 and is_balanced_v1(root.left) and is_balanced_v1(root.right)
+
+# Calculates height in same function call only, O(n)
+def is_balanced_v2(root):
+    if root == None:
+        return 0, True
+
+    lh, is_left_balanced = is_balanced_v2(root.left)
+    rh, is_right_balanced = is_balanced_v2(root.right)
+
+    h = max(lh, rh) + 1
+    is_bal = abs(lh - rh) <= 1 and is_left_balanced and is_right_balanced
+    return h, is_bal
 
 
 # Driver program to test above function
@@ -36,6 +49,11 @@ if __name__ == "__main__":
     # insert(root, 41);
     # insert(root, 90);
 
-    b = is_balanced(root)
-    print b
-    #print "Balanced" if b else "Not balanced"
+    print "\n---- Using V1 ----\n"
+    b = is_balanced_v1(root)
+    print "Tree is " + "balanced" if b else "Not balanced"
+
+    print "\n---- Using V2 ----\n"
+    h, b = is_balanced_v2(root)
+    print "Height of tree is {height} and tree is".format(height=h) + " Balanced" if b else "Not balanced"
+
