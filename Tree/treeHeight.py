@@ -1,9 +1,9 @@
 from commons.commons import insert, print_tree, is_leaf
 
-def height(root):
+def calculate_height(root):
     if root == None:
         return 0
-    return max(height(root.left), height(root.right)) + 1
+    return max(calculate_height(root.left), calculate_height(root.right)) + 1
 
 # Driver program to test above function
 if __name__ == "__main__":
@@ -27,5 +27,5 @@ if __name__ == "__main__":
     insert(root, 60);
     insert(root, 80);
 
-    h = height(root)
+    h = calculate_height(root)
     print "Height is {height}".format(height=h)
