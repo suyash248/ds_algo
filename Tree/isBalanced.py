@@ -37,17 +37,17 @@ if __name__ == "__main__":
     """
     root = None
     root = insert(root, 50)
-    insert(root, 30);
-    insert(root, 20);
-    insert(root, 15);
-    insert(root, 25);
-    insert(root, 40);
-    insert(root, 70);
-    insert(root, 60);
-    insert(root, 80);
-    # insert(root, 10);
-    # insert(root, 41);
-    # insert(root, 90);
+    insert(root, 30)
+    insert(root, 20)
+    insert(root, 15)
+    insert(root, 25)
+    insert(root, 40)
+    insert(root, 70)
+    insert(root, 60)
+    insert(root, 80)
+    # insert(root, 10)
+    # insert(root, 41)
+    # insert(root, 90)
 
     print "\n---- Using V1 ----\n"
     b = is_balanced_v1(root)

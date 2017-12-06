@@ -27,10 +27,10 @@ if __name__ == "__main__":
     """
     root = None
     root = insert(root, 50)
-    insert(root, 30);
-    insert(root, 70);
-    insert(root, 80);
-    insert(root, 90);
+    insert(root, 30)
+    insert(root, 70)
+    insert(root, 80)
+    insert(root, 90)
 
     print "\n ---- Unbalanced BST ----\n"
     print_tree(root)
