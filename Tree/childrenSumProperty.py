@@ -19,7 +19,7 @@ def children_sum(root):
 
 # Driver program to test above function
 if __name__ == "__main__":
-    """ Let us create following BST
+    """ Let us create following binary tree
             55
          /		\
         20		35
