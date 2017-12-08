@@ -1,15 +1,21 @@
 # Python program to find predecessor and successor in a BST
 
-# A BST node
+# A tree node
 class Node:
     # Constructor to create a new node
-    def __init__(self, key):
+    def __init__(self, key, left=None, right=None):
         self.key = key
-        self.left = None
-        self.right = None
+        self.left = left
+        self.right = right
 
-# A utility function to insert a new node in with given key in BST
+
 def insert(node, key):
+    """
+    A utility function to insert a new node in with given key in BST
+    :param node:
+    :param key:
+    :return:
+    """
     if node is None:
         return Node(key)
     if key < node.key:
@@ -30,3 +36,27 @@ def print_tree(root):
         print str(root.key) + " : left->{left} , right->{right}".format(left=left, right=right)
     print_tree(root.left)
     print_tree(root.right)
+
+if __name__ == "__main__":
+    root = Node(
+            1,
+            left=Node(
+                2,
+                left=Node(
+                    50
+                )
+            ),
+            right=Node(
+                3,
+                left=Node(
+                    4
+                ),
+                right=Node(
+                    5,
+                    left=Node(
+                        6
+                    )
+                )
+            )
+         )
+    print_tree(root)
