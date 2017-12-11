@@ -1,5 +1,3 @@
-# Python program to find predecessor and successor in a BST
-
 # A tree node
 class Node:
     # Constructor to create a new node
