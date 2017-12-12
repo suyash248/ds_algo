@@ -33,7 +33,18 @@ DS - Implementing Stack, Queue, Linked list, Hashing, Binary Search, Sorting, Tr
 ## Hashtable
 * [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
 
+## Queue
+* [Queue](https://github.com/suyash248/ds_algo/blob/master/Queue/Queue/QueueUsingArray.java)
+* [Dequeue](https://github.com/suyash248/ds_algo/blob/master/Queue/Deque/DequeUsingArray.java)
+
 ## Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
 * [Binary search in circularly sorted array](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
 * [To find out the number of times sorted array is rotated](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
+
+## Sorting
+* [Bubble sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/bubble/BubbleSort.java)
+* [Insertion sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/insertion/InsertionSort.java)
+* [Selection sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/selection/SelectionSort.java)
+* [Merge sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/merge/MergeSort.java)
+* [Quick sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/quick/QuickSort.java)
