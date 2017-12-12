@@ -23,19 +23,6 @@
 * [Height of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeHeight.py)
 * [BST Insertion, deletion etc.](https://github.com/suyash248/ds_algo/blob/master/BST/BinarySearchTree.java)
 
-## Linked list
-* [Singly linked list - Insert at first, last and in middle](https://github.com/suyash248/ds_algo/blob/master/LinkedList/SinglyLinkedList.java)
-* [Deleting a node from singly linked list](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
-* [Merge two sorted linked lists](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
-* [Doubly linked list - Insertion, deletion](https://github.com/suyash248/ds_algo/blob/master/LinkedList/DoublyLinkedList.java)
-
-## Hashtable
-* [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
-
-## Queue
-* [Queue](https://github.com/suyash248/ds_algo/blob/master/Queue/Queue/QueueUsingArray.java)
-* [Dequeue](https://github.com/suyash248/ds_algo/blob/master/Queue/Deque/DequeUsingArray.java)
-
 ## Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
 * [Binary search in circularly sorted array](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
@@ -48,12 +35,26 @@
 * [Merge sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/merge/MergeSort.java)
 * [Quick sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/quick/QuickSort.java)
 
-## Dynamic programming
-* [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
-
 ## Array
 * [To reverse an array](https://github.com/suyash248/ds_algo/blob/master/Array/reverse.py)
 * [To rotate an array by 'd'](https://github.com/suyash248/ds_algo/blob/master/Array/rotation.py)
 * [To find out Pair(s) with given sum 's' in sorted array](https://github.com/suyash248/ds_algo/blob/master/Array/pairWithSumInSortedArray.py)
-* [To find out Pair(s) with given sum 's' in unsorted array](https://github.com/suyash248/ds_algo/blob/master/Array/pairWithSumInUnsortedArray.py)
+* [To find out Pair(s) with given sum 's' in unsorted array](https://github.com/suyash248/ds_algo/blob/master/Array/countPairsWithSumInUnsortedArray.py)
 * [Rearrange numbers in array such that +ve & -ve numbers are placed alternatively](https://github.com/suyash248/ds_algo/blob/master/Array/alternatePositiveNegative.py)
+* [Move all -ve numbers to the left and +ve numbers to the right in array](https://github.com/suyash248/ds_algo/blob/master/Array/separatePositiveNegative.py)
+
+## Dynamic programming
+* [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
+
+## Hashtable
+* [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
+
+## Linked list
+* [Singly linked list - Insert at first, last and in middle](https://github.com/suyash248/ds_algo/blob/master/LinkedList/SinglyLinkedList.java)
+* [Deleting a node from singly linked list](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
+* [Merge two sorted linked lists](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
+* [Doubly linked list - Insertion, deletion](https://github.com/suyash248/ds_algo/blob/master/LinkedList/DoublyLinkedList.java)
+
+## Queue
+* [Queue](https://github.com/suyash248/ds_algo/blob/master/Queue/Queue/QueueUsingArray.java)
+* [Dequeue](https://github.com/suyash248/ds_algo/blob/master/Queue/Deque/DequeUsingArray.java)
