@@ -41,11 +41,22 @@ def left_rotate_v2(arr, d):
     reverse_arr(arr, d, n-1)
     reverse_arr(arr, 0, n-1)
 
+# O(nd)
+def left_rotate_v3(arr, d):
+    from Array import swap
+    n = len(arr)
+    for di in xrange(0, d):
+        first = arr[0]
+        for i in xrange(1, n):
+            swap(arr, i, i-1)
+        arr[n-1] = first
+
 if __name__ == "__main__":
     from copy import deepcopy
     d = 2
     arr = [1, 2, 3, 4, 5, 6, 7]
-    arr_dup = deepcopy(arr)
+    arr_dup1 = deepcopy(arr)
+    arr_dup2 = deepcopy(arr)
 
     print arr
 
@@ -54,5 +65,9 @@ if __name__ == "__main__":
     print arr
 
     print "\n---- Using V2 ----\n"
-    left_rotate_v2(arr_dup, d)
-    print arr_dup
+    left_rotate_v2(arr_dup1, d)
+    print arr_dup1
+
+    print "\n---- Using V3 ----\n"
+    left_rotate_v3(arr_dup2, d)
+    print arr_dup2
