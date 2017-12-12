@@ -23,3 +23,9 @@ DS - Implementing Stack, Queue, Linked list, Hashing, Binary Search, Sorting, Tr
 * [Diameter of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeDiameter.py)
 * [Height of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeHeight.py)
 * [BST Insertion, deletion etc.](https://github.com/suyash248/ds_algo/blob/master/BST/BinarySearchTree.java)
+
+## Linked list
+* [Singly linked list - Insert at first, last and in middle](https://github.com/suyash248/ds_algo/blob/master/LinkedList/SinglyLinkedList.java)
+* [Deleting a node from singly linked list](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
+* [Merge two sorted linked lists](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
+* [Doubly linked list - Insertion, deletion](https://github.com/suyash248/ds_algo/blob/master/LinkedList/DoublyLinkedList.java)
