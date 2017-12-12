@@ -29,3 +29,6 @@ DS - Implementing Stack, Queue, Linked list, Hashing, Binary Search, Sorting, Tr
 * [Deleting a node from singly linked list](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
 * [Merge two sorted linked lists](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
 * [Doubly linked list - Insertion, deletion](https://github.com/suyash248/ds_algo/blob/master/LinkedList/DoublyLinkedList.java)
+
+## Hashtable
+* [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
