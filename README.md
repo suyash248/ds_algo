@@ -22,3 +22,4 @@ DS - Implementing Stack, Queue, Linked list, Hashing, Binary Search, Sorting, Tr
 * [Binary tree traversals - Preorder, Inorder, Postorder](https://github.com/suyash248/ds_algo/blob/master/Tree/traversals.py)
 * [Diameter of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeDiameter.py)
 * [Height of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeHeight.py)
+* [BST Insertion, deletion etc.](https://github.com/suyash248/ds_algo/blob/master/BST/BinarySearchTree.java)
