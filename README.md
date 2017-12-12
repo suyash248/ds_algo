@@ -54,3 +54,4 @@
 ## Array
 * [To reverse an array](https://github.com/suyash248/ds_algo/blob/master/Array/reverse.py)
 * [To rotate an array by 'd'](https://github.com/suyash248/ds_algo/blob/master/Array/rotation.py)
+* [To find out Pair(s) with given sum 's' in sorted array](https://github.com/suyash248/ds_algo/blob/master/Array/pairWithSumInSortedArray.py)
