@@ -32,3 +32,8 @@ DS - Implementing Stack, Queue, Linked list, Hashing, Binary Search, Sorting, Tr
 
 ## Hashtable
 * [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
+
+## Searching
+* [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
+* [Binary search in circularly sorted array](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
+* [To find out the number of times sorted array is rotated](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
