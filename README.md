@@ -48,3 +48,10 @@ DS - Implementing Stack, Queue, Linked list, Hashing, Binary Search, Sorting, Tr
 * [Selection sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/selection/SelectionSort.java)
 * [Merge sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/merge/MergeSort.java)
 * [Quick sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/quick/QuickSort.java)
+
+## Dynamic programming
+* [To fin the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
+
+## Array
+* [To reverse an array](https://github.com/suyash248/ds_algo/blob/master/Array/reverse.py)
+* [To rotate an array by 'd'](https://github.com/suyash248/ds_algo/blob/master/Array/rotation.py)
