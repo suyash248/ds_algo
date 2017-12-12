@@ -1,5 +1,4 @@
-# DS-Algo (Java/Python)
-DS - Implementing Stack, Queue, Linked list, Hashing, Binary Search, Sorting, Tree, BST using Java/Python
+# Data structures & Algorithms (Python/Java)
 
 ## Tree
 * [Path(s) from root to leaves](https://github.com/suyash248/ds_algo/blob/master/Tree/allPathsRootToLeaves.py)
