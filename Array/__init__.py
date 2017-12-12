@@ -9,3 +9,8 @@ def print_array(arr, start=-1, end=-1):
     end = alen-1 if end < 0 or end >= alen else end
     for i in xrange(start, end+1):
         print i,
+
+def swap(arr, i, j):
+    temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
