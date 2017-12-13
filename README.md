@@ -43,6 +43,7 @@
 * [Rearrange numbers in array such that +ve & -ve numbers are placed alternatively](https://github.com/suyash248/ds_algo/blob/master/Array/alternatePositiveNegative.py)
 * [Move all -ve numbers to the left and +ve numbers to the right in array](https://github.com/suyash248/ds_algo/blob/master/Array/separatePositiveNegative.py)
 * [Segregate 0's & 1's in an array](https://github.com/suyash248/ds_algo/blob/master/Array/segregateZerosAndOnes.py)
+* [Segregate 0's, 1's & 2's in an array (Dutch national flag algorithm)](https://github.com/suyash248/ds_algo/blob/master/Array/segregateZerosOnesTwos.py)
 
 ## Dynamic programming
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
