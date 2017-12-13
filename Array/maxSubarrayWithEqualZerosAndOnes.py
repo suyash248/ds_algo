@@ -1,3 +1,5 @@
+# Time complexity: O(n)
+# Space complexity: O(n)
 def max_subarray_with_equal_zeros_ones_count(arr):
     """
     :param arr:
@@ -26,6 +28,8 @@ def max_subarray_with_equal_zeros_ones_count(arr):
     return max_len
 
 
+# Time complexity: O(n)
+# Space complexity: O(n)
 def max_subarray_with_equal_zeros_ones(arr):
     """
     :param arr:
