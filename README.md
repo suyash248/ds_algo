@@ -3,7 +3,7 @@
 ## Tree
 * [Path(s) from root to leaves](https://github.com/suyash248/ds_algo/blob/master/Tree/allPathsRootToLeaves.py)
 * [Convert a unbalanced BST to balanced BST](https://github.com/suyash248/ds_algo/blob/master/Tree/balanceBST.py)
-* [Consruct a BST from given sorted array](https://github.com/suyash248/ds_algo/blob/master/Tree/buildBSTFromSortedArray.py)
+* [Construct a BST from given sorted array](https://github.com/suyash248/ds_algo/blob/master/Tree/buildBSTFromSortedArray.py)
 * [Children sum property - For each node, node's data equals to sum left & right child's data](https://github.com/suyash248/ds_algo/blob/master/Tree/childrenSumProperty.py)
 * [Distance between 2 arbitrary nodes](https://github.com/suyash248/ds_algo/blob/master/Tree/distanceBetweenNodes.py)
 * [Distance between root & any arbitrary node](https://github.com/suyash248/ds_algo/blob/master/Tree/distanceFromRoot.py)
@@ -44,6 +44,7 @@
 * [Move all -ve numbers to the left and +ve numbers to the right in array](https://github.com/suyash248/ds_algo/blob/master/Array/separatePositiveNegative.py)
 * [Segregate 0's & 1's in an array](https://github.com/suyash248/ds_algo/blob/master/Array/segregateZerosAndOnes.py)
 * [Segregate 0's, 1's & 2's in an array (Dutch national flag algorithm)](https://github.com/suyash248/ds_algo/blob/master/Array/segregateZerosOnesTwos.py)
+* [Rearrange an array in max-min form, i.e. 1st max, 1st min, 2nd max, 2nd min](https://github.com/suyash248/ds_algo/blob/master/Array/rearrangeMaxMinAlternatively.py)
 
 ## Dynamic programming
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
