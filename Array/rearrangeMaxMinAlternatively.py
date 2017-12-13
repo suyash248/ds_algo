@@ -20,6 +20,7 @@ def rearrange_max_min(arr):
         flag = not flag
     return aux_arr
 
+
 if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]
     arr = rearrange_max_min(arr)
