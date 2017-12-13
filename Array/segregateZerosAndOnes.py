@@ -15,7 +15,7 @@ def segregate_v1(arr):
     return ip
 
 def segregate_v2(arr):
-    start = 0; end = len(arr) -1
+    start = 0; end = len(arr) - 1
     mid = (start + end)/2
 
     while start < end:
