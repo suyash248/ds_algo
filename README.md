@@ -42,6 +42,7 @@
 * [To find out Pair(s) with given sum 's' in unsorted array](https://github.com/suyash248/ds_algo/blob/master/Array/countPairsWithSumInUnsortedArray.py)
 * [Rearrange numbers in array such that +ve & -ve numbers are placed alternatively](https://github.com/suyash248/ds_algo/blob/master/Array/alternatePositiveNegative.py)
 * [Move all -ve numbers to the left and +ve numbers to the right in array](https://github.com/suyash248/ds_algo/blob/master/Array/separatePositiveNegative.py)
+* [Segregate 0's & 1's in an array](https://github.com/suyash248/ds_algo/blob/master/Array/segregateZerosAndOnes.py)
 
 ## Dynamic programming
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)

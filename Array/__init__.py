@@ -6,9 +6,9 @@ def print_array(arr, start=-1, end=-1):
     """
     alen = len(arr)
     start = 0 if start < 0 or start >= alen else start
-    end = alen-1 if end < 0 or end >= alen else end
-    for i in xrange(start, end+1):
-        print i,
+    end = alen if end < 0 or end >= alen else end
+    for i in range(start, end):
+        print arr[i],
 
 def swap(arr, i, j):
     temp = arr[i]
