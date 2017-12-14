@@ -1,5 +1,6 @@
 from Queue import Queue
 
+
 """
 PROBLEM STATEMENT: 
     There is queue of villager(s) for filling the buckets of water. In one iteration/pass villager can fill exactly
@@ -9,7 +10,7 @@ PROBLEM STATEMENT:
     Input: 
         'N' - Number of villagers
         'K' - Number of buckets after which queue status to be calculated.
-        Requirements of each villager as comma-separated values. (N values)
+        Requirements of each villager as comma-separated values(integers). (N integers)
         
     Output:
         Queue status(position of villagers) after 'K' buckets are filled. Print -1 if queue becomes empty.
@@ -22,6 +23,7 @@ PROBLEM STATEMENT:
         Output:
             2 3
 """
+
 
 def get_queue_status(req_arr, k):
     q = Queue()
