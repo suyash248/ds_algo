@@ -6,7 +6,7 @@ PROBLEM STATEMENT:
     There is queue of villager(s) for filling the buckets of water. In one iteration/pass villager can fill exactly
     1 bucket and if a villager requires more than 1 bucket of water then he has to again stand in queue at last position.
     So if a villager requires 'X' bucket of water then it will take 'X' iteration for him.
-    Note: Once a villager's requirement is fullfilled, he moves out of the queue. 
+    Note: Once a villager's requirement is fulfilled, he moves out of the queue. 
     Input: 
         'N' - Number of villagers
         'K' - Number of buckets after which queue status to be calculated.
@@ -40,6 +40,7 @@ def get_queue_status(req_arr, k):
 
         k -= 1
     return q
+
 
 if __name__ == "__main__":
     n = input("Number of villager(s). N = ")

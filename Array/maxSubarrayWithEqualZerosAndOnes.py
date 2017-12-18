@@ -15,14 +15,14 @@ def max_subarray_with_equal_zeros_ones_count(arr):
 
     max_len = 0; hm = dict(); i = 0
 
-    for sum in sum_arr:
-        if sum == 0:
+    for sum_elt in sum_arr:
+        if sum_elt == 0:
             max_len = max(max_len, i+1)
 
-        if hm.has_key(sum):
-            max_len = max(max_len, i - hm[sum])
+        if hm.has_key(sum_elt):
+            max_len = max(max_len, i - hm[sum_elt])
         else:
-            hm[sum] = i
+            hm[sum_elt] = i
         i += 1
 
     return max_len
