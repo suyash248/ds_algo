@@ -16,7 +16,7 @@ def swap(arr, i, j):
 
 
 def empty_1d_array(size, fill_default=None):
-    return [fill_default] *  size
+    return [fill_default] * size
 
 
 def empty_2d_array(rows, cols, fill_default=None):
