@@ -47,6 +47,7 @@
 * [Rearrange an array in max-min form, i.e. 1st max, 1st min, 2nd max, 2nd min](https://github.com/suyash248/ds_algo/blob/master/Array/rearrangeMaxMinAlternatively.py)
 * [The longest sub-array having equal numbers of 0s and 1s](https://github.com/suyash248/ds_algo/blob/master/Array/maxSubarrayWithEqualZerosAndOnes.py)
 * [Maximum product sub-array & minimum product sub-array](https://github.com/suyash248/ds_algo/blob/master/Array/maxAndMinProductSubArray.py)
+* [Form largest number by re-arranging array elements](https://github.com/suyash248/ds_algo/blob/master/Array/formLargestNumber.py)
 
 ## Dynamic programming
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
