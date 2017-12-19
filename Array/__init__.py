@@ -13,3 +13,23 @@ def print_array(arr, start=-1, end=-1):
 
 def swap(arr, i, j):
     arr[i], arr[j] = arr[j], arr[i]
+
+
+def empty_1d_array(size, fill_default=None):
+    return [fill_default] *  size
+
+
+def empty_2d_array(rows, cols, fill_default=None):
+    """
+    Caution: If we will use - [[None * cols]] * rows, then all the columns will have same reference and changing a column
+            will reflect to all the columns. So it's better to have separate inner-array for each column.
+    :param rows:
+    :param cols:
+    :param fill_default:
+    :return:
+    """
+    arr_2d = []
+    for row in xrange(0, rows):
+        col_arr = empty_1d_array(cols, fill_default)
+        arr_2d.append(col_arr)
+    return arr_2d

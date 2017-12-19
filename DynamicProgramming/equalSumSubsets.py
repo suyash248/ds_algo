@@ -1,3 +1,5 @@
+from Array import empty_1d_array, empty_2d_array
+
 # Time complexity: O(2^n)
 # Space complexity: O(n)
 def is_subset_sum(arr, n, half_sum):
@@ -29,6 +31,29 @@ def is_subset_sum(arr, n, half_sum):
     return is_subset_sum(arr, n-1, half_sum) or is_subset_sum(arr, n-1, half_sum-arr[n-1])
 
 
+# table[i][j] = table[i][j-1] or table[i - arr[k-1]][j-1]
+# https://upload.wikimedia.org/wikipedia/commons/1/10/Partition_Prob_DP_table_example.jpg
+def is_subset_sum_dp(arr, n, half_sum):
+
+    rows = half_sum + 1
+    cols = n + 1
+
+    table = empty_2d_array(rows, cols)
+
+    # initialize first row as True
+    for col in range(0, cols):
+        table[0][col] = True
+
+    # initialize first column as False, except table[0][0]
+    for row in range(1, rows):
+        table[row][0] = False
+
+    for row in xrange(1, rows):
+        for col in xrange(1, cols):
+            table[row][col] = table[row][col-1] or table[row - arr[col-1]][col-1]
+
+    return table[half_sum][n]
+
 
 def is_sum_even(arr):
     s = reduce(lambda a, b: a + b, arr)
@@ -42,6 +67,10 @@ if __name__ == "__main__":
     sum = sum_and_is_even[0]
     is_even = sum_and_is_even[1]
 
+    print "\n----------------------- Using recursive solution -----------------------\n"
     res = is_even and is_subset_sum(arr, len(arr), sum/2)
     print "Does 2 subsets of equal sum exists?", res
 
+    print "\n----------------------- Using DP solution -----------------------\n"
+    res = is_even and is_subset_sum_dp(arr, len(arr), sum / 2)
+    print "Does 2 subsets of equal sum exists?", res
