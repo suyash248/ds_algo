@@ -57,7 +57,7 @@ def is_subset_sum_dp(arr, n, half_sum):
 
 def is_sum_even(arr):
     s = reduce(lambda a, b: a + b, arr)
-    return s, s%2 == 0
+    return s, s % 2 == 0
 
 
 if __name__ == "__main__":
