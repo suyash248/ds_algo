@@ -1,6 +1,6 @@
 from Array import swap
 from Heap import Heap
-
+from copy import deepcopy
 
 class MaxHeap(Heap):
 
@@ -93,9 +93,11 @@ class MaxHeap(Heap):
 
 if __name__ == "__main__":
     harr = [3, 2, 15, 5, 4, 45]
+    harr_copy = deepcopy(harr)
     mh = MaxHeap(12)
     mh.build_heap(harr)
-    print harr
+
+    print "Array {} is converted to Max-Heap {}".format(harr_copy, harr)
 
     elt = 1
     mh.insert(elt)

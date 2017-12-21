@@ -98,10 +98,12 @@ class MinHeap(Heap):
 
 if __name__ == "__main__":
     harr = [3, 2, 15, 5, 4, 45]
+    harr_copy = deepcopy(harr)
+
     mh = MinHeap(12)
     mh.build_heap(harr)
 
-    print harr
+    print "Array {} is converted to Min-Heap {}".format(harr_copy, harr)
 
     elt = 1
     mh.insert(elt)
