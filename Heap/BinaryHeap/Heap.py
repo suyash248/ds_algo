@@ -3,8 +3,9 @@ class Heap(object):
         """
         :param capacity: Maximum number of elements, heap can hold.
         """
-        self.capacity = capacity
         self.harr = list()
+        self.capacity = capacity
+        self.heap_size = 0
 
     @classmethod
     def left(cls, index):
@@ -41,27 +42,21 @@ class Heap(object):
             elt = None
         return elt
 
-    def size(self):
-        """
-        :return: Number of element(s) present in heap.
-        """
-        return len(self.harr)
-
     def is_full(self):
         """
         Checks if heap can hold new element anymore.
         :return: `True`, if heap is full and can NOT hold new element(s).
         """
-        return self.capacity == self.size()
+        return self.capacity == self.heap_size
 
     def print_heap(self):
-        for idx in xrange(0, len(self.harr)):
+        for idx in xrange(0, self.heap_size):
             l_idx = Heap.left(idx)
             r_idx = Heap.right(idx)
 
             curr_elt = self.get(idx)
-            l_elt = None if l_idx >= self.capacity else self.harr[l_idx]
-            r_elt = None if r_idx >= self.capacity else self.harr[r_idx]
+            l_elt = self.get(l_idx)
+            r_elt = self.get(r_idx)
 
             print "{current} : left -> {left} | right -> {right}".format(current=curr_elt,
                                                                          left=l_elt, right=r_elt)

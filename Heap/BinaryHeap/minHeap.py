@@ -6,7 +6,7 @@ class MinHeap(Heap):
 
     def min_heapify(self, index):
         """
-        Algorithm:
+        Algorithm: We move downwards(bottom) of the heap in each step until heap is in it's correct form.
 
         Min-Heapify (A, i):
             left = 2*i // = means "assignment"
@@ -52,7 +52,8 @@ class MinHeap(Heap):
                         which is more than specified capacity({}) of heap'''.format(len(harr), self.capacity)
 
         self.harr = harr
-        half = len(self.harr)/2
+        self.heap_size = len(harr)
+        half = self.heap_size/2
 
         for idx in xrange(half, -1, -1): # for idx=half; idx<=0; idx++
             self.min_heapify(idx)
@@ -64,9 +65,12 @@ class MinHeap(Heap):
             return False
 
         self.harr.append(elt)
-        elt_idx = self.size() - 1
+        self.heap_size += 1
+        elt_idx = self.heap_size - 1
 
+        self.min_heapify(elt_idx)
 
+        # Algorithm: We move upwards(top) step-by-step until heap is in it's correct form.
         # while parent(elt) >=0 and harr[parent(elt)] > elt:
         #   swap(parent, elt)
         #   index(elt) = parent(elt)
@@ -78,15 +82,32 @@ class MinHeap(Heap):
         pass
 
     def delete_min(self):
-        pass
+        if self.capacity <= 0:
+            print "Heap is empty"
+            return False
+
+        root = self.harr[0]
+
+        if self.capacity == 1:
+            self.harr = []
+        else:
+            self.harr[0] = self.harr[self.heap_size - 1]
+            self.min_heapify(0)
+        self.heap_size -= 1
+        return root
 
 if __name__ == "__main__":
     harr = [3, 2, 15, 5, 4, 45]
     mh = MinHeap(12)
     mh.build_heap(harr)
-    #mh.print_heap()
+
     print harr
 
     elt = 1
     mh.insert(elt)
-    print "Inserted {elt}:", harr
+    print "Inserted {}:".format(elt), harr
+
+    d_elt = mh.delete_min()
+    print "Deleted minimum element(root)=>{}:".format(d_elt), harr
+
+    #mh.print_heap()
