@@ -1,10 +1,30 @@
 from Array import swap
 from Heap import Heap
-
+from copy import deepcopy
 
 class MinHeap(Heap):
 
     def min_heapify(self, index):
+        """
+        Algorithm:
+
+        Min-Heapify (A, i):
+            left = 2*i // = means "assignment"
+            right = 2*i + 1
+            smallest = i
+
+            if left <= heap_length[A] and A[left] < A[smallest] then:
+                smallest = left
+            if right <= heap_length[A] and A[right] < A[smallest] then:
+                smallest = right
+
+            if smallest != i then:
+                swap A[i] and A[smallest]
+                Min-Heapify(A, smallest)
+
+        :param index:
+        :return:
+        """
         l_idx = MinHeap.left(index)
         r_idx = MinHeap.right(index)
         smallest = index
@@ -19,17 +39,24 @@ class MinHeap(Heap):
             self.min_heapify(smallest)
 
     def build_heap(self, harr):
+        """
+        Build-Min-Heap (A):
+            for i=floor(length[A]/2); i<=0; i--:
+                Min-Heapify(A, i)
+        :param harr:
+        :return:
+        """
 
         if len(harr) > self.capacity:
             print '''Can't build heap as the array contains {} elements, 
                         which is more than specified capacity({}) of heap'''.format(len(harr), self.capacity)
 
         self.harr = harr
-
         half = len(self.harr)/2
 
         for idx in xrange(half, -1, -1): # for idx=half; idx<=0; idx++
             self.min_heapify(idx)
+        return deepcopy(self.harr)
 
     def insert(self, elt):
         if self.is_full():

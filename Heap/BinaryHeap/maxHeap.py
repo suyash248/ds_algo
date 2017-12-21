@@ -5,6 +5,25 @@ from Heap import Heap
 class MaxHeap(Heap):
 
     def max_heapify(self, index):
+        """
+        Algorithm:
+
+        Max-Heapify (A, i):
+            left = 2*i // = means "assignment"
+            right = 2*i + 1
+            largest = i
+
+            if left <= heap_length[A] and A[left] > A[largest] then:
+                largest = left
+            if right <= heap_length[A] and A[right] > A[largest] then:
+                largest = right
+
+            if largest != i then:
+                swap A[i] and A[largest]
+                Max-Heapify(A, largest)
+        :param index:
+        :return:
+        """
         l_idx = MaxHeap.left(index)
         r_idx = MaxHeap.right(index)
         largest = index
@@ -19,7 +38,13 @@ class MaxHeap(Heap):
             self.max_heapify(largest)
 
     def build_heap(self, harr):
-
+        """
+        Build-Max-Heap (A):
+            for i=floor(length[A]/2); i<=0; i--:
+                Max-Heapify(A, i)
+        :param harr:
+        :return:
+        """
         if len(harr) > self.capacity:
             print '''Can't build heap as the array contains {} elements, 
                         which is more than specified capacity({}) of heap'''.format(len(harr), self.capacity)
