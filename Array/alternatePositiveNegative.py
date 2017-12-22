@@ -1,3 +1,4 @@
+
 def rearrange_v1(arr):
     from Array import swap
 

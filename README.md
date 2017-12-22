@@ -1,6 +1,7 @@
 # Data structures & Algorithms (Python/Java)
 
 ## Tree
+* [Check if tree is BST](https://github.com/suyash248/ds_algo/blob/master/Tree/isBST.py)
 * [Path(s) from root to leaves](https://github.com/suyash248/ds_algo/blob/master/Tree/allPathsRootToLeaves.py)
 * [Convert a unbalanced BST to balanced BST](https://github.com/suyash248/ds_algo/blob/master/Tree/balanceBST.py)
 * [Construct a BST from given sorted array](https://github.com/suyash248/ds_algo/blob/master/Tree/buildBSTFromSortedArray.py)

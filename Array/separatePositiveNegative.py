@@ -1,3 +1,4 @@
+# O(n^2)
 def rearrange_v1(arr):
     """
     Algorithm: Modified insertion sort -
