@@ -49,7 +49,8 @@
 * [The longest sub-array having equal numbers of 0s and 1s](https://github.com/suyash248/ds_algo/blob/master/Array/maxSubarrayWithEqualZerosAndOnes.py)
 * [Maximum product sub-array & minimum product sub-array](https://github.com/suyash248/ds_algo/blob/master/Array/maxAndMinProductSubArray.py)
 * [Form largest number by re-arranging array elements](https://github.com/suyash248/ds_algo/blob/master/Array/formLargestNumber.py)
-* [Kadane's algorithm, max sum subarray](https://github.com/suyash248/ds_algo/blob/master/Array/kadaneMaxSumSubarray.py)
+* [Kadane's algorithm, max sum sub-array](https://github.com/suyash248/ds_algo/blob/master/Array/kadaneMaxSumSubarray.py)
+* [Find element in row-wise & col-wise sorted matrix](https://github.com/suyash248/ds_algo/blob/master/Array/searchInSortedMatrix.py)
 
 ## Heap
 * [Min-Heap](https://github.com/suyash248/ds_algo/blob/master/Heap/BinaryHeap/minHeap.py)
