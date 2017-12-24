@@ -48,7 +48,6 @@ if __name__ == '__main__':
     input_arr = [1, 4, -1, 0]
     seg_tree_obj = MinRangeSegmentTree(input_arr)
     seg_tree_arr = seg_tree_obj.build_tree()
-
     print "Min-Range-Segment tree is:", seg_tree_arr
 
     qs = 0; qe = 1
