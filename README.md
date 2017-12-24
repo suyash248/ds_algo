@@ -23,6 +23,7 @@
 * [Diameter of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeDiameter.py)
 * [Height of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeHeight.py)
 * [BST Insertion, deletion etc.](https://github.com/suyash248/ds_algo/blob/master/BST/BinarySearchTree.java)
+* [Segment Tree - Min-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/minRangeSegmentTree.py)
 
 ## Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
