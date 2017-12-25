@@ -76,7 +76,6 @@ if __name__ == '__main__':
     seg_tree_arr = seg_tree_obj.build_tree()
 
     print "\n---------- Before modification ----------\n"
-
     print "Min-Range-Segment tree is:", seg_tree_arr
 
     qs = 0; qe = 2
@@ -85,7 +84,7 @@ if __name__ == '__main__':
 
     modify_index = 2; diff = 3
     print "\n---------- After modification (Adding {} at index {}) ----------\n".format(diff, modify_index)
-    seg_tree_arr_modified = seg_tree_obj.updated_value(2, 3)
+    seg_tree_arr_modified = seg_tree_obj.updated_value(modify_index, diff)
     print "Min-Range-Segment tree is:", seg_tree_arr_modified
     qs = 0; qe = 2
     min_elt = seg_tree_obj.range_min_query(qs, qe)
