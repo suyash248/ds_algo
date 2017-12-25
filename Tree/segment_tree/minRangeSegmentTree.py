@@ -44,12 +44,49 @@ class MinRangeSegmentTree(SegmentTree):
         min_elt = self._range_min_query_(qs, qe, 0, len(self.input_arr)-1, 0)
         return min_elt
 
+    def _update_value_(self, i, diff, low, high, pos):
+        # If the input index `i` lies outside the range of this segment (low, high),
+        # return
+        if i < low or i > high:
+            return
+
+        # Leaf node: low and high are same,
+        # update it's value.
+        if low == high:
+            if low == i: # or high == i, as low & high are same
+                self.seg_tree_arr[pos] += diff
+
+        # If the input index `i` lies under the range of this segment (low, high), i.e.
+        # low <= i && i <= high && low != high
+        else:
+            mid = (low + high)/2
+            self._update_value_(i, diff, low, mid, 2 * pos + 1)
+            self._update_value_(i, diff, mid + 1, high, 2 * pos + 2)
+            self.seg_tree_arr[pos] = min(
+                self.seg_tree_arr[2 * pos + 1], self.seg_tree_arr[2 * pos + 2]
+            )
+
+    def updated_value(self, i, diff):
+        self._update_value_(i, diff, 0, len(self.input_arr)-1, 0)
+        return deepcopy(self.seg_tree_arr)
+
 if __name__ == '__main__':
     input_arr = [1, 4, -1, 0]
     seg_tree_obj = MinRangeSegmentTree(input_arr)
     seg_tree_arr = seg_tree_obj.build_tree()
+
+    print "\n---------- Before modification ----------\n"
+
     print "Min-Range-Segment tree is:", seg_tree_arr
 
-    qs = 0; qe = 1
+    qs = 0; qe = 2
+    min_elt = seg_tree_obj.range_min_query(qs, qe)
+    print "Minimum element in range ({}, {}) is {}".format(qs, qe, min_elt)
+
+    modify_index = 2; diff = 3
+    print "\n---------- After modification (Adding {} at index {}) ----------\n".format(diff, modify_index)
+    seg_tree_arr_modified = seg_tree_obj.updated_value(2, 3)
+    print "Min-Range-Segment tree is:", seg_tree_arr_modified
+    qs = 0; qe = 2
     min_elt = seg_tree_obj.range_min_query(qs, qe)
     print "Minimum element in range ({}, {}) is {}".format(qs, qe, min_elt)

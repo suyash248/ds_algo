@@ -42,6 +42,12 @@ class SumRangeSegmentTree(SegmentTree):
         range_sum = self._range_sum_query_(qs, qe, 0, len(self.input_arr)-1, 0)
         return range_sum
 
+    def _update_value_(self, i, diff, low, high, pos):
+        pass
+
+    def updated_value(self, i, diff):
+        self._update_value_(i, diff, 0, len(self.input_arr)-1, 0)
+
 if __name__ == '__main__':
     input_arr = [1, 4, -1, 0]
     seg_tree_obj = SumRangeSegmentTree(input_arr)
