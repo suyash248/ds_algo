@@ -7,6 +7,8 @@ class SumRangeSegmentTree(SegmentTree):
     def __init__(self, input_arr):
         super(SumRangeSegmentTree, self).__init__(input_arr)
 
+    # Time complexity: O(n)
+    # Space complexity: O(n)
     def _build_tree_util_(self, low, high, pos):
         if low == high:
             self.seg_tree_arr[pos] = self.input_arr[low]
@@ -20,6 +22,7 @@ class SumRangeSegmentTree(SegmentTree):
         self._build_tree_util_(0, len(self.input_arr)-1, 0)
         return deepcopy(self.seg_tree_arr)
 
+    # Time complexity: O(log(n))
     def _range_sum_query_(self, qs, qe, low, high, pos):
         # Complete overlap, query range (qs, qe) is completely overlapping (low, high). e.g. (0, 4) (1, 3)
         # return current value i.e. at index `pos`
@@ -42,6 +45,7 @@ class SumRangeSegmentTree(SegmentTree):
         range_sum = self._range_sum_query_(qs, qe, 0, len(self.input_arr)-1, 0)
         return range_sum
 
+    # Time complexity: O(log(n))
     def _update_value_(self, i, diff, low, high, pos):
         # If the input index `i` lies outside the range of this segment (low, high),
         # return
