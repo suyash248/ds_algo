@@ -1,4 +1,12 @@
+# Time complexity: O(n)
+# Using sliding window strategy.
 def flip_m_zeroes_largest_subarray_with_max_ones(arr, m):
+    """
+
+    :param arr: Input array.
+    :param m: Maximum number of 0's that can be flipped in `arr` in order to get largest window/sub-array of 1's.
+    :return:
+    """
     w_left = w_right = best_w_left = best_w_size = zeroes_count = 0
 
     while w_right < len(arr):
