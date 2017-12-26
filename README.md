@@ -26,18 +26,6 @@
 * [Segment Tree - Min-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/minRangeSegmentTree.py)
 * [Segment Tree - Sum-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/sumRangeSegmentTree.py)
 
-## Searching
-* [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
-* [Binary search in circularly sorted array](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
-* [To find out the number of times sorted array is rotated](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
-
-## Sorting
-* [Bubble sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/bubble/BubbleSort.java)
-* [Insertion sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/insertion/InsertionSort.java)
-* [Selection sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/selection/SelectionSort.java)
-* [Merge sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/merge/MergeSort.java)
-* [Quick sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/quick/QuickSort.java)
-
 ## Array
 * [To reverse an array](https://github.com/suyash248/ds_algo/blob/master/Array/reverse.py)
 * [To rotate an array by 'd'](https://github.com/suyash248/ds_algo/blob/master/Array/rotation.py)
@@ -56,6 +44,18 @@
 * [Given prices in increasing order of time, buy, sell & maximize profit](https://github.com/suyash248/ds_algo/blob/master/Array/maximizeProfit.py)
 * [Find zeroes to be flipped so that number of consecutive 1’s is maximized](https://github.com/suyash248/ds_algo/blob/master/Array/flipZeroesMaximizeOnes.py)
 
+## Searching
+* [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
+* [Binary search in circularly sorted array](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
+* [To find out the number of times sorted array is rotated](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
+
+## Sorting
+* [Bubble sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/bubble/BubbleSort.java)
+* [Insertion sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/insertion/InsertionSort.java)
+* [Selection sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/selection/SelectionSort.java)
+* [Merge sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/merge/MergeSort.java)
+* [Quick sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/quick/QuickSort.java)
+
 ## Heap
 * [Min-Heap](https://github.com/suyash248/ds_algo/blob/master/Heap/BinaryHeap/minHeap.py)
 * [Max-Heap](https://github.com/suyash248/ds_algo/blob/master/Heap/BinaryHeap/maxHeap.py)
@@ -67,15 +67,15 @@
 ## Hashtable
 * [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
 
-## Linked list
-* [Singly linked list - Insert at first, last and in middle](https://github.com/suyash248/ds_algo/blob/master/LinkedList/SinglyLinkedList.java)
-* [Deleting a node from singly linked list](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
-* [Merge two sorted linked lists](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
-* [Doubly linked list - Insertion, deletion](https://github.com/suyash248/ds_algo/blob/master/LinkedList/DoublyLinkedList.java)
-
 ## Queue
 * [Queue](https://github.com/suyash248/ds_algo/blob/master/Queue/Queue/QueueUsingArray.java)
 * [Dequeue](https://github.com/suyash248/ds_algo/blob/master/Queue/Deque/DequeUsingArray.java)
 * [Priority Queue](https://github.com/suyash248/ds_algo/blob/master/Queue/PriorityQueue/pq.py)
 * [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
+
+## Linked list
+* [Singly linked list - Insert at first, last and in middle](https://github.com/suyash248/ds_algo/blob/master/LinkedList/SinglyLinkedList.java)
+* [Deleting a node from singly linked list](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
+* [Merge two sorted linked lists](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
+* [Doubly linked list - Insertion, deletion](https://github.com/suyash248/ds_algo/blob/master/LinkedList/DoublyLinkedList.java)
 
