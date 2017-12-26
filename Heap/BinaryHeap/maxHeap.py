@@ -72,7 +72,7 @@ class MaxHeap(Heap):
 
         # Fix the max heap property if it is violated.
         # Algorithm: We move upwards(top) step-by-step until heap is in it's correct form.
-        # while parent(elt) >=0 and harr[parent(elt)] > elt:
+        # while parent(elt) >=0 and harr[parent(elt)] < elt:
         #   swap(parent, elt)
         #   index(elt) = parent(elt)
         while Heap.parent(elt_idx) >= 0 and self.get(Heap.parent(elt_idx)) < elt:
