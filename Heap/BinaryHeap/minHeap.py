@@ -13,9 +13,9 @@ class MinHeap(Heap):
             right = 2*i + 1
             smallest = i
 
-            if left <= heap_length[A] and A[left] < A[smallest] then:
+            if left < len(A) and A[left] < A[smallest] then:
                 smallest = left
-            if right <= heap_length[A] and A[right] < A[smallest] then:
+            if right < len(A) and A[right] < A[smallest] then:
                 smallest = right
 
             if smallest != i then:

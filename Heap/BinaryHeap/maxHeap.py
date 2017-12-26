@@ -13,9 +13,9 @@ class MaxHeap(Heap):
             right = 2*i + 1
             largest = i
 
-            if left <= heap_length[A] and A[left] > A[largest] then:
+            if left < len(A) and A[left] > A[largest] then:
                 largest = left
-            if right <= heap_length[A] and A[right] > A[largest] then:
+            if right < len(A) and A[right] > A[largest] then:
                 largest = right
 
             if largest != i then:
