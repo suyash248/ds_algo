@@ -74,12 +74,16 @@ class MaxHeap(Heap):
         while Heap.parent(elt_idx) >= 0 and self.get(Heap.parent(elt_idx)) < elt:
             swap(self.harr, Heap.parent(elt_idx), elt_idx)
             elt_idx = Heap.parent(elt_idx)
+        return True
 
-    def delete(self, idx):
-        pass
+    def get_max(self):
+        if self.is_empty():
+            print "Heap is empty"
+            return False
+        return deepcopy(self.harr[0])
 
     def delete_max(self):
-        if self.capacity <= 0:
+        if self.is_empty():
             print "Heap is empty"
             return False
 
@@ -89,7 +93,13 @@ class MaxHeap(Heap):
         self.harr[0] = self.harr[self.heap_size - 1]
         self.max_heapify(0)
         self.heap_size -= 1
-        return root
+        return deepcopy(root)
+
+    def heap_arr(self):
+        return deepcopy(self.harr)
+
+    def delete(self, idx):
+        pass
 
 if __name__ == "__main__":
     harr = [3, 2, 15, 5, 4, 45]

@@ -47,7 +47,14 @@ class Heap(object):
         Checks if heap can hold new element anymore.
         :return: `True`, if heap is full and can NOT hold new element(s).
         """
-        return self.capacity == self.heap_size
+        return self.heap_size >= self.capacity
+
+    def is_empty(self):
+        """
+        Checks if heap is empty.
+        :return:
+        """
+        return self.heap_size <= 0
 
     def print_heap(self):
         for idx in xrange(0, self.heap_size):
