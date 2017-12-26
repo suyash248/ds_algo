@@ -24,7 +24,7 @@ public class CustomHashtable<K, V> {
 	@Getter
 	private Integer size;
 	
-	public CustomHashtable(Integer capacity){
+    public CustomHashtable(Integer capacity){
 		this.capacity = capacity;
 		table = new Node[capacity];
 		size = 0;
