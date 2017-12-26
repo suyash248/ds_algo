@@ -64,12 +64,12 @@ class MinHeap(Heap):
             print "Heap is full, can't insert key"
             return False
 
+        # First insert the new key at the end.
         self.harr.append(elt)
         self.heap_size += 1
         elt_idx = self.heap_size - 1
 
-        self.min_heapify(elt_idx)
-
+        # Fix the min heap property if it is violated
         # Algorithm: We move upwards(top) step-by-step until heap is in it's correct form.
         # while parent(elt) >=0 and harr[parent(elt)] > elt:
         #   swap(parent, elt)
@@ -87,12 +87,9 @@ class MinHeap(Heap):
             return False
 
         root = self.harr[0]
-
-        if self.capacity == 1:
-            self.harr = []
-        else:
-            self.harr[0] = self.harr[self.heap_size - 1]
-            self.min_heapify(0)
+        # Store last element at root and then heapify to maintain the heap property.
+        self.harr[0] = self.harr[self.heap_size - 1]
+        self.min_heapify(0)
         self.heap_size -= 1
         return root
 
