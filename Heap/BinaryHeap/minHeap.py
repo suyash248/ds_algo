@@ -4,6 +4,7 @@ from copy import deepcopy
 
 class MinHeap(Heap):
 
+    # Time Complexity: O(log(n))
     def min_heapify(self, index):
         """
         Algorithm: We move downwards(bottom) in the heap in each step until heap is in it's correct form.
@@ -38,6 +39,8 @@ class MinHeap(Heap):
             swap(self.harr, smallest, index)
             self.min_heapify(smallest)
 
+    # Time Complexity: O(n)
+    # https://www.geeksforgeeks.org/time-complexity-of-building-a-heap/
     def build_heap(self, harr):
         """
         Build-Min-Heap (A):
@@ -59,6 +62,7 @@ class MinHeap(Heap):
             self.min_heapify(idx)
         return deepcopy(self.harr)
 
+    # Time Complexity: O(log(n))
     def insert(self, elt):
         if self.is_full():
             print "Heap is full, can't insert key"
@@ -79,15 +83,14 @@ class MinHeap(Heap):
             elt_idx = Heap.parent(elt_idx)
         return True
 
+    # Time Complexity: O(1)
     def get_min(self):
         if self.is_empty():
             print "Heap is empty"
             return False
         return deepcopy(self.harr[0])
 
-    def delete(self, idx):
-        pass
-
+    # Time Complexity: O(log(n))
     def delete_min(self):
         if self.is_empty():
             print "Heap is empty"
@@ -102,6 +105,9 @@ class MinHeap(Heap):
 
     def heap_arr(self):
         return deepcopy(self.harr)
+
+    def delete(self, idx):
+        pass
 
 if __name__ == "__main__":
     harr = [3, 2, 15, 5, 4, 45]

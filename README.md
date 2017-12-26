@@ -76,6 +76,6 @@
 ## Queue
 * [Queue](https://github.com/suyash248/ds_algo/blob/master/Queue/Queue/QueueUsingArray.java)
 * [Dequeue](https://github.com/suyash248/ds_algo/blob/master/Queue/Deque/DequeUsingArray.java)
-* [Priority Queue](https://github.com/suyash248/ds_algo/blob/master/Queue/PriorityQueue/__init__.py)
+* [Priority Queue](https://github.com/suyash248/ds_algo/blob/master/Queue/PriorityQueue/pq.py)
 * [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
 

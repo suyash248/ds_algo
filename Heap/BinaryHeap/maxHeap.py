@@ -4,6 +4,7 @@ from copy import deepcopy
 
 class MaxHeap(Heap):
 
+    # Time Complexity: O(log(n))
     def max_heapify(self, index):
         """
         Algorithm: We move downwards(bottom) in the heap in each step until heap is in it's correct form.
@@ -37,6 +38,8 @@ class MaxHeap(Heap):
             swap(self.harr, largest, index)
             self.max_heapify(largest)
 
+    # Time Complexity: O(n)
+    # https://www.geeksforgeeks.org/time-complexity-of-building-a-heap/
     def build_heap(self, harr):
         """
         Build-Max-Heap (A):
@@ -56,6 +59,7 @@ class MaxHeap(Heap):
         for idx in xrange(half, -1, -1): # for idx=half; idx<=0; idx++
             self.max_heapify(idx)
 
+    # Time Complexity: O(log(n))
     def insert(self, elt):
         if self.is_full():
             print "Heap is full, can't insert key"
@@ -76,12 +80,14 @@ class MaxHeap(Heap):
             elt_idx = Heap.parent(elt_idx)
         return True
 
+    # Time Complexity: O(1)
     def get_max(self):
         if self.is_empty():
             print "Heap is empty"
             return False
         return deepcopy(self.harr[0])
 
+    # Time Complexity: O(log(n))
     def delete_max(self):
         if self.is_empty():
             print "Heap is empty"
