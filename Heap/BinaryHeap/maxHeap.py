@@ -6,7 +6,7 @@ class MaxHeap(Heap):
 
     def max_heapify(self, index):
         """
-        Algorithm: We move downwards(bottom) of the heap in each step until heap is in it's correct form.
+        Algorithm: We move downwards(bottom) in the heap in each step until heap is in it's correct form.
 
         Max-Heapify (A, i):
             left = 2*i // = means "assignment"
