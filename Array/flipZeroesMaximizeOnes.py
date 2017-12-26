@@ -37,4 +37,4 @@ if __name__ == '__main__':
     m = input("Maximum number of 0's allowed to be flipped -> ")
     window_details = flip_m_zeroes_largest_subarray_with_max_ones(arr, m)
     print "Flip 0's at indices {flipZeroAtIndices} to get the maximum window/sub-array of size {largestWindowSize} " \
-          " where window start & end indices are {largestWindow}".format(**window_details)
+          "where window start & end indices are {largestWindow}".format(**window_details)
