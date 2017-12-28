@@ -1,6 +1,14 @@
 from Array import empty_2d_array
 
 
+# [       s u m
+#      c [1, 0, 0, 0, 0, 0],
+#      o [1, 1, 1, 1, 1, 1],
+#      i [1, 1, 2, 2, 3, 3],
+#      n [1, 1, 2, 3, 4, 5],
+#      s [1, 1, 2, 3, 5, 6],
+#        [1, 1, 2, 3, 5, 7]
+# ]
 def coin_change(coin_max_denomination, max_total_sum):
     table = empty_2d_array(coin_max_denomination+1, max_total_sum+1)
 
@@ -19,6 +27,7 @@ def coin_change(coin_max_denomination, max_total_sum):
             else:
                 incl_coin = table[coin][s - coin]
                 table[coin][s] = excl_coin + incl_coin
+    print table
     return table[coin_max_denomination][max_total_sum]
 
 
