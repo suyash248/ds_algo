@@ -71,9 +71,9 @@
 * [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
 
 ## Queue
-* [Queue](https://github.com/suyash248/ds_algo/blob/master/Queue/Queue/QueueUsingArray.java)
-* [Dequeue](https://github.com/suyash248/ds_algo/blob/master/Queue/Deque/DequeUsingArray.java)
-* [Priority Queue](https://github.com/suyash248/ds_algo/blob/master/Queue/PriorityQueue/pq.py)
+* [Queue](https://github.com/suyash248/ds_algo/blob/master/Queues/SinglyQueue/QueueUsingArray.java)
+* [Dequeue](https://github.com/suyash248/ds_algo/blob/master/Queues/Deque/DequeUsingArray.java)
+* [Priority Queue](https://github.com/suyash248/ds_algo/blob/master/Queues/PriorityQueue/pq.py)
 * [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
 
 ## Linked list

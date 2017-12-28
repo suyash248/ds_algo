@@ -13,7 +13,7 @@ PROBLEM STATEMENT:
         Requirements of each villager as comma-separated values(integers). (N integers)
         
     Output:
-        Queue status(position of villagers) after 'K' buckets are filled. Print -1 if queue becomes empty.
+        Queues status(position of villagers) after 'K' buckets are filled. Print -1 if queue becomes empty.
     
     Sample:
         Input: 
