@@ -65,6 +65,7 @@
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
 * [Check if array can be partitioned into two subsets such that the sum of elements in both subsets is same](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/equalSumSubsets.py)
 * [Coin change problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/coinChangeProblem.py)
+* [Knapsack 0-1 problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/knapsackProblem.py)
 
 ## Hashtable
 * [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
