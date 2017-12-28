@@ -1,4 +1,4 @@
-from Array import empty_1d_array, empty_2d_array
+from Array import empty_2d_array
 
 # Time complexity: O(2^n)
 # Space complexity: O(n)

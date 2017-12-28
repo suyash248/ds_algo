@@ -7,6 +7,6 @@ def all_combinations(input_seq, combinations):
 
 if __name__ == '__main__':
     input_seq = "abcd"
-    combinations = [""]
+    combinations = [""] # empty set
     all_combinations(input_seq, combinations)
     print "All the combinations of {} are -\n".format(input_seq), combinations
