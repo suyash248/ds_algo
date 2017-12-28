@@ -2,6 +2,7 @@ from copy import deepcopy
 from sys import maxint
 from Tree.segment_tree.base_segment_tree import SegmentTree
 
+
 class MinRangeSegmentTree(SegmentTree):
 
     def __init__(self, input_arr):

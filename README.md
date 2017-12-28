@@ -43,6 +43,7 @@
 * [Find element in row-wise & col-wise sorted matrix](https://github.com/suyash248/ds_algo/blob/master/Array/searchInSortedMatrix.py)
 * [Given prices in increasing order of time, buy, sell & maximize profit](https://github.com/suyash248/ds_algo/blob/master/Array/maximizeProfit.py)
 * [Find zeroes to be flipped so that number of consecutive 1’s is maximized](https://github.com/suyash248/ds_algo/blob/master/Array/flipZeroesMaximizeOnes.py)
+* [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allCombinations.py)
 
 ## Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
