@@ -39,6 +39,6 @@ def coin_change(coin_max_denomination, max_total_sum):
 
 if __name__ == '__main__':
     max_total_sum = 5
-    coin_max_denomination = 5
+    coin_max_denomination = 5 # [0, 1, 2, 3, 4, 5]
     ways =  coin_change(coin_max_denomination, max_total_sum)
     print "There are {} ways to get the total of {} by using coins of denomination from 0 to {}".format(ways, max_total_sum, coin_max_denomination)

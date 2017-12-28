@@ -17,6 +17,11 @@ def knapsack_rec(weights, values, w_limit, n):
     return max (excl, incl + values[n-1])
 
 
+# TODO
+def knapsack_dp():
+    pass
+
+
 if __name__ == '__main__':
     weights = [10, 20, 30]
     values = [60, 100, 120]
