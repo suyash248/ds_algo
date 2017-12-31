@@ -21,6 +21,7 @@ def lcs_recursive(p, q, plen, qlen):
     else:
         return max(lcs_recursive(p, q, plen-1, qlen), lcs_recursive(p, q, plen, qlen-1))
 
+
 """
          "" a  b  c  d  e  f  g  h
             
@@ -36,19 +37,19 @@ def lcs_recursive(p, q, plen, qlen):
 """
 # Time complexity: O(mn), where m, n are lengths of sub-sequences
 def lcs_dp(p, q):
-    rows = len(p); cols = len(q)
+    rows = len(p)+1; cols = len(q)+1
     table = empty_2d_array(rows, cols)
-
     for row in xrange(0, rows):
         for col in xrange(0, cols):
             if row == 0 or col == 0:        # If either of 2 sequence is empty, lcs is 0.
                 table[row][col] = 0
                 continue
 
-            if p[row] == q[col]:
+            if p[row-1] == q[col-1]:
                 table[row][col] = table[row-1][col-1] + 1
             else:
                 table[row][col] = max(table[row-1][col], table[row][col-1])
+    #print table
     return table[rows-1][cols-1]
 
 if __name__ == '__main__':
