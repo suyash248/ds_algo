@@ -12,18 +12,17 @@ def lcs_recursive(p, q, plen, qlen):
         return max(lcs_recursive(p, q, plen-1, qlen), lcs_recursive(p, q, plen, qlen-1))
 
 """
-            "" a  b  c  d  e  f  g  h
-        [
-    ""      0  0  0  0  0  0  0  0  0
-    k       0  0  0  0  0  0  0  0  0
-    l       0  0  0  0  0  0  0  0  0
-    b       0  0  1  1  1  1  1  1  1
-    m       0  0  1  1  1  1  1  1  1
-    e       0  0  1  1  1  2  2  2  2
-    f       0  0  1  1  1  2  3  3  3
-    z       0  0  1  1  1  2  3  3  3
-    h       0  0  1  1  1  2  3  3  4
-        ]
+         "" a  b  c  d  e  f  g  h
+            
+    ""   0  0  0  0  0  0  0  0  0
+    k    0  0  0  0  0  0  0  0  0
+    l    0  0  0  0  0  0  0  0  0
+    b    0  0  1  1  1  1  1  1  1
+    m    0  0  1  1  1  1  1  1  1
+    e    0  0  1  1  1  2  2  2  2
+    f    0  0  1  1  1  2  3  3  3
+    z    0  0  1  1  1  2  3  3  3
+    h    0  0  1  1  1  2  3  3  4
 """
 # Time complexity: O(mn), where m, n are lengths of sub-sequences
 def lcs_dp(p, q):
