@@ -1,3 +1,13 @@
+"""
+LCS Problem Statement: Given two sequences, find the length of longest sub-sequence present in both of them.
+A sub-sequence is a sequence that appears in the same relative order, but not necessarily contiguous.
+e.g. "abc", "abg", "bdf", "aeg", "acefg", .. etc are sub-sequences of "abcdefg".
+So a string of length n has 2^n different possible sub-sequences.
+
+LCS for input Sequences "ABCDGH" and "AEDFHR" is "ADH" of length 3.
+LCS for input Sequences "AGGTAB" and "GXTXAYB" is "GTAB" of length 4.
+"""
+
 from Array import empty_2d_array
 
 
