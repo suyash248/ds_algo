@@ -66,6 +66,7 @@
 * [Check if array can be partitioned into two subsets such that the sum of elements in both subsets is same](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/equalSumSubsets.py)
 * [Coin change problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/coinChangeProblem.py)
 * [Knapsack 0-1 problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/knapsackProblem.py)
+* [Longest common sub-sequence(LCS)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/longestCommonSubsequence.py)
 
 ## Hashtable
 * [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)

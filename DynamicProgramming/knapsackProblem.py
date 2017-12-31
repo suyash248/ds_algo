@@ -30,7 +30,7 @@ def knapsack_dp(weights, values, w_limit):
     n = len(weights)  # Number of items.
     table = empty_2d_array(n+1, w_limit+1)
     for w in xrange(0, n+1):
-        for sow in xrange(0, w_limit+1):               # sow stands for sum of weights
+        for sow in xrange(0, w_limit+1):                            # sow stands for sum of weights
             # Max value we can get is 0 when either of `w` or `sow` is 0. `w` represents current weight.
             if w == 0 or sow == 0:
                 table[w][sow] = 0
@@ -38,8 +38,8 @@ def knapsack_dp(weights, values, w_limit):
                 table[w][sow] = table[w-1][sow]
             else:
                 table[w][sow] = max (
-                    table[w-1][sow],                # excluding the current weight `w`
-                    values[w-1] + table[w-1][sow-weights[w-1]]   # including the current weight `w`
+                    table[w-1][sow],                                # excluding the current weight `w`
+                    values[w-1] + table[w-1][sow-weights[w-1]]      # including the current weight `w`
                 )
 
     return table[n][w_limit]
