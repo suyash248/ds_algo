@@ -45,6 +45,14 @@
 * [Find zeroes to be flipped so that number of consecutive 1’s is maximized](https://github.com/suyash248/ds_algo/blob/master/Array/flipZeroesMaximizeOnes.py)
 * [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allCombinations.py)
 
+## Dynamic programming
+* [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
+* [Check if array can be partitioned into two subsets such that the sum of elements in both subsets is same](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/equalSumSubsets.py)
+* [Coin change problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/coinChangeProblem.py)
+* [Knapsack 0-1 problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/knapsackProblem.py)
+* [Longest common sub-sequence(LCS)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/longestCommonSubsequence.py)
+* [Longest repeated sub-sequence(LRS)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/longestRepeatedSubsequence.py)
+
 ## Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
 * [Binary search in circularly sorted array](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
@@ -60,14 +68,6 @@
 ## Heap
 * [Min-Heap](https://github.com/suyash248/ds_algo/blob/master/Heap/BinaryHeap/minHeap.py)
 * [Max-Heap](https://github.com/suyash248/ds_algo/blob/master/Heap/BinaryHeap/maxHeap.py)
-
-## Dynamic programming
-* [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
-* [Check if array can be partitioned into two subsets such that the sum of elements in both subsets is same](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/equalSumSubsets.py)
-* [Coin change problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/coinChangeProblem.py)
-* [Knapsack 0-1 problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/knapsackProblem.py)
-* [Longest common sub-sequence(LCS)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/longestCommonSubsequence.py)
-* [Longest repeated sub-sequence(LRS)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/longestRepeatedSubsequence.py)
 
 ## Hashtable
 * [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
