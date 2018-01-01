@@ -14,6 +14,8 @@ total_sum = 3
   (elt) 
 ]
 """
+# Time Complexity: O(n^2)
+# Space Complexity: O(n^2)
 def subset_sum_dp(elt_set, total_sum):
     rows = len(elt_set) + 1; cols = total_sum + 1
     table = empty_2d_array(rows, cols)
