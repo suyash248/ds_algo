@@ -52,6 +52,7 @@
 * [Knapsack 0-1 problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/knapsackProblem.py)
 * [Longest common sub-sequence(LCS)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/longestCommonSubsequence.py)
 * [Longest repeated sub-sequence(LRS)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/longestRepeatedSubsequence.py)
+* [Longest increasing sub-sequence(LIS)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/longestIncreasingSubsequence.py)
 
 ## Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
