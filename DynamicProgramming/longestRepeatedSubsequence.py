@@ -11,9 +11,7 @@ the same index in the two strings.
 
 from Array import empty_2d_array
 
-
 # Time complexity: O(2^n)
-
 def lrs_recursive(p):
     return lrs_recursive_util(p, p, len(p), len(p))
 
@@ -58,7 +56,33 @@ def lrs_dp(p):
             else:
                 table[row][col] = max(table[row-1][col], table[row][col-1])
     #print table
-    return table[rows-1][cols-1]
+    lrs_seq = get_lrs_seq(p, p, table)
+    return table[rows-1][cols-1], lrs_seq
+
+
+def get_lrs_seq(p, q, table):
+    """
+    Algorithm -
+    Traverse the 2D array(table) starting from table[rows][cols](bottom right). Do following for every
+    cell table[row][col] ->
+        a) If characters (in P and Q) corresponding to table[row][col] are same but are at different indices
+            (Or P[row-1] == Q[col-1] && row-1 != col-1), then include this character as part of LCS.
+        b) Else compare values of table[row-1][col] and table[row][col-1] and go in direction of greater value.
+    """
+    lcs_seq = []
+    plen = len(p); qlen = len(q)
+
+    while plen > 0 and qlen > 0:
+        if p[plen-1] == q[qlen-1] and (plen-1) != (qlen-1):
+            lcs_seq.append(p[plen-1])
+            plen -= 1
+            qlen -= 1
+        elif table[plen-1][qlen] > table[plen][qlen-1]:
+            plen -= 1
+        elif table[plen-1][qlen] <= table[plen][qlen-1]:
+            qlen -= 1
+    return lcs_seq[::-1]
+
 
 if __name__ == '__main__':
     p = "AABEBCDJHD"
@@ -68,5 +92,5 @@ if __name__ == '__main__':
     print "Length of LRS for sequence '{}' is {}".format(p, lrs_len)
 
     print "\n------- Using DP approach -------\n"
-    lrs_len = lrs_dp(p)
-    print "Length of LRS for sequence '{}' is {}".format(p, lrs_len)
+    lrs_len_and_seq = lrs_dp(p)
+    print "Length of LRS for sequence '{}' is {} and LRS is - {}".format(p, lrs_len_and_seq[0], lrs_len_and_seq[1])

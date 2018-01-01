@@ -50,7 +50,31 @@ def lcs_dp(p, q):
             else:
                 table[row][col] = max(table[row-1][col], table[row][col-1])
     #print table
-    return table[rows-1][cols-1]
+    lcs_seq = get_lcs_seq(p, q, table)
+    return table[rows-1][cols-1], lcs_seq
+
+def get_lcs_seq(p, q, table):
+    """
+    Algorithm -
+    Traverse the 2D array(table) starting from table[rows][cols](bottom right). Do following for every
+    cell table[row][col] ->
+        a) If characters (in P and Q) corresponding to table[row][col] are same (Or P[row-1] == Q[col-1]),
+            then include this character as part of LCS.
+        b) Else compare values of table[row-1][col] and table[row][col-1] and go in direction of greater value.
+    """
+    lcs_seq = []
+    plen = len(p); qlen = len(q)
+
+    while plen > 0 and qlen > 0:
+        if p[plen-1] == q[qlen-1]:
+            lcs_seq.append(p[plen-1])
+            plen -= 1
+            qlen -= 1
+        elif table[plen-1][qlen] > table[plen][qlen-1]:
+            plen -= 1
+        elif table[plen-1][qlen] <= table[plen][qlen-1]:
+            qlen -= 1
+    return lcs_seq[::-1]
 
 if __name__ == '__main__':
     p = "abcdefgh"
@@ -61,5 +85,5 @@ if __name__ == '__main__':
     print "Length of LCS for sequences '{}' & '{}' is {}".format(p, q, lcs_len)
 
     print "\n------- Using DP approach -------\n"
-    lcs_len = lcs_dp(p, q)
-    print "Length of LCS for sequences '{}' & '{}' is {}".format(p, q, lcs_len)
+    lcs_len_and_seq = lcs_dp(p, q)
+    print "Length of LCS for sequences '{}' & '{}' is {} and the seq is - {}".format(p, q, lcs_len_and_seq[0], lcs_len_and_seq[1])
