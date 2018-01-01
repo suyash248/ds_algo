@@ -54,6 +54,7 @@
 * [Longest repeated sub-sequence(LRS)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/longestRepeatedSubsequence.py)
 * [Longest increasing sub-sequence(LIS)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/longestIncreasingSubsequence.py)
 * [Subset-sum problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/subsetSumProblem.py)
+* [Cutting rod into pieces to maximize profit](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/cuttingRodIntoPieces.py)
 
 ## Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
