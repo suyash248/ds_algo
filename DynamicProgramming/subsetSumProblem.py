@@ -1,5 +1,15 @@
 from Array import empty_2d_array
 
+# Time Complexity: Exponential
+def subset_sum_rec(elt_set, total_sum, n):
+    if total_sum == 0:
+        return True
+
+    if n == 0 and total_sum != 0:
+        return False
+
+    return subset_sum_rec(elt_set, total_sum, n-1) or subset_sum_rec(elt_set, total_sum-elt_set[n-1], n-1)
+
 
 """
 elt_set = [2, 4, 1]
@@ -46,5 +56,11 @@ def subset_sum_dp(elt_set, total_sum):
 if __name__ == '__main__':
     elt_set = [2, 4, 1]
     total_sum = 3
+
+    print "\n------- Using Recursion -------\n"
+    res = subset_sum_rec(elt_set, total_sum, len(elt_set))
+    print "Can we form a subset having sum {}? - {}".format(total_sum, res)
+
+    print "\n------- Using DP -------\n"
     res = subset_sum_dp(elt_set, total_sum)
     print "Can we form a subset having sum {}? - {}".format(total_sum, res)
