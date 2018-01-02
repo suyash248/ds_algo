@@ -12,6 +12,23 @@ sum sub-matrix ->
 ]
 """
 def sub_matrix_with_max_ones(matrix=[]):
+    """
+    Algorithm -
+    1) Construct a sum matrix S[R][C] for the given M[R][C]. And initialize max_size, max_i, max_j to 0.
+         a) Copy first row and first columns as it is from M[][] to S[][]
+         b) For other entries, use following expressions to construct S[][]
+            If M[i][j] is 1 then
+                S[i][j] = min(S[i][j-1], S[i-1][j], S[i-1][j-1]) + 1
+            Else If M[i][j] is 0
+                S[i][j] = 0
+        c) Update max_size, max_i, max_j (if required) as follows -
+            If S[i][j] > max_size:
+                max_size = S[i][j]
+                max_i = i; max_j = j
+    2) Using the max_size and coordinates(max_i, max_j) of maximum entry in S[i], print sub-matrix of M[][]
+    :param matrix:
+    :return:
+    """
     rows = len(matrix)
     cols = len(matrix[0]) if rows > 0 else 0
 

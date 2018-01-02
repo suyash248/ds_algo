@@ -34,7 +34,7 @@
 * [Rearrange numbers in array such that +ve & -ve numbers are placed alternatively](https://github.com/suyash248/ds_algo/blob/master/Array/alternatePositiveNegative.py)
 * [Move all -ve numbers to the left and +ve numbers to the right in array](https://github.com/suyash248/ds_algo/blob/master/Array/separatePositiveNegative.py)
 * [Segregate 0's & 1's in an array](https://github.com/suyash248/ds_algo/blob/master/Array/segregateZerosAndOnes.py)
-* [Segregate 0's, 1's & 2's in an array (Dutch national flag algorithm)](https://github.com/suyash248/ds_algo/blob/master/Array/segregateZerosOnesTwos.py)
+* [Segregate 0's, 1's & 2's in an array (Dutch-National-Flag algorithm)](https://github.com/suyash248/ds_algo/blob/master/Array/segregateZerosOnesTwos.py)
 * [Rearrange an array in max-min form, i.e. 1st max, 1st min, 2nd max, 2nd min](https://github.com/suyash248/ds_algo/blob/master/Array/rearrangeMaxMinAlternatively.py)
 * [The longest sub-array having equal numbers of 0s and 1s](https://github.com/suyash248/ds_algo/blob/master/Array/maxSubarrayWithEqualZerosAndOnes.py)
 * [Maximum product sub-array & minimum product sub-array](https://github.com/suyash248/ds_algo/blob/master/Array/maxAndMinProductSubArray.py)
