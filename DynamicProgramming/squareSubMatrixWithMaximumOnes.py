@@ -11,7 +11,7 @@ sum sub-matrix ->
     [0, 0, 0, 0, 0]
 ]
 """
-def sub_matrix_with_max_ones(matrix=[]):
+def square_sub_matrix_with_max_ones(matrix=[]):
     """
     Algorithm -
     1) Construct a sum matrix S[R][C] for the given M[R][C]. And initialize max_size, max_i, max_j to 0.
@@ -57,7 +57,7 @@ def sub_matrix_with_max_ones(matrix=[]):
     return max_size, (max_i, max_j)
 
 
-def print_sub_matrix_with_max_ones(matrix, max_size, coordinates):
+def print_square_sub_matrix_with_max_ones(matrix, max_size, coordinates):
     max_i = coordinates[0]; max_j = coordinates[1]
 
     for i in xrange(max_i, max_i-max_size, -1):
@@ -74,8 +74,8 @@ if __name__ == '__main__':
         [1, 1, 1, 1, 1],
         [0, 0, 0, 0, 0]
     ]
-    max_sub_matrix_info = sub_matrix_with_max_ones(matrix)
+    max_sub_matrix_info = square_sub_matrix_with_max_ones(matrix)
     max_size = max_sub_matrix_info[0]
     coordiantes = max_sub_matrix_info[1]
     print "Sub-matrix of 1's with maximum size {max_size} is - ".format(max_size=max_size)
-    print_sub_matrix_with_max_ones(matrix, max_size, coordiantes)
+    print_square_sub_matrix_with_max_ones(matrix, max_size, coordiantes)
