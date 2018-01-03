@@ -56,7 +56,8 @@
 * [Subset-sum problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/subsetSumProblem.py)
 * [Cutting rod into pieces to maximize profit](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/cuttingRodIntoPieces.py)
 * [Square sub-matrix with maximum consecutive 1's](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/squareSubMatrixWithMaximumOnes.py)
-* [Minimum jump(s) required to reach at the end of array](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/minJumpsToReachEnd.py)
+* [Minimum jump(s) required to reach at the end of the array](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/minJumpsToReachEnd.py)
+* [Ugly numbers](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/uglyNumbers.py)
 
 ## Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
