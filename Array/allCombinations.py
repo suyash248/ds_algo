@@ -22,7 +22,7 @@ if __name__ == '__main__':
     input_seq = "abc"
     combinations = [""] # empty list
     all_combinations(input_seq, combinations)
-    print "All the combinations of {} are -\n".format(input_seq), combinations
+    print "All the combinations of {} are -\n".format(input_seq), ' '.join(combinations)
 
-    print "All the combinations of {} are -\n".format(input_seq)
+    print "All the combinations of {} are -".format(input_seq)
     all_combinations_v2(input_seq, "", 0)
