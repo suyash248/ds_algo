@@ -1,6 +1,6 @@
 from commons.commons import Node, print_tree, insert
 from buildBSTFromSortedArray import build_bst
-from traversals import inorder
+#from traversals import inorder
 
 def balance_tree(root):
     inorder_arr = []

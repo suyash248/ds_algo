@@ -9,14 +9,14 @@ def distance_between_nodes(root, key1, key2):
     :param key2:
     :return:
     """
-    from distanceFromRoot import distance_from_root
+    from distanceFromRoot import distance_from_root_v1
     from lowestCommonAncestor import lca_v2
-    d1 = distance_from_root(root, key1)
-    d2 = distance_from_root(root, key1)
+    d1 = distance_from_root_v1(root, key1)
+    d2 = distance_from_root_v1(root, key1)
     lca = lca_v2(root, key1, key2)
     if lca is None:
         return 0    # When either of key1 or key2 is not found, distance is 0
-    d_lca = distance_from_root(root, lca.key)
+    d_lca = distance_from_root_v1(root, lca.key)
     return (d1 + d2 - 2*d_lca)
 
 # Driver program to test above function
