@@ -1,9 +1,9 @@
 from commons.commons import insert, print_tree, is_leaf
 
 def lca_v1(root, key1, key2):
-    from pathToTarget import path_to_target
-    path_to_key1 = path_to_target(root, key1)
-    path_to_key2 = path_to_target(root, key2)
+    from pathToTarget import path_to_target_v1
+    path_to_key1 = path_to_target_v1(root, key1)
+    path_to_key2 = path_to_target_v1(root, key2)
 
     print "Path to {key1} - {path}".format(key1=key1, path=path_to_key1)
     print "Path to {key2} - {path}".format(key2=key2, path=path_to_key2)

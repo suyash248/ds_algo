@@ -1,5 +1,6 @@
 from commons.commons import insert, print_tree, is_leaf
 
+# Time complexity: O(n)
 def path_to_target_util_v1(root, target_key):
     if root == None:
         return False
@@ -13,11 +14,13 @@ def path_to_target_util_v1(root, target_key):
 
     return lpath or rpath
 
+
 def path_to_target_v1(root, target_key):
     path_to_target_util_v1(root, target_key)
     return path_to_target_v1.path[::-1]
 
 
+# Time complexity: O(log(n))
 def path_to_target_v2(root, target_key):
     if root == None:
         return False
