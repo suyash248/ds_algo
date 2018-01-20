@@ -21,6 +21,7 @@ def all_permutations_v1(arr, l, r):
 
 # This solution takes care of duplicates as well.
 # https://www.youtube.com/watch?v=nYFd7VHKyWQ
+# Time Complexity: O(2^n)
 def all_permutations_v2(input_arr, counts, result, level):
     n = len(input_arr)
     if level == len(result):
