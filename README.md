@@ -11,7 +11,7 @@
 * [Inorder successor & predecessor](https://github.com/suyash248/ds_algo/blob/master/Tree/inorderSuccessorPredecessor.py)
 * [To check whether binary is balanced](https://github.com/suyash248/ds_algo/blob/master/Tree/isBalanced.py)
 * [Path with sum equals to given sum](https://github.com/suyash248/ds_algo/blob/master/Tree/isSumEqual.py)
-* [Left & right view of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/leftRightView.py)
+* [Tree views - Top, Left, Bottom, Right](https://github.com/suyash248/ds_algo/blob/master/Tree/treeViews.py)
 * [LCA - Lowest Common Ancestor](https://github.com/suyash248/ds_algo/blob/master/Tree/lowestCommonAncestor.py)
 * [To check whether binary trees are mirror of each other](https://github.com/suyash248/ds_algo/blob/master/Tree/mirror.py)
 * [Convert a binary tree to it's mirror](https://github.com/suyash248/ds_algo/blob/master/Tree/mirror.py)
