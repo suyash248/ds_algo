@@ -5,7 +5,7 @@
 * [Path(s) from root to leaves](https://github.com/suyash248/ds_algo/blob/master/Tree/allPathsRootToLeaves.py)
 * [Convert a unbalanced BST to balanced BST](https://github.com/suyash248/ds_algo/blob/master/Tree/balanceBST.py)
 * [Construct a BST from given sorted array](https://github.com/suyash248/ds_algo/blob/master/Tree/buildBSTFromSortedArray.py)
-* [Children sum property - For each node, node's data equals to sum left & right child's data](https://github.com/suyash248/ds_algo/blob/master/Tree/childrenSumProperty.py)
+* [Children sum property - For each node, node.data = node.left.data + node.right.data (for leaves data=0)](https://github.com/suyash248/ds_algo/blob/master/Tree/childrenSumProperty.py)
 * [Distance between 2 arbitrary nodes](https://github.com/suyash248/ds_algo/blob/master/Tree/distanceBetweenNodes.py)
 * [Distance between root & any arbitrary node](https://github.com/suyash248/ds_algo/blob/master/Tree/distanceFromRoot.py)
 * [Inorder successor & predecessor](https://github.com/suyash248/ds_algo/blob/master/Tree/inorderSuccessorPredecessor.py)
