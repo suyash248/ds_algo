@@ -1,10 +1,11 @@
 # A tree node
 class Node:
     # Constructor to create a new node
-    def __init__(self, key, left=None, right=None):
+    def __init__(self, key, left=None, right=None, hd=None):
         self.key = key
         self.left = left
         self.right = right
+        self.hd = hd
 
 
 def insert(node, key):

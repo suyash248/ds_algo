@@ -12,12 +12,13 @@ def lca_v1(root, key1, key2):
     try:
         while True:
             if path_to_key1[i] != path_to_key2[i]:
-                break;
+                break
             lca = path_to_key1[i]
             i += 1
     except:
         pass
     return lca
+
 
 lca_found = False
 def lca_v2(root, key1, key2):
