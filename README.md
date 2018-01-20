@@ -45,6 +45,7 @@
 * [Find zeroes to be flipped so that number of consecutive 1’s is maximized](https://github.com/suyash248/ds_algo/blob/master/Array/flipZeroesMaximizeOnes.py)
 * [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allCombinations.py)
 * [All permutations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allPermutations.py)
+* [Next greater elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreater.py)
 
 ## Dynamic programming
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
