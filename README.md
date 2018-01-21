@@ -9,7 +9,7 @@
 * [Heap](https://github.com/suyash248/ds_algo#heap)
 * [Queue](https://github.com/suyash248/ds_algo#queue)
 * [Linked list](https://github.com/suyash248/ds_algo#linked-list)
-* [Hashtable](https://github.com/suyash248/ds_algo#hashtable)
+* [Misc](https://github.com/suyash248/ds_algo#misc)
 
 ### Tree
 * [Check if tree is BST](https://github.com/suyash248/ds_algo/blob/master/Tree/isBST.py)
@@ -96,7 +96,6 @@
 * [Dequeue](https://github.com/suyash248/ds_algo/blob/master/Queues/Deque/DequeUsingArray.java)
 * [Priority Queue](https://github.com/suyash248/ds_algo/blob/master/Queues/PriorityQueue/pq.py)
 * [Implement queue using stack(s)](https://github.com/suyash248/ds_algo/blob/master/Queues/queueUsingStack.py)
-* [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
 
 ### Linked list
 * [Singly linked list - Insert at first, last and in middle](https://github.com/suyash248/ds_algo/blob/master/LinkedList/SinglyLinkedList.java)
@@ -104,5 +103,8 @@
 * [Merge two sorted linked lists](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
 * [Doubly linked list - Insertion, deletion](https://github.com/suyash248/ds_algo/blob/master/LinkedList/DoublyLinkedList.java)
 
-## Hashtable
+## Misc
 * [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
+* [LRU Cache](https://github.com/suyash248/ds_algo/blob/master/Misc/LRUcache.py)
+* [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
+
