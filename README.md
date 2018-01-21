@@ -20,6 +20,7 @@
 * [To find path from root to a given node](https://github.com/suyash248/ds_algo/blob/master/Tree/pathToTarget.py)
 * [To find out some of all nodes' data](https://github.com/suyash248/ds_algo/blob/master/Tree/sumOfNodes.py)
 * [Binary tree traversals - Preorder, Inorder, Postorder, Level order](https://github.com/suyash248/ds_algo/blob/master/Tree/traversals.py)
+* [Vertical sum of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/verticalSum.py)
 * [Diameter of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeDiameter.py)
 * [Height of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeHeight.py)
 * [BST Insertion, deletion etc.](https://github.com/suyash248/ds_algo/blob/master/BST/BinarySearchTree.java)
