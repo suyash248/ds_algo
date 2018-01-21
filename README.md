@@ -1,6 +1,17 @@
 # Data structures & Algorithms (Python/Java)
 
-## Tree
+## Index
+* [Tree](https://github.com/suyash248/ds_algo#tree)
+* [Array](https://github.com/suyash248/ds_algo#array)
+* [Dynamic programming](https://github.com/suyash248/ds_algo#dynamic-programming)
+* [Searching](https://github.com/suyash248/ds_algo#searching)
+* [Sorting](https://github.com/suyash248/ds_algo#sorting)
+* [Heap](https://github.com/suyash248/ds_algo#heap)
+* [Queue](https://github.com/suyash248/ds_algo#queue)
+* [Linked list](https://github.com/suyash248/ds_algo#linked-list)
+* [Hashtable](https://github.com/suyash248/ds_algo#hashtable)
+
+### Tree
 * [Check if tree is BST](https://github.com/suyash248/ds_algo/blob/master/Tree/isBST.py)
 * [Path(s) from root to leaves](https://github.com/suyash248/ds_algo/blob/master/Tree/allPathsRootToLeaves.py)
 * [Convert a unbalanced BST to balanced BST](https://github.com/suyash248/ds_algo/blob/master/Tree/balanceBST.py)
@@ -28,7 +39,7 @@
 * [Segment Tree - Min-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/minRangeSegmentTree.py)
 * [Segment Tree - Sum-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/sumRangeSegmentTree.py)
 
-## Array
+### Array
 * [To reverse an array](https://github.com/suyash248/ds_algo/blob/master/Array/reverse.py)
 * [To rotate an array by 'd'](https://github.com/suyash248/ds_algo/blob/master/Array/rotation.py)
 * [To find out Pair(s) with given sum 's' in sorted array](https://github.com/suyash248/ds_algo/blob/master/Array/pairWithSumInSortedArray.py)
@@ -49,7 +60,7 @@
 * [All permutations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allPermutations.py)
 * [Next greater elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreater.py)
 
-## Dynamic programming
+### Dynamic programming
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
 * [Check if array can be partitioned into two subsets such that the sum of elements in both subsets is same](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/equalSumSubsets.py)
 * [Coin change problem](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/coinChangeProblem.py)
@@ -64,35 +75,34 @@
 * [Ugly numbers](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/uglyNumbers.py)
 * [Super-Ugly numbers](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/superUglyNumbers.py)
 
-## Searching
+### Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
 * [Binary search in circularly sorted array](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
 * [To find out the number of times sorted array is rotated](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
 
-## Sorting
+### Sorting
 * [Bubble sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/bubble/BubbleSort.java)
 * [Insertion sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/insertion/InsertionSort.java)
 * [Selection sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/selection/SelectionSort.java)
 * [Merge sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/merge/MergeSort.java)
 * [Quick sort](https://github.com/suyash248/ds_algo/blob/master/Sorting/sort/quick/QuickSort.java)
 
-## Heap
+### Heap
 * [Min-Heap](https://github.com/suyash248/ds_algo/blob/master/Heap/BinaryHeap/minHeap.py)
 * [Max-Heap](https://github.com/suyash248/ds_algo/blob/master/Heap/BinaryHeap/maxHeap.py)
 
-## Hashtable
-* [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
-
-## Queue
+### Queue
 * [Queue](https://github.com/suyash248/ds_algo/blob/master/Queues/SinglyQueue/QueueUsingArray.java)
 * [Dequeue](https://github.com/suyash248/ds_algo/blob/master/Queues/Deque/DequeUsingArray.java)
 * [Priority Queue](https://github.com/suyash248/ds_algo/blob/master/Queues/PriorityQueue/pq.py)
 * [Implement queue using stack(s)](https://github.com/suyash248/ds_algo/blob/master/Queues/queueUsingStack.py)
 * [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
 
-## Linked list
+### Linked list
 * [Singly linked list - Insert at first, last and in middle](https://github.com/suyash248/ds_algo/blob/master/LinkedList/SinglyLinkedList.java)
 * [Deleting a node from singly linked list](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
 * [Merge two sorted linked lists](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
 * [Doubly linked list - Insertion, deletion](https://github.com/suyash248/ds_algo/blob/master/LinkedList/DoublyLinkedList.java)
 
+## Hashtable
+* [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
