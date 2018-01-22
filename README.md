@@ -105,7 +105,7 @@
 
 ## Misc
 * [LRU Cache](https://github.com/suyash248/ds_algo/blob/master/Misc/LRUcache.py)
-* [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/CustomHashMap/CustomHashtable.java)
+* [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/Misc/CustomHashMap/CustomHashtable.java)
 * [Custom thread pool](https://github.com/suyash248/ds_algo/blob/master/Misc/CustomThreadPool.java)
 * [Time-based Cache](https://github.com/suyash248/ds_algo/blob/master/Misc/TimeBasedCache.java)
 * [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
