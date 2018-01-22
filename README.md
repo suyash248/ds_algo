@@ -36,6 +36,7 @@
 * [Maximum width of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/maximumWidth.py)
 * [Height of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeHeight.py)
 * [Print diagonals of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/printDiagonals.py)
+* [Diagonal sum of a binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/sumDiagonals.py)
 * [BST Insertion, deletion etc.](https://github.com/suyash248/ds_algo/blob/master/BST/BinarySearchTree.java)
 * [Segment Tree - Min-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/minRangeSegmentTree.py)
 * [Segment Tree - Sum-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/sumRangeSegmentTree.py)
