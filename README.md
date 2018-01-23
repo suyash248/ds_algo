@@ -7,6 +7,7 @@
 * [Searching](https://github.com/suyash248/ds_algo#searching)
 * [Sorting](https://github.com/suyash248/ds_algo#sorting)
 * [Heap](https://github.com/suyash248/ds_algo#heap)
+* [Trie](https://github.com/suyash248/ds_algo#trie)
 * [Queue](https://github.com/suyash248/ds_algo#queue)
 * [Linked list](https://github.com/suyash248/ds_algo#linked-list)
 * [Misc](https://github.com/suyash248/ds_algo#misc)
@@ -94,6 +95,9 @@
 ### Heap
 * [Min-Heap](https://github.com/suyash248/ds_algo/blob/master/Heap/BinaryHeap/minHeap.py)
 * [Max-Heap](https://github.com/suyash248/ds_algo/blob/master/Heap/BinaryHeap/maxHeap.py)
+
+### Trie
+* [Trie - Insert, Search, Delete](https://github.com/suyash248/ds_algo/blob/master/Trie/trie.py)
 
 ### Queue
 * [Queue](https://github.com/suyash248/ds_algo/blob/master/Queues/SinglyQueue/QueueUsingArray.java)

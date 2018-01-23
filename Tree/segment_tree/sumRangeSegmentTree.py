@@ -67,6 +67,11 @@ class SumRangeSegmentTree(SegmentTree):
             self.seg_tree_arr[pos] = self.seg_tree_arr[2 * pos + 1] + self.seg_tree_arr[2 * pos + 2]
 
     def update_value(self, i, diff):
+        """
+        :param i: Value/elt at index `i` needs to updated.
+        :param diff:
+        :return:
+        """
         self.__update_value__(i, diff, 0, len(self.input_arr) - 1, 0)
         return deepcopy(self.seg_tree_arr)
 
