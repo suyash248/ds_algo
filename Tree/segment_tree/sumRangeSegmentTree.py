@@ -9,21 +9,21 @@ class SumRangeSegmentTree(SegmentTree):
 
     # Time complexity: O(n)
     # Space complexity: O(n)
-    def _build_tree_util_(self, low, high, pos):
+    def __build_tree_util__(self, low, high, pos):
         if low == high:
             self.seg_tree_arr[pos] = self.input_arr[low]
             return
         mid = (low + high)/2
-        self._build_tree_util_(low, mid, 2*pos + 1)
-        self._build_tree_util_(mid + 1, high, 2*pos + 2)
+        self.__build_tree_util__(low, mid, 2*pos + 1)
+        self.__build_tree_util__(mid + 1, high, 2*pos + 2)
         self.seg_tree_arr[pos] = self.seg_tree_arr[2*pos + 1] + self.seg_tree_arr[2*pos + 2]
 
     def build_tree(self):
-        self._build_tree_util_(0, len(self.input_arr)-1, 0)
+        self.__build_tree_util__(0, len(self.input_arr)-1, 0)
         return deepcopy(self.seg_tree_arr)
 
     # Time complexity: O(log(n))
-    def _range_sum_query_(self, qs, qe, low, high, pos):
+    def __range_sum_query__(self, qs, qe, low, high, pos):
         # Complete overlap, query range (qs, qe) is completely overlapping (low, high). e.g. (0, 4) (1, 3)
         # return current value i.e. at index `pos`
         if qs <= low and qe >= high:
@@ -38,15 +38,15 @@ class SumRangeSegmentTree(SegmentTree):
         # Go recursively in left & right subtree.
         else:
             mid = (low + high)/2
-            return (self._range_sum_query_(qs, qe, low, mid, 2*pos + 1)
-                   + self._range_sum_query_(qs, qe, mid+1, high, 2*pos + 2))
+            return (self.__range_sum_query__(qs, qe, low, mid, 2*pos + 1)
+                   + self.__range_sum_query__(qs, qe, mid+1, high, 2*pos + 2))
 
     def range_sum_query(self, qs, qe):
-        range_sum = self._range_sum_query_(qs, qe, 0, len(self.input_arr)-1, 0)
+        range_sum = self.__range_sum_query__(qs, qe, 0, len(self.input_arr)-1, 0)
         return range_sum
 
     # Time complexity: O(log(n))
-    def _update_value_(self, i, diff, low, high, pos):
+    def __update_value__(self, i, diff, low, high, pos):
         # If the input index `i` lies outside the range of this segment (low, high),
         # return
         if i < low or i > high:
@@ -62,12 +62,12 @@ class SumRangeSegmentTree(SegmentTree):
         # low <= i && i <= high && low != high
         else:
             mid = (low + high) / 2
-            self._update_value_(i, diff, low, mid, 2 * pos + 1)
-            self._update_value_(i, diff, mid + 1, high, 2 * pos + 2)
+            self.__update_value__(i, diff, low, mid, 2 * pos + 1)
+            self.__update_value__(i, diff, mid + 1, high, 2 * pos + 2)
             self.seg_tree_arr[pos] = self.seg_tree_arr[2 * pos + 1] + self.seg_tree_arr[2 * pos + 2]
 
     def updated_value(self, i, diff):
-        self._update_value_(i, diff, 0, len(self.input_arr) - 1, 0)
+        self.__update_value__(i, diff, 0, len(self.input_arr) - 1, 0)
         return deepcopy(self.seg_tree_arr)
 
 if __name__ == '__main__':
