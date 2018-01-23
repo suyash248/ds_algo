@@ -71,7 +71,7 @@ class MinRangeSegmentTree(SegmentTree):
                 self.seg_tree_arr[2 * pos + 1], self.seg_tree_arr[2 * pos + 2]
             )
 
-    def updated_value(self, i, diff):
+    def update_value(self, i, diff):
         self.__update_value__(i, diff, 0, len(self.input_arr)-1, 0)
         return deepcopy(self.seg_tree_arr)
 
@@ -89,7 +89,7 @@ if __name__ == '__main__':
 
     modify_index = 2; diff = 3
     print "\n---------- After modification (Adding {} at index {}) ----------\n".format(diff, modify_index)
-    seg_tree_arr_modified = seg_tree_obj.updated_value(modify_index, diff)
+    seg_tree_arr_modified = seg_tree_obj.update_value(modify_index, diff)
     print "Min-Range-Segment tree is:", seg_tree_arr_modified
     qs = 0; qe = 2
     min_elt = seg_tree_obj.range_min_query(qs, qe)
