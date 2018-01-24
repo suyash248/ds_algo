@@ -89,9 +89,9 @@ if __name__ == '__main__':
     trie = Trie()
     choices = {
         1: "Add contact",
-        2: "Search",
-        3: "Prefix Search",
-        4: "Delete",
+        2: "Search contact",
+        3: "Prefix search(startswith)",
+        4: "Delete contact",
         5: "Exit"
     }
     choices = '\n'.join(['{}. {}'.format(k,v) for k,v in choices.items()])
