@@ -66,6 +66,7 @@
 * [All permutations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allPermutations.py)
 * [Next greater elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreater.py)
 * [Next greatest elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreatest.py)
+* [Checks if number is prime](https://github.com/suyash248/ds_algo/blob/master/Array/isPrime.py)
 
 ### Dynamic programming
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
