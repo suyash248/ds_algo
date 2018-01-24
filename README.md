@@ -1,16 +1,18 @@
 # Data structures & Algorithms (Python/Java)
 
 ## Index
-* [Tree](https://github.com/suyash248/ds_algo#tree)
-* [Array](https://github.com/suyash248/ds_algo#array)
-* [Dynamic programming](https://github.com/suyash248/ds_algo#dynamic-programming)
-* [Searching](https://github.com/suyash248/ds_algo#searching)
-* [Sorting](https://github.com/suyash248/ds_algo#sorting)
-* [Heap](https://github.com/suyash248/ds_algo#heap)
-* [Trie](https://github.com/suyash248/ds_algo#trie)
-* [Queue](https://github.com/suyash248/ds_algo#queue)
-* [Linked list](https://github.com/suyash248/ds_algo#linked-list)
-* [Misc](https://github.com/suyash248/ds_algo#misc)
+* Topics
+  * [Tree](https://github.com/suyash248/ds_algo#tree)
+  * [Array](https://github.com/suyash248/ds_algo#array)
+  * [Dynamic programming](https://github.com/suyash248/ds_algo#dynamic-programming)
+  * [Searching](https://github.com/suyash248/ds_algo#searching)
+  * [Sorting](https://github.com/suyash248/ds_algo#sorting)
+  * [Heap](https://github.com/suyash248/ds_algo#heap)
+  * [Trie](https://github.com/suyash248/ds_algo#trie)
+  * [Queue](https://github.com/suyash248/ds_algo#queue)
+  * [Linked list](https://github.com/suyash248/ds_algo#linked-list)
+  * [Misc](https://github.com/suyash248/ds_algo#misc)
+* [How to run?](https://github.com/suyash248/ds_algo#how-to-run)
 
 ### Tree
 * [Check if tree is BST](https://github.com/suyash248/ds_algo/blob/master/Tree/isBST.py)
@@ -111,10 +113,27 @@
 * [Merge two sorted linked lists](https://github.com/suyash248/ds_algo/blob/master/LinkedList/LinkedListUtil.java)
 * [Doubly linked list - Insertion, deletion](https://github.com/suyash248/ds_algo/blob/master/LinkedList/DoublyLinkedList.java)
 
-## Misc
+### Misc
 * [LRU Cache](https://github.com/suyash248/ds_algo/blob/master/Misc/LRUcache.py)
 * [Custom hashtable implementation](https://github.com/suyash248/ds_algo/blob/master/Misc/CustomHashMap/CustomHashtable.java)
 * [Custom thread pool](https://github.com/suyash248/ds_algo/blob/master/Misc/CustomThreadPool.java)
 * [Time-based Cache with TTL(Like Redis/Aerospike)](https://github.com/suyash248/ds_algo/blob/master/Misc/TimeBasedCache.java)
 * [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
 
+### How to run?
+1. Move to ```<project-dir>```, create virtual environment and then activate it as
+
+```sh
+$ cd <project-dir>
+$ virtualenv .environment
+$ source .environment/bin/activate
+```
+>Note: Step-1 is optional but recommended.
+
+2. Add project to ```PYTHONPATH``` as 
+
+```sh 
+$ export PYTHONPATH="$PYTHONPATH:." # . corresponds to current directory(project-dir)
+```
+
+> If you are using PyCharm then it can be done under `run configuration`.
