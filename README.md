@@ -102,8 +102,8 @@
 * [Max-Heap](https://github.com/suyash248/ds_algo/blob/master/Heap/BinaryHeap/maxHeap.py)
 
 ### Trie
-* [Trie - Insert, Search, Delete](https://github.com/suyash248/ds_algo/blob/master/Trie/trie.py)
-* [Contacts list - Add, search, prefix search, delete](https://github.com/suyash248/ds_algo/blob/master/Trie/contacts_list.py)
+* [Trie - Insert, Search, Prefix-Search, Delete](https://github.com/suyash248/ds_algo/blob/master/Trie/trie.py)
+* [Contacts list - Add, search, prefix search, count, delete](https://github.com/suyash248/ds_algo/blob/master/Trie/contacts_list.py)
 
 ### Queue
 * [Queue](https://github.com/suyash248/ds_algo/blob/master/Queues/SinglyQueue/QueueUsingArray.java)

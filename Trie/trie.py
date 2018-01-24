@@ -14,6 +14,10 @@ class Trie(object):
     def __init__(self):
         self.__root__ = _Node()
 
+
+############################### INSERT ###############################
+
+
     # Time complexity: O(length_of_word)
     def insert(self, word):
         cur = self.__root__
@@ -41,6 +45,10 @@ class Trie(object):
     def insert_recursive(self, word):
         self.__insert_recursive__(word, self.__root__)
 
+
+############################### SEARCH (Whole word) ###############################
+
+
     # Time complexity: O(length_of_word)
     def search(self, word):
         cur = self.__root__
@@ -63,6 +71,10 @@ class Trie(object):
 
     def search_recursive(self, word):
         return self.__search_recursive__(word, self.__root__)
+
+
+############################### DELETE ###############################
+
 
     # Time complexity: O(length_of_word)
     def __delete__(self, word, cur, index=0):
@@ -91,9 +103,43 @@ class Trie(object):
     def delete(self, word):
         self.__delete__(word, self.__root__)
 
+
+############################### AUTO-COMPLETE (PREFIX SEARCH) ###############################
+
+
+    def __prefix_search_joint_node__(self, prefix):
+        cur = self.__root__
+        for ch in prefix:
+            child = cur.children.get(ch, None)
+            if child is None:
+                return None
+            cur = child
+        # If we reach here, it means there is at least 1 word starting with `prefix`
+        return cur
+
+    def __prefix_search__(self, prefix, joint_node):
+        for ch, child_node in joint_node.children.items():
+            prefix = prefix + ch
+            if child_node.endOfWord:
+                print prefix
+            self.__prefix_search__(prefix, child_node)
+            prefix = prefix[:-1]  # Backtracking
+
+    def prefix_search(self, prefix):
+        joint_node = self.__prefix_search_joint_node__(prefix)
+        if joint_node is None:
+            return
+        self.__prefix_search__(prefix, joint_node)
+
+
+############################### UPDATE ###############################
+
+
     # TODO
     def update(self, old_word, new_word):
         pass
+
+############################### PRINT ###############################
 
     # TODO
     def print_trie(self):
@@ -101,19 +147,31 @@ class Trie(object):
 
 
 def test():
+    words = ["car", "card", "cards", "cardio", "carom", "carrot", "trie", "tries", "tried", "trial",
+             "tree", "treat", "trio", "abcd", "pqrs", "abef", "abpr", "pqoj"]
     trie = Trie()
-    trie.insert_recursive("abcd")
-    trie.insert_recursive("abef")
-    trie.insert_recursive("pqrs")
-    trie.insert("abpr")
-    trie.insert("pqoj")
+    for word in words:
+        trie.insert(word)
 
-    print trie.search("pqrs")
-    print trie.search_recursive("abef")
+    print "'pars' is present? -", trie.search("pqrs")
+    print "'abef' is present? -", trie.search_recursive("abef")
 
-    "Deleting pqrs", trie.delete("pqrs")
-    print "pqrs is present?", trie.search("pqrs")
-    print "pqoj is present?", trie.search("pqoj")
+    print "\nDeleting 'pqrs'\n"
+    trie.delete("pqrs")
+
+    print "'pqrs' is present? -", trie.search("pqrs")
+    print "'pqoj' is present? -", trie.search("pqoj")
+
+    print '\n######################## AUTO-COMPLETE (PREFIX-SEARCH) #########################\n'
+
+    search_prefixes = ["ca", "tr", "tri", "tre"]
+    for pr in search_prefixes:
+        print "\nWord(s) starting from '{}' are - ".format(pr)
+        trie.prefix_search(pr)
+
+
+# if __name__ == '__main__':
+#     test()
 
 
 if __name__ == '__main__':
@@ -121,8 +179,9 @@ if __name__ == '__main__':
     choices = {
         1: "Insert",
         2: "Search",
-        3: "Delete",
-        4: "Exit"
+        3: "Prefix search",
+        4: "Delete",
+        5: "Exit"
     }
     choices = '\n'.join(['{}. {}'.format(k,v) for k,v in choices.items()])
 
@@ -141,9 +200,13 @@ if __name__ == '__main__':
             is_present = trie.search(word)
             print "{} is {}present".format(word, "" if is_present else "not ")
         elif choice == 3:
+            prefix = raw_input("Please enter a prefix of word/sequence to be searched - ")
+            print "Word(s) starting from '{}' are -".format(prefix)
+            trie.prefix_search(prefix)
+        elif choice == 4:
             word = raw_input("Please enter a word/sequence to be deleted - ")
             trie.delete(word)
-        elif choice == 4:
+        elif choice == 5:
             print "Thank you!"
             break
         else:

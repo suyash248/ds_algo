@@ -40,7 +40,7 @@ class Trie(object):
             cur = child
         return cur.endOfWord
 
-    def prefix_search(self, prefix):
+    def prefix_search_count(self, prefix):
         cur = self.__root__
         for ch in prefix:
             child = cur.children.get(ch, None)
@@ -76,13 +76,29 @@ class Trie(object):
         if self.search(word):
             self.__delete__(word, self.__root__)
 
-    # TODO
-    def update(self, old_word, new_word):
-        pass
+    def __prefix_search_joint_node__(self, prefix):
+        cur = self.__root__
+        for ch in prefix:
+            child = cur.children.get(ch, None)
+            if child is None:
+                return None
+            cur = child
+        # If we reach here, it means there is at least 1 word starting with `prefix`
+        return cur
 
-    # TODO
-    def print_trie(self):
-        pass
+    def __prefix_search__(self, prefix, joint_node):
+        for ch, child_node in joint_node.children.items():
+            prefix = prefix + ch
+            if child_node.endOfWord:
+                print prefix
+            self.__prefix_search__(prefix, child_node)
+            prefix = prefix[:-1]  # Backtracking
+
+    def prefix_search(self, prefix):
+        joint_node = self.__prefix_search_joint_node__(prefix)
+        if joint_node is None:
+            return
+        self.__prefix_search__(prefix, joint_node)
 
 
 if __name__ == '__main__':
@@ -90,9 +106,10 @@ if __name__ == '__main__':
     choices = {
         1: "Add contact",
         2: "Search contact",
-        3: "Prefix search(startswith)",
-        4: "Delete contact",
-        5: "Exit"
+        3: "Prefix search(startswith) count",
+        4: "Prefix search(startswith)",
+        5: "Delete contact",
+        6: "Exit"
     }
     choices = '\n'.join(['{}. {}'.format(k,v) for k,v in choices.items()])
 
@@ -112,12 +129,16 @@ if __name__ == '__main__':
             print "{} is {}present".format(word, "" if is_present else "not ")
         elif choice == 3:
             prefix = raw_input("Please enter a contact name/prefix to be searched - ")
-            wordsNum = trie.prefix_search(prefix)
+            wordsNum = trie.prefix_search_count(prefix)
             print "There are {} contact(s) starting with prefix {}".format(wordsNum, prefix)
         elif choice == 4:
+            prefix = raw_input("Please enter a contact name/prefix to be searched - ")
+            print "Contact(s) starting with prefix {} are -".format(prefix)
+            trie.prefix_search(prefix)
+        elif choice == 5:
             word = raw_input("Please enter a word/sequence to be deleted - ")
             trie.delete(word)
-        elif choice == 5:
+        elif choice == 6:
             print "Thank you!"
             break
         else:
