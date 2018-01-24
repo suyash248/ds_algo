@@ -103,6 +103,7 @@
 
 ### Trie
 * [Trie - Insert, Search, Delete](https://github.com/suyash248/ds_algo/blob/master/Trie/trie.py)
+* [Contacts list - Add, search, prefix search, delete](https://github.com/suyash248/ds_algo/blob/master/Trie/contacts_list.py)
 
 ### Queue
 * [Queue](https://github.com/suyash248/ds_algo/blob/master/Queues/SinglyQueue/QueueUsingArray.java)

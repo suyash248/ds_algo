@@ -1,45 +1,34 @@
+# https://www.youtube.com/watch?v=vlYZb68kAY0 - Contacts list
+
 # Insert and search costs O(key_length), however the memory requirements of Trie is O(ALPHABET_SIZE * key_length * N)
 # where N is number of keys in Trie.
 
 # https://www.youtube.com/watch?v=AXjmTQ8LEoI
-class _Node(object):
+class ContactNode(object):
     def __init__(self):
         self.children = {}
         self.endOfWord = False
+        # Count of words (leaf nodes) starting from this node. It will help to find out the number of words/count starting with some prefix.
+        self.wordsNum = 0
 
     def __str__(self):
         return "Children: {} | {}".format(self.children.keys(), self.endOfWord)
 
 class Trie(object):
     def __init__(self):
-        self.__root__ = _Node()
+        self.__root__ = ContactNode()
 
     # Time complexity: O(length_of_word)
     def insert(self, word):
         cur = self.__root__
         for ch in word:
-            #print ch,
             child = cur.children.get(ch, None)
             if child is None:
-                child = _Node()
+                child = ContactNode()
                 cur.children[ch] = child
+            child.wordsNum += 1
             cur = child
         cur.endOfWord = True
-
-    # Time complexity: O(length_of_word)
-    def __insert_recursive__(self, word, cur, index=0):
-        if index == len(word):
-            cur.endOfWord = True
-            return
-        ch = word[index]
-        child = cur.children.get(ch, None)
-        if child is None:
-            child = _Node()
-            cur.children[ch] = child
-        self.__insert_recursive__(word, child, index=index+1)
-
-    def insert_recursive(self, word):
-        self.__insert_recursive__(word, self.__root__)
 
     # Time complexity: O(length_of_word)
     def search(self, word):
@@ -51,18 +40,14 @@ class Trie(object):
             cur = child
         return cur.endOfWord
 
-    # Time complexity: O(length_of_word)
-    def __search_recursive__(self, word, cur, index=0):
-        if cur is None:
-            return False
-        if index == len(word):
-            return cur.endOfWord
-        ch = word[index]
-        child = cur.children.get(ch, None)
-        return self.__search_recursive__(word, child, index=index+1)
-
-    def search_recursive(self, word):
-        return self.__search_recursive__(word, self.__root__)
+    def prefix_search(self, prefix):
+        cur = self.__root__
+        for ch in prefix:
+            child = cur.children.get(ch, None)
+            if child is None:
+                return 0
+            cur = child
+        return cur.wordsNum
 
     # Time complexity: O(length_of_word)
     def __delete__(self, word, cur, index=0):
@@ -74,9 +59,8 @@ class Trie(object):
 
         ch = word[index]
         child = cur.children.get(ch, None)
-        if child is None:
-            return False                        # word doesn't exist.
-
+        # No need to check if this word exists or not as we've already checked it before calling this method.
+        cur.wordsNum -= 1
         shouldRemove = self.__delete__(word, child, index=index+1)
 
         # Removing node from memory (i.e. parent's `children' dict) if this is the only node remaining in `children1 dict.
@@ -89,7 +73,8 @@ class Trie(object):
         return False
 
     def delete(self, word):
-        self.__delete__(word, self.__root__)
+        if self.search(word):
+            self.__delete__(word, self.__root__)
 
     # TODO
     def update(self, old_word, new_word):
@@ -100,29 +85,14 @@ class Trie(object):
         pass
 
 
-def test():
-    trie = Trie()
-    trie.insert_recursive("abcd")
-    trie.insert_recursive("abef")
-    trie.insert_recursive("pqrs")
-    trie.insert("abpr")
-    trie.insert("pqoj")
-
-    print trie.search("pqrs")
-    print trie.search_recursive("abef")
-
-    "Deleting pqrs", trie.delete("pqrs")
-    print "pqrs is present?", trie.search("pqrs")
-    print "pqoj is present?", trie.search("pqoj")
-
-
 if __name__ == '__main__':
     trie = Trie()
     choices = {
-        1: "Insert",
+        1: "Add contact",
         2: "Search",
-        3: "Delete",
-        4: "Exit"
+        3: "Prefix Search",
+        4: "Delete",
+        5: "Exit"
     }
     choices = '\n'.join(['{}. {}'.format(k,v) for k,v in choices.items()])
 
@@ -134,16 +104,20 @@ if __name__ == '__main__':
             choice = 0
 
         if choice == 1:
-            word = raw_input("Please enter a word/sequence to be inserted - ")
-            trie.insert_recursive(word)
+            word = raw_input("Please enter a contact name to be inserted - ")
+            trie.insert(word)
         elif choice == 2:
-            word = raw_input("Please enter a word/sequence to be searched - ")
+            word = raw_input("Please enter contact name to be searched - ")
             is_present = trie.search(word)
             print "{} is {}present".format(word, "" if is_present else "not ")
         elif choice == 3:
+            prefix = raw_input("Please enter a contact name/prefix to be searched - ")
+            wordsNum = trie.prefix_search(prefix)
+            print "There are {} contact(s) starting with prefix {}".format(wordsNum, prefix)
+        elif choice == 4:
             word = raw_input("Please enter a word/sequence to be deleted - ")
             trie.delete(word)
-        elif choice == 4:
+        elif choice == 5:
             print "Thank you!"
             break
         else:
