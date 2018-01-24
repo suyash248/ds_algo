@@ -67,6 +67,7 @@
 * [Next greater elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreater.py)
 * [Next greatest elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreatest.py)
 * [Checks if number is prime](https://github.com/suyash248/ds_algo/blob/master/Array/isPrime.py)
+* [Leader(s) in array](https://github.com/suyash248/ds_algo/blob/master/Array/leader.py)
 
 ### Dynamic programming
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
