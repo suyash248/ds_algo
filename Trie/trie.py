@@ -173,7 +173,7 @@ if __name__ == '__main__':
     choices = {
         1: "Insert",
         2: "Search",
-        3: "Prefix search",
+        3: "Prefix search(startswith)",
         4: "Delete",
         5: "Exit"
     }
