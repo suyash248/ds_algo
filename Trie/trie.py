@@ -107,16 +107,6 @@ class Trie(object):
 ############################### AUTO-COMPLETE (PREFIX SEARCH) ###############################
 
 
-    def __prefix_search_joint_node__(self, prefix):
-        cur = self.__root__
-        for ch in prefix:
-            child = cur.children.get(ch, None)
-            if child is None:
-                return None
-            cur = child
-        # If we reach here, it means there is at least 1 word starting with `prefix`
-        return cur
-
     def __prefix_search__(self, prefix, joint_node):
         for ch, child_node in joint_node.children.items():
             prefix = prefix + ch
@@ -126,10 +116,14 @@ class Trie(object):
             prefix = prefix[:-1]  # Backtracking
 
     def prefix_search(self, prefix):
-        joint_node = self.__prefix_search_joint_node__(prefix)
-        if joint_node is None:
-            return
-        self.__prefix_search__(prefix, joint_node)
+        cur = self.__root__
+        # Traverse till last character in `prefix`
+        for ch in prefix:
+            child = cur.children.get(ch, None)
+            if child is None:
+                return None
+            cur = child
+        self.__prefix_search__(prefix, cur)
 
 
 ############################### UPDATE ###############################
