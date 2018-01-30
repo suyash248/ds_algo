@@ -1,7 +1,7 @@
 # Data structures & Algorithms (Python/Java)
 
 ## Index
-* Topics
+* [Topics](https://github.com/suyash248/ds_algo#topics)
   * [Tree](https://github.com/suyash248/ds_algo#tree)
   * [Array](https://github.com/suyash248/ds_algo#array)
   * [Dynamic programming](https://github.com/suyash248/ds_algo#dynamic-programming)
@@ -13,6 +13,8 @@
   * [Linked list](https://github.com/suyash248/ds_algo#linked-list)
   * [Misc](https://github.com/suyash248/ds_algo#misc)
 * [How to run?](https://github.com/suyash248/ds_algo#how-to-run)
+
+## Topics
 
 ### Tree
 * [Check if tree is BST](https://github.com/suyash248/ds_algo/blob/master/Tree/isBST.py)
@@ -124,7 +126,7 @@
 * [Time-based Cache with TTL(Like Redis/Aerospike)](https://github.com/suyash248/ds_algo/blob/master/Misc/TimeBasedCache.java)
 * [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
 
-### How to run?
+## How to run?
 1. Move to ```<project-dir>```, create virtual environment and then activate it as
 
 ```sh
