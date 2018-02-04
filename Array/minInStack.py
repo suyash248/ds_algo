@@ -10,7 +10,7 @@ class MinStack(object):
     # Time complexity: O(1)
     def push(self, elt):
         self.__primary_stack__.append(elt)
-        if len(self.__secondary_stack__) == 0 or elt < self.__secondary_stack__[-1]:
+        if len(self.__secondary_stack__) == 0 or elt < self.__secondary_stack__[-1]:    # elt < secondary_stack[top]
             self.__secondary_stack__.append(elt)
 
     # Time complexity: O(1)
@@ -18,7 +18,7 @@ class MinStack(object):
         if len(self.__primary_stack__) == 0:
             raise IndexError("Stack is empty")
         popped_elt = self.__primary_stack__.pop()
-        if popped_elt == self.__secondary_stack__[-1]:
+        if popped_elt == self.__secondary_stack__[-1]:      # elt == secondary_stack[top]
             self.__secondary_stack__.pop()
         return popped_elt
 
