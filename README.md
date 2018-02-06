@@ -72,6 +72,7 @@
 * [Leader(s) in array](https://github.com/suyash248/ds_algo/blob/master/Array/leader.py)
 * [Majority element - Moore's voting algorithm](https://github.com/suyash248/ds_algo/blob/master/Array/majorityElement.py)
 * [Minimum from Stack in constant O(1) time](https://github.com/suyash248/ds_algo/blob/master/Array/minInStack.py)
+* [Minimum steps to reach a destination](https://github.com/suyash248/ds_algo/blob/master/Array/minMovesToTarget.py)
 
 ### Dynamic programming
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
