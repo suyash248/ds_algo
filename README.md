@@ -130,6 +130,7 @@
 * [Custom thread pool](https://github.com/suyash248/ds_algo/blob/master/Misc/CustomThreadPool.java)
 * [Time-based Cache with TTL(Like Redis/Aerospike)](https://github.com/suyash248/ds_algo/blob/master/Misc/TimeBasedCache.java)
 * [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
+* [Battleship game](https://github.com/suyash248/ds_algo/blob/master/Misc/battleshipGame/src)
 
 ## How to run?
 1. Move to ```<project-dir>```, create virtual environment and then activate it as
