@@ -26,6 +26,20 @@ def pair_with_sum_v1(root, sum, parent=None):
         found = pair_with_sum_v1(root.left, sum, root) or pair_with_sum_v1(root.right, sum, root)
     return found
 
+def pairs_with_sum_v1(root, sum, parent=None, pairs=[]):
+    if root is None:
+        return False
+    parent = parent or root
+    remaining = abs(sum - root.key)
+
+    # If we don't use parent, we won't be able to find a pair if both elements of pair are at same level.
+    found = find(parent, remaining)
+    if found:
+        pair = (root.key, found.key)
+        pairs.append(pair)
+    pairs_with_sum_v1(root.left, sum, parent=root, pairs=pairs) or pairs_with_sum_v1(root.right, sum, parent=root, pairs=pairs)
+
+
 def inorder(root, inorder_traversal=[]):
     if root:
         inorder(root.left, inorder_traversal)
@@ -34,7 +48,7 @@ def inorder(root, inorder_traversal=[]):
 
 # Time complexity: O(n)
 # Space complexity: O(n)
-def pair_with_sum_v2(root, sum):
+def pairs_with_sum_v2(root, sum):
     from Array.pairsWithSumInSortedArray import find_pair
     inorder_traversal = []
     inorder(root, inorder_traversal)
@@ -60,8 +74,16 @@ if __name__ == "__main__":
     insert(root, 90)
 
     sum = 80
+
+    print("\n --------------------------- Using V1 ---------------------------\n")
     pair = pair_with_sum_v1(root, sum)
     print("Pair with sum = {} is {}".format(sum, "present: " + str(pair) if pair else "not present"))
 
-    pair = pair_with_sum_v2(root, sum)
-    print("Pair with sum = {} is {}".format(sum, "present: " + str(pair) if pair else "not present"))
+    print("\n --------------------------- Using V1 ---------------------------\n")
+    pairs = []
+    pairs_with_sum_v1(root, sum, pairs=pairs)
+    print("Pairs with sum = {} are {}".format(sum, "present: " + str(pairs) if pair else "not present"))
+
+    print("\n --------------------------- Using V2 ---------------------------\n")
+    pairs = pairs_with_sum_v2(root, sum)
+    print("Pairs with sum = {} are {}".format(sum, "present: " + str(pairs) if pairs else "not present"))
