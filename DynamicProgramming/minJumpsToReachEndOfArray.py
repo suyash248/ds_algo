@@ -2,6 +2,7 @@ from Array import empty_1d_array, MAX
 
 
 # Time complexity: O(n^2)
+# https://www.youtube.com/watch?v=jH_5ypQggWg
 def min_jumps(arr):
     n = len(arr)
     path = set()
