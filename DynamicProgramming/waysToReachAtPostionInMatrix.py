@@ -10,6 +10,7 @@ from Array import empty_2d_array
 ]
 
 """
+# https://www.youtube.com/watch?v=Z9XWbqxyn3E
 def ways_to_reach_position(rows, cols, position=(0, 0)):
     table = empty_2d_array(rows, cols, fill_default=0)
 
