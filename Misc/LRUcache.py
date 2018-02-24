@@ -25,7 +25,7 @@ class CustomDLL(object):
         :param elt:
         :return:
         """
-        node = Node(data=elt, prev=self.__tail__)
+        node = Node(data=elt, prev=self.__tail__    )
 
         # First node
         if self.__count__ == 0:

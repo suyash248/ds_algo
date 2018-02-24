@@ -67,6 +67,7 @@
 * [Find zeroes to be flipped so that number of consecutive 1’s is maximized](https://github.com/suyash248/ds_algo/blob/master/Array/flipZeroesMaximizeOnes.py)
 * [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allCombinations.py)
 * [All permutations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allPermutations.py)
+* [Predecessor in sorted array](https://github.com/suyash248/ds_algo/blob/master/Array/predecessorInSortedArray.py)
 * [Next greater elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreater.py)
 * [Next greatest elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreatest.py)
 * [Checks if number is prime](https://github.com/suyash248/ds_algo/blob/master/Array/isPrime.py)

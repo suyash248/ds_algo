@@ -3,7 +3,8 @@ def gcd(a, b):
         return a
     return gcd(b, a%b)
 
-# O(n)
+# Time complexity: O(n)
+# Juggling algorithm: https://www.geeksforgeeks.org/array-rotation/
 def left_rotate_v1(arr, d):
     n = len(arr)
     g = gcd(n, d)
@@ -21,7 +22,8 @@ def left_rotate_v1(arr, d):
             j = k
         arr[j] = temp
 
-#O(n)
+# Time complexity: O(n)
+# Reversal algorithm: https://www.geeksforgeeks.org/program-for-array-rotation-continued-reversal-algorithm/
 def left_rotate_v2(arr, d):
     """
     Algorithm -
@@ -41,7 +43,8 @@ def left_rotate_v2(arr, d):
     reverse_arr(arr, d, n-1)
     reverse_arr(arr, 0, n-1)
 
-# O(nd)
+# Time complexity: O(nd)
+# Rotate one-by-one: https://www.geeksforgeeks.org/array-rotation/
 def left_rotate_v3(arr, d):
     from Array import swap
     n = len(arr)
