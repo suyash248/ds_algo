@@ -14,6 +14,18 @@ class Node(object):
         return "{prev_data} <- {data} -> {next_data}".format(prev_data=prev_data, next_data=next_data, data=self.data)
 
 class CustomDLL(object):
+    """
+    This class represents a custom DLL wherein insert, delete, search operations can be performed in O(1) i.e. constant
+    time. Elements are also copied to `hashtable(dict)` which helps in searching the element(s) in constant time.
+    Each entry in `hashtable(dict)` stores  `element_data: Node() reference` key-value pair.
+
+        * Insert - Element is inserted at the tail/end. Also copy the element to `hashtable(dict)`.
+        * Search - Element is searched in `hashtable(dict)` and corresponding `Node` reference is returned.
+        * Insert - Element is searched in `hashtable(dict)` and deleted from `hashtable(dict)` as well as from DLL.
+
+    | Time complexity: O(1)
+    | Space complexity: O(n)
+    """
     __count__ = 0
     __head__ = __tail__ = None
     __hm__ = {}

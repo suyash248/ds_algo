@@ -31,6 +31,21 @@ def is_subset_sum(arr, n, half_sum):
     return is_subset_sum(arr, n-1, half_sum) or is_subset_sum(arr, n-1, half_sum-arr[n-1])
 
 
+"""
+[
+    [ T, T, T, T, T, T, T, T ]
+    [ F, F, T, T, T, T, T, T ]
+    [ F, F, F, T, T, T, T, T ]
+    [ F, T, T, T, T, T, T, T ]
+    [ F, F, T, T, T, T, T, T ]
+    [ F, F, F, T, T, T, T, T ]
+    [ F, F, F, F, T, T, T, T ]
+    [ F, F, F, F, T, T, T, T ]
+    [ F, F, F, F, F, T, T, T ]
+    [ F, F, F, F, F, T, T, T ]
+]
+
+"""
 # table[i][j] = table[i][j-1] or table[i - arr[k-1]][j-1]
 # https://upload.wikimedia.org/wikipedia/commons/1/10/Partition_Prob_DP_table_example.jpg
 def is_subset_sum_dp(arr, n, half_sum):
