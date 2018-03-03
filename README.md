@@ -71,6 +71,8 @@
 * [Next greater elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreater.py)
 * [Next greatest elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreatest.py)
 * [Checks if number is prime](https://github.com/suyash248/ds_algo/blob/master/Array/isPrime.py)
+* [Fibonacci Series](https://github.com/suyash248/ds_algo/blob/master/Array/fibonacci.py)
+* [Factorial of a number](https://github.com/suyash248/ds_algo/blob/master/Array/factorial.py)
 * [Leader(s) in array](https://github.com/suyash248/ds_algo/blob/master/Array/leader.py)
 * [Majority element - Moore's voting algorithm](https://github.com/suyash248/ds_algo/blob/master/Array/majorityElement.py)
 * [Minimum from Stack in constant O(1) time](https://github.com/suyash248/ds_algo/blob/master/Array/minInStack.py)
