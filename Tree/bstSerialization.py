@@ -1,6 +1,10 @@
 from commons.commons import insert, Node, print_tree
+from Array import MAX, MIN
 
 class BSTSerialization(object):
+
+    def __init__(self):
+        self.index = 0
 
     # Time complexity: O(n)
     def __preorder__(self, root, serialized_tree=[]):
@@ -42,9 +46,38 @@ class BSTSerialization(object):
 
         return root
 
+    # Time complexity: O(n)
+    def deserialize_v2(self, serialized_tree):
+        self.index = 0
+        root = self.__deserialize_v2__(serialized_tree)
+        return root
 
+    # Time complexity: O(n)
+    def __deserialize_v2__(self, serialized_tree, min=MIN, max=MAX):
+        if self.index >= len(serialized_tree):
+            return None
+
+        root = None
+        if serialized_tree[self.index] > min and serialized_tree[self.index] < max:
+            curr_elt = serialized_tree[self.index]
+            self.index += 1
+            root = Node(curr_elt)
+            root.left = self.__deserialize_v2__(serialized_tree, min, curr_elt)
+            root.right = self.__deserialize_v2__(serialized_tree, curr_elt, max)
+        return root
 
 if __name__ == '__main__':
+    """
+            5
+        /       \
+       2         7
+    /    \     /   \
+   1      3   6     8
+            \
+             4
+    
+    Pre-order: [5, 2, 1, 3, 4, 7, 6, 8]
+    """
     root = Node(5,
                 left=Node(2,
                           left=Node(1),
@@ -67,7 +100,7 @@ if __name__ == '__main__':
     print "Serialized Tree (Preorder) -", serialized_tree
 
     print "\n************* DE-SERIALIZATION *************\n"
-    deserialized_tree_root = obj.deserialize_v1(serialized_tree)
+    deserialized_tree_root = obj.deserialize_v2(serialized_tree)
 
     print "\nOutput Tree - \n"
     print_tree(deserialized_tree_root)
