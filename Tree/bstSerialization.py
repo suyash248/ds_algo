@@ -18,12 +18,12 @@ class BSTSerializationV1(object):
         return root
 
     def partition(self, key, serialized_tree, start, end):
-        p_index = -1
+        p_index = end + 1
         for i in range(start, end+1):
             if serialized_tree[i] > key:
                 p_index = i
                 break
-        # If p_index is -1 then it means, left partition(left subtree) will be null. root will have right-subtree only.
+        # If p_index is (end+1) then it means, left partition(left subtree) will be null. root will have right-subtree only.
         return p_index
 
     # Time complexity: O(n^2)
@@ -33,14 +33,8 @@ class BSTSerializationV1(object):
         root = Node(serialized_tree[start])
         p_index = self.partition(root.key, serialized_tree, start+1, end)
 
-        if p_index >= 0:
-            # p_index is +ve, Left sub-tree: (start+1 to p_index-1(. Right sub-tree: (start+1 to end).
-            root.left = self.__deserialize__(serialized_tree, start+1, p_index-1)
-            root.right = self.__deserialize__(serialized_tree, p_index, end)
-        else:
-            # p_index is -ve, it indicates that left-subtree is null. Right sub-tree: (start+1 to end)
-            root.left = None
-            root.right = self.__deserialize__(serialized_tree, start+1, end)
+        root.left = self.__deserialize__(serialized_tree, start + 1, p_index - 1)
+        root.right = self.__deserialize__(serialized_tree, p_index, end)
 
         return root
 
