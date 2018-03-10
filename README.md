@@ -17,7 +17,7 @@
 ## Topics
 
 ### Tree
-* [Serialization - Binary Tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeSerialization.py)
+* [Serialization & Deserialization - Binary Tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeSerialization.py)
 * [Check if tree is BST](https://github.com/suyash248/ds_algo/blob/master/Tree/isBST.py)
 * [Path(s) from root to leaves](https://github.com/suyash248/ds_algo/blob/master/Tree/allPathsRootToLeaves.py)
 * [Convert a unbalanced BST to balanced BST](https://github.com/suyash248/ds_algo/blob/master/Tree/balanceBST.py)
