@@ -1,22 +1,21 @@
 from commons.commons import insert, Node, print_tree
 
-class BSTSerializationV1(object):
+class BSTSerialization(object):
 
+    # Time complexity: O(n)
     def __preorder__(self, root, serialized_tree=[]):
         if root is not None:
             serialized_tree.append(root.key)
             self.__preorder__(root.left, serialized_tree)
             self.__preorder__(root.right, serialized_tree)
 
+    # Time complexity: O(n)
     def serialize(self, root):
         serialized_tree = []
         self.__preorder__(root, serialized_tree)
         return serialized_tree
 
-    def deserialize(self, serialized_tree):
-        root = self.__deserialize__(serialized_tree, 0, len(serialized_tree)-1)
-        return root
-
+    # Time complexity: O(n)
     def partition(self, key, serialized_tree, start, end):
         p_index = end + 1
         for i in range(start, end+1):
@@ -27,16 +26,22 @@ class BSTSerializationV1(object):
         return p_index
 
     # Time complexity: O(n^2)
-    def __deserialize__(self, serialized_tree, start, end):
+    def deserialize_v1(self, serialized_tree):
+        root = self.__deserialize_v1__(serialized_tree, 0, len(serialized_tree)-1)
+        return root
+
+    # Time complexity: O(n^2)
+    def __deserialize_v1__(self, serialized_tree, start, end):
         if end < start:
             return None
         root = Node(serialized_tree[start])
         p_index = self.partition(root.key, serialized_tree, start+1, end)
 
-        root.left = self.__deserialize__(serialized_tree, start + 1, p_index - 1)
-        root.right = self.__deserialize__(serialized_tree, p_index, end)
+        root.left = self.__deserialize_v1__(serialized_tree, start + 1, p_index - 1)
+        root.right = self.__deserialize_v1__(serialized_tree, p_index, end)
 
         return root
+
 
 
 if __name__ == '__main__':
@@ -57,12 +62,12 @@ if __name__ == '__main__':
     print_tree(root)
 
     print "\n************* SERIALIZATION *************\n"
-    obj = BSTSerializationV1()
+    obj = BSTSerialization()
     serialized_tree = obj.serialize(root)
     print "Serialized Tree (Preorder) -", serialized_tree
 
     print "\n************* DE-SERIALIZATION *************\n"
-    deserialized_tree_root = obj.deserialize(serialized_tree)
+    deserialized_tree_root = obj.deserialize_v1(serialized_tree)
 
     print "\nOutput Tree - \n"
     print_tree(deserialized_tree_root)
