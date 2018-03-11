@@ -85,3 +85,5 @@ if __name__ == '__main__':
     print "x_arr", x_arr
     print "y_arr", y_arr
     print "Median: ", median
+
+# Reference: https://www.youtube.com/watch?v=LPFhl65R7ww
