@@ -80,6 +80,7 @@
 * [Minimum from Stack in constant O(1) time](https://github.com/suyash248/ds_algo/blob/master/Array/minInStack.py)
 * [Minimum steps to reach a target](https://github.com/suyash248/ds_algo/blob/master/Array/minMovesToTarget.py)
 * [Stock-Span problem](https://github.com/suyash248/ds_algo/blob/master/Array/stockSpanProblem.py)
+* [Median of two sorted arrays](https://github.com/suyash248/ds_algo/blob/master/Array/medianOfSortedArrays.py)
 
 ### Dynamic programming
 * [To find out the number of BSTs can be formed with 'n' sorted elements/keys](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/numberOfTrees.py)
