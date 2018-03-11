@@ -98,8 +98,8 @@
 * [Super-Ugly numbers](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/superUglyNumbers.py)
 
 ### Backtracking
-* [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allCombinations.py)
-* [All permutations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allPermutations.py)
+* [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Backtracking/allCombinations.py)
+* [All permutations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Backtracking/allPermutations.py)
 
 ### Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
