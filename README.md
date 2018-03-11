@@ -7,6 +7,7 @@
   * [Dynamic programming](https://github.com/suyash248/ds_algo#dynamic-programming)
   * [Searching](https://github.com/suyash248/ds_algo#searching)
   * [Sorting](https://github.com/suyash248/ds_algo#sorting)
+  * [Backtracking](https://github.com/suyash248/ds_algo#backtracking)
   * [Heap](https://github.com/suyash248/ds_algo#heap)
   * [Trie](https://github.com/suyash248/ds_algo#trie)
   * [Queue](https://github.com/suyash248/ds_algo#queue)
@@ -67,8 +68,6 @@
 * [Find element in row-wise & col-wise sorted matrix](https://github.com/suyash248/ds_algo/blob/master/Array/searchInSortedMatrix.py)
 * [Given prices in increasing order of time, buy, sell & maximize profit](https://github.com/suyash248/ds_algo/blob/master/Array/maximizeProfit.py)
 * [Find zeroes to be flipped so that number of consecutive 1’s is maximized](https://github.com/suyash248/ds_algo/blob/master/Array/flipZeroesMaximizeOnes.py)
-* [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allCombinations.py)
-* [All permutations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allPermutations.py)
 * [Predecessor in sorted array](https://github.com/suyash248/ds_algo/blob/master/Array/predecessorInSortedArray.py)
 * [Next greater elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreater.py)
 * [Next greatest elements](https://github.com/suyash248/ds_algo/blob/master/Array/nextGreatest.py)
@@ -97,6 +96,10 @@
 * [Number of ways to reach some position in matrix(moves: right, bottom)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/waysToReachAtPostionInMatrix.py)
 * [Ugly numbers](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/uglyNumbers.py)
 * [Super-Ugly numbers](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/superUglyNumbers.py)
+
+### Backtracking
+* [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allCombinations.py)
+* [All permutations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Array/allPermutations.py)
 
 ### Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
