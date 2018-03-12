@@ -1,23 +1,19 @@
 from Array import empty_2d_array
 
-"""
-0 0 0 0
-0 0 0 0
-0 0 0 0
-0 0 0 0
-"""
-
 def is_safe(board, n, row, col):
+    # Same row, upper cols (vertical)
     for r in range(0, row):
         if board[r][col] == 1:
             return False
 
+    # Left diagonal
     r = row; c = col
     while r >= 0 and c >= 0:
         if board[r][c] == 1:
             return False
         r -= 1; c-= 1
 
+    # Right diagonal
     r = row; c = col
     while r < n and c >= 0:
         if board[r][c] == 1:
@@ -31,8 +27,8 @@ def is_safe(board, n, row, col):
     [0, 1, 0, 0], 
     [0, 0, 0, 1], 
     [1, 0, 0, 0], 
-    [0, 0, 1, 0]]
-
+    [0, 0, 1, 0]
+]
 """
 def place_queens(board, n, row=0):
     if row >= n:

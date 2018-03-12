@@ -100,6 +100,7 @@
 ### Backtracking
 * [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Backtracking/allCombinations.py)
 * [All permutations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Backtracking/allPermutations.py)
+* [N-Queens problem](https://github.com/suyash248/ds_algo/blob/master/Backtracking/nQueensProblem.py)
 
 ### Searching
 * [Binary search](https://github.com/suyash248/ds_algo/blob/master/BinarySearch/BinarySearch.java)
