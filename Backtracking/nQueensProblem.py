@@ -30,18 +30,18 @@ def is_safe(board, n, row, col):
     [0, 0, 1, 0]
 ]
 """
-def place_queens(board, n, row=0):
+def place_queens_v1(board, n, row=0):
     if row >= n:
         return True
     for col in range(0, n):
         if is_safe(board, n, row, col):
             board[row][col] = 1
-            if place_queens(board, n, row + 1):
+            if place_queens_v1(board, n, row + 1):
                 return True
-            board[row][col] = 0
+            board[row][col] = 0     # Backtracking
 
 if __name__ == '__main__':
     n = 4
     board = empty_2d_array(n, n, fill_default=0)
-    place_queens(board, n)
+    place_queens_v1(board, n)
     print board
