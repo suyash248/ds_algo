@@ -96,6 +96,7 @@
 * [Number of ways to reach some position in matrix(moves: right, bottom)](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/waysToReachAtPostionInMatrix.py)
 * [Ugly numbers](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/uglyNumbers.py)
 * [Super-Ugly numbers](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/superUglyNumbers.py)
+* [Weighted-job-scheduling](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/weightedJobScheduling.py)
 
 ### Backtracking
 * [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Backtracking/allCombinations.py)
