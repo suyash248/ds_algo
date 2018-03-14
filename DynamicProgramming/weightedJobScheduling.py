@@ -1,5 +1,7 @@
 from Array import empty_1d_array
 
+# https://www.youtube.com/watch?v=AxQjrWiOdkE&index=3&list=PLeIMaH7i8JDjMEB-b2I8NGcKMFZc85djW
+# Time complexity: O(n^2)
 def schedule_jobs(job_durations_profits):
     profits = [e[2] for e in job_durations_profits]
     # For every `i`, `j` will go up to `i`(excluding).
@@ -27,6 +29,10 @@ def sort_by_end_time(e1, e2):
     elif end_time1 < end_time2:
         return -1
     return 0
+
+# TODO - Use binary search
+def schedule_jobs_v2():
+    pass
 
 if __name__ == '__main__':
     job_durations_profits = [(1, 4, 3), (4, 7, 2), (2, 6, 5), (7, 10, 8), (6, 8, 6), (5, 9, 4)] # start, end, profit
