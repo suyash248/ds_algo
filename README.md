@@ -97,6 +97,7 @@
 * [Ugly numbers](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/uglyNumbers.py)
 * [Super-Ugly numbers](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/superUglyNumbers.py)
 * [Weighted-job-scheduling](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/weightedJobScheduling.py)
+* [Minimum Number of Platforms Required for a Railway/Bus Station](https://github.com/suyash248/ds_algo/blob/master/DynamicProgramming/accomodateTrainsWithMinPlatforms.py)
 
 ### Backtracking
 * [All combinations of input sequence](https://github.com/suyash248/ds_algo/blob/master/Backtracking/allCombinations.py)
