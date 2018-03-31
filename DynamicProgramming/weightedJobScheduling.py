@@ -30,10 +30,6 @@ def sort_by_end_time(e1, e2):
         return -1
     return 0
 
-# TODO - Use binary search
-def schedule_jobs_v2():
-    pass
-
 if __name__ == '__main__':
     job_durations_profits = [(1, 4, 3), (4, 7, 2), (2, 6, 5), (7, 10, 8), (6, 8, 6), (5, 9, 4)] # start, end, profit
     job_durations_profits.sort(cmp=sort_by_end_time)
