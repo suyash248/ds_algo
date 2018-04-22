@@ -108,7 +108,8 @@ class Adder(object):
         print None
 
 
-def create_linked_list(data=[]):
+def create_linked_list(data=None):
+    if data is None: return None
     head = prev = Node(data[0])
     for elt in data[1:]:
         cur = Node(elt)
