@@ -79,6 +79,15 @@ class Adder(object):
         return self.__sum__, self.result_head
 
     def __propagate_carry__(self, head, sublist_head):
+        """
+        This function is called after the smaller list is added to the bigger lists's sublist of same size.
+        Once the right sublist is added, the carry must be added to the left side of larger list to get the
+        final result.
+
+        :param head:
+        :param sublist_head:
+        :return:
+        """
         if sublist_head != head:
             self.__propagate_carry__(head.next, sublist_head)
             cur_sum = self.__carry__ + head.data
