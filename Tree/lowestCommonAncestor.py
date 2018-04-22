@@ -36,7 +36,7 @@ def lca_v2(root, key1, key2):
         lca_found = True
         return root # This is LCA
 
-    return lpath if lpath is not None else rpath
+    return lpath or rpath
 
 # Driver program to test above function
 if __name__ == "__main__":
