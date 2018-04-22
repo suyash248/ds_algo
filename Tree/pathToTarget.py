@@ -1,38 +1,39 @@
 from commons.commons import insert, print_tree, is_leaf
 
 # Time complexity: O(n)
-def path_to_target_util_v1(root, target_key):
+def path_to_target_util_v1(root, target_key, path=[]):
     if root == None:
         return False
     if root.key == target_key:
-        path_to_target_v1.path.append(root.key)
+        path.append(root.key)
         return True
-    lpath = path_to_target_util_v1(root.left, target_key)
-    rpath = path_to_target_util_v1(root.right, target_key)
+    lpath = path_to_target_util_v1(root.left, target_key, path)
+    rpath = path_to_target_util_v1(root.right, target_key, path)
     if lpath or rpath:
-        path_to_target_v1.path.append(root.key)
+        path.append(root.key)
 
     return lpath or rpath
 
 
 def path_to_target_v1(root, target_key):
-    path_to_target_util_v1(root, target_key)
-    return path_to_target_v1.path[::-1]
+    path = []
+    path_to_target_util_v1(root, target_key, path)
+    return path[::-1]
 
 
 # Time complexity: O(log(n))
-def path_to_target_v2(root, target_key):
+def path_to_target_v2(root, target_key, path=[]):
     if root == None:
         return False
 
-    path_to_target_v2.path.append(root.key)
+    path.append(root.key)
 
     if root.key == target_key:
         return True
     elif target_key < root.key:
-        return path_to_target_v2(root.left, target_key)
+        return path_to_target_v2(root.left, target_key, path)
     elif target_key > root.key:
-        return path_to_target_v2(root.right, target_key)
+        return path_to_target_v2(root.right, target_key, path)
 
 # Driver program to test above function
 if __name__ == "__main__":
@@ -60,21 +61,20 @@ if __name__ == "__main__":
 
     print "\n----------------- USING V1 -----------------\n"
 
-    path_to_target_v1.path = []
-    path_to_target_v1(root, target)
-    if len(path_to_target_v1.path) > 0:
+    path = path_to_target_v1(root, target)
+    if len(path) > 0:
         print "Path from root {root} to node {target} is - {path}"\
-            .format(root=root.key, target=target, path=path_to_target_v1.path[::-1])
+            .format(root=root.key, target=target, path=path)
     else:
         print "Target key {target} not found".format(target=target)
 
     print "\n----------------- USING V2 -----------------\n"
 
-    path_to_target_v2.path = []
-    is_path_exists = path_to_target_v2(root, target)
+    path = []
+    is_path_exists = path_to_target_v2(root, target, path)
     if is_path_exists:
         print "Path from root {root} to node {target} is - {path}"\
-            .format(root=root.key, target=target, path=path_to_target_v2.path)
+            .format(root=root.key, target=target, path=path)
     else:
         print "Target key {target} not found".format(target=target)
 
