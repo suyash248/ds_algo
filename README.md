@@ -18,6 +18,7 @@
 ## Topics
 
 ### Tree
+* [BST - CRUD, min-max, height etc.](https://github.com/suyash248/ds_algo/blob/master/Tree/BST_Java/BinarySearchTree.java)
 * [Serialization & Deserialization - Binary Tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeSerialization.py)
 * [Serialization & Deserialization - Binary Search Tree](https://github.com/suyash248/ds_algo/blob/master/Tree/bstSerialization.py)
 * [Check if tree is BST](https://github.com/suyash248/ds_algo/blob/master/Tree/isBST.py)
@@ -46,7 +47,6 @@
 * [Height of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeHeight.py)
 * [Print diagonals of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/printDiagonals.py)
 * [Diagonal sum of a binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/sumDiagonals.py)
-* [BST - CRUD, min-max, height etc.](https://github.com/suyash248/ds_algo/blob/master/Tree/BST_Java/BinarySearchTree.java)
 * [Segment Tree](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree)
   * [Min-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/minRangeSegmentTree.py)
   * [Sum-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/sumRangeSegmentTree.py)
