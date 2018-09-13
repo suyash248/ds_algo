@@ -1,4 +1,4 @@
-from commons.commons import insert
+from Tree.commons import insert
 
 def distance_between_nodes(root, key1, key2):
     """
@@ -9,8 +9,8 @@ def distance_between_nodes(root, key1, key2):
     :param key2:
     :return:
     """
-    from distanceFromRoot import distance_from_root_v1
-    from lowestCommonAncestor import lca_v2
+    from Tree.distanceFromRoot import distance_from_root_v1
+    from Tree.lowestCommonAncestor import lca_v2
     d1 = distance_from_root_v1(root, key1)
     d2 = distance_from_root_v1(root, key1)
     lca = lca_v2(root, key1, key2)
@@ -43,4 +43,4 @@ if __name__ == "__main__":
 
     key1= 60; key2 = 30
     d = distance_between_nodes(root, key1, key2)
-    print "Distance between {key1} & {key2} is {d}".format(key1=key1, key2=key2, d=d)
+    print("Distance between {key1} & {key2} is {d}".format(key1=key1, key2=key2, d=d))

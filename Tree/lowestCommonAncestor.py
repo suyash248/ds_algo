@@ -1,12 +1,12 @@
-from commons.commons import insert, print_tree, is_leaf
+from Tree.commons import insert, print_tree, is_leaf
 
 def lca_v1(root, key1, key2):
-    from pathToTarget import path_to_target_v1
+    from Tree.pathToTarget import path_to_target_v1
     path_to_key1 = path_to_target_v1(root, key1)
     path_to_key2 = path_to_target_v1(root, key2)
 
-    print "Path to {key1} - {path}".format(key1=key1, path=path_to_key1)
-    print "Path to {key2} - {path}".format(key2=key2, path=path_to_key2)
+    print ("Path to {key1} - {path}".format(key1=key1, path=path_to_key1))
+    print ("Path to {key2} - {path}".format(key2=key2, path=path_to_key2))
 
     i = 0; lca = None
     try:
@@ -62,10 +62,10 @@ if __name__ == "__main__":
 
     key1 = 40; key2 = 15
 
-    print "\n----- Using V1 -----\n"
-    print "LCA of {key1} & {key2} is {lca}".format(key1=key1, key2=key2, lca=lca_v1(root, key1, key2))
+    print ("\n----- Using V1 -----\n")
+    print ("LCA of {key1} & {key2} is {lca}".format(key1=key1, key2=key2, lca=lca_v1(root, key1, key2)))
 
-    print "\n----- Using V2 -----\n"
+    print ("\n----- Using V2 -----\n")
     lca_node = lca_v2(root, key1, key2)
     lca = lca_node.key if lca_found else None
-    print "LCA of {key1} & {key2} is {lca}".format(key1=key1, key2=key2, lca=lca)
+    print ("LCA of {key1} & {key2} is {lca}".format(key1=key1, key2=key2, lca=lca))

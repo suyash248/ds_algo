@@ -1,4 +1,4 @@
-from commons.commons import insert, print_tree, is_leaf
+from Tree.commons import insert, print_tree, is_leaf
 
 # This function finds predecessor and successor of key in BST
 # It sets pre and suc as predecessor and successor respectively
@@ -59,8 +59,8 @@ if __name__ == "__main__":
             50
          /		\
         30		70
-        / 	\   / 	\
-        20 	40	60 	80
+       /  \    /   \
+     20   40  60 	80
     """
     root = None
     root = insert(root, 50)
@@ -74,6 +74,6 @@ if __name__ == "__main__":
     findPreSuc.pre = findPreSuc.suc = None
     key = 30
     findPreSuc(root, key)
-    print "Predecessor of {key} is {pre}, and Successor of {key} is {suc}".format(key=key,
+    print ("Predecessor of {key} is {pre}, and Successor of {key} is {suc}".format(key=key,
           pre=findPreSuc.pre.key,
-          suc=findPreSuc.suc.key)
+          suc=findPreSuc.suc.key))

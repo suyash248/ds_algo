@@ -1,4 +1,4 @@
-from commons.commons import Node, print_tree
+from Tree.commons import Node, print_tree
 
 def build_bst(arr, start, end):
     if start > end:

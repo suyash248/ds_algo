@@ -1,4 +1,4 @@
-from commons.commons import insert, Node, print_tree
+from Tree.commons import insert, Node, print_tree
 from Array import MAX, MIN
 
 class BSTSerialization(object):
@@ -91,16 +91,16 @@ if __name__ == '__main__':
                 )
             )
 
-    print "\nInput Tree - \n"
+    print("\nInput Tree - \n")
     print_tree(root)
 
-    print "\n************* SERIALIZATION *************\n"
+    print("\n************* SERIALIZATION *************\n")
     obj = BSTSerialization()
     serialized_tree = obj.serialize(root)
-    print "Serialized Tree (Preorder) -", serialized_tree
+    print("Serialized Tree (Preorder) -", serialized_tree)
 
-    print "\n************* DE-SERIALIZATION *************\n"
+    print("\n************* DE-SERIALIZATION *************\n")
     deserialized_tree_root = obj.deserialize_v2(serialized_tree)
 
-    print "\nOutput Tree - \n"
+    print("\nOutput Tree - \n")
     print_tree(deserialized_tree_root)

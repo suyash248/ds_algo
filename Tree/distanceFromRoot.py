@@ -1,4 +1,4 @@
-from commons.commons import insert
+from Tree.commons import insert
 
 def distance_from_root_v1(root, key, distance=0):
     """
@@ -20,7 +20,6 @@ def distance_from_root_v1(root, key, distance=0):
 
 def distance_from_root_v2(root, key, level=0):
     """
-    Distance from root is same as the level at which key is present.
     :param root:
     :param key:
     :param level:
@@ -76,15 +75,15 @@ if __name__ == "__main__":
     insert(root, 60)
     insert(root, 80)
 
-    print "\n---- Using V1 ----\n"
+    print("\n---- Using V1 ----\n")
     key = 25
     distance = distance_from_root_v1(root, key)
-    print "Distance from root({root}) to {key} is {distance}".format(root=root.key, key=key, distance=distance)
+    print("Distance from root({root}) to {key} is {distance}".format(root=root.key, key=key, distance=distance))
 
-    print "\n---- Using V2 ----\n"
+    print("\n---- Using V2 ----\n")
     distance_v2 = distance_from_root_v2(root, key, level=0)
-    print "Distance from root({root}) to {key} is {distance}".format(root=root.key, key=key, distance=distance_v2)
+    print("Distance from root({root}) to {key} is {distance}".format(root=root.key, key=key, distance=distance_v2))
 
-    print "\n---- Using V3 ----\n"
+    print("\n---- Using V3 ----\n")
     distance_v3 = distance_from_root_v3(root, key)
-    print "Distance from root({root}) to {key} is {distance}".format(root=root.key, key=key, distance=distance_v3)
+    print("Distance from root({root}) to {key} is {distance}".format(root=root.key, key=key, distance=distance_v3))

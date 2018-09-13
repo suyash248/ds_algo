@@ -1,4 +1,4 @@
-from commons.commons import insert, print_tree, is_leaf
+from Tree.commons import insert, print_tree, is_leaf
 
 # Time complexity: O(n)
 def path_to_target_util_v1(root, target_key, path=[]):
@@ -59,22 +59,22 @@ if __name__ == "__main__":
 
     target = 40
 
-    print "\n----------------- USING V1 -----------------\n"
+    print ("\n----------------- USING V1 -----------------\n")
 
     path = path_to_target_v1(root, target)
     if len(path) > 0:
-        print "Path from root {root} to node {target} is - {path}"\
-            .format(root=root.key, target=target, path=path)
+        print ("Path from root {root} to node {target} is - {path}"\
+            .format(root=root.key, target=target, path=path))
     else:
-        print "Target key {target} not found".format(target=target)
+        print ("Target key {target} not found".format(target=target))
 
-    print "\n----------------- USING V2 -----------------\n"
+    print ("\n----------------- USING V2 -----------------\n")
 
     path = []
     is_path_exists = path_to_target_v2(root, target, path)
     if is_path_exists:
-        print "Path from root {root} to node {target} is - {path}"\
-            .format(root=root.key, target=target, path=path)
+        print ("Path from root {root} to node {target} is - {path}"\
+            .format(root=root.key, target=target, path=path))
     else:
-        print "Target key {target} not found".format(target=target)
+        print ("Target key {target} not found".format(target=target))
 

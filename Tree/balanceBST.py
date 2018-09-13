@@ -1,6 +1,5 @@
-from commons.commons import Node, print_tree, insert
-from buildBSTFromSortedArray import build_bst
-#from traversals import inorder
+from Tree.commons import Node, print_tree, insert
+from Tree.buildBSTFromSortedArray import build_bst
 
 def balance_tree(root):
     inorder_arr = []
@@ -32,10 +31,10 @@ if __name__ == "__main__":
     insert(root, 80)
     insert(root, 90)
 
-    print "\n ---- Unbalanced BST ----\n"
+    print ("\n ---- Unbalanced BST ----\n")
     print_tree(root)
 
-    print "\n ---- Balanced BST ----\n"
+    print ("\n ---- Balanced BST ----\n")
 
     balanced_root = balance_tree(root)
     print_tree(balanced_root)
