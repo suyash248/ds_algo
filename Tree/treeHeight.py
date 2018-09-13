@@ -1,4 +1,4 @@
-from commons.commons import insert, print_tree, is_leaf
+from Tree.commons import insert, print_tree, is_leaf
 
 def calculate_height(root):
     if root == None:
@@ -28,4 +28,4 @@ if __name__ == "__main__":
     insert(root, 80)
 
     h = calculate_height(root)
-    print "Height is {height}".format(height=h)
+    print("Height is {height}".format(height=h))

@@ -1,5 +1,5 @@
-from commons.commons import insert, is_leaf
-from treeHeight import calculate_height
+from Tree.commons.commons import insert, is_leaf
+from Tree.treeHeight import calculate_height
 
 # O(n^2)
 def is_balanced_v1(root):
@@ -49,11 +49,11 @@ if __name__ == "__main__":
     # insert(root, 41)
     # insert(root, 90)
 
-    print "\n---- Using V1 ----\n"
+    print ("\n---- Using V1 ----\n")
     b = is_balanced_v1(root)
-    print "Tree is " + "balanced" if b else "Not balanced"
+    print ("Tree is " + "balanced" if b else "Not balanced")
 
-    print "\n---- Using V2 ----\n"
+    print ("\n---- Using V2 ----\n")
     h, b = is_balanced_v2(root)
-    print "Height of tree is {height} and tree is".format(height=h) + " Balanced" if b else "Not balanced"
+    print ("Height of tree is {height} and tree is".format(height=h) + " Balanced" if b else "Not balanced")
 
