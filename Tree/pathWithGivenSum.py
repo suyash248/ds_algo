@@ -44,9 +44,9 @@ if __name__ == "__main__":
     insert(root, 80)
 
     total = 120
-    # res = is_sum_equal(root, total, 0)
-    # print("Does path with sum {total} exists? - {res}".format(total=total, res=res))
+    res = is_sum_equal(root, total, 0)
+    print("Does path with sum {total} exists? - {res}".format(total=total, res=res))
 
     all_paths_with_sum.paths_with_sum = []
     all_paths_with_sum(root, total, [None] * 20)
-    print(all_paths_with_sum.paths_with_sum)
+    print("Path(s) with sum {total} - {paths}".format(total=total, paths=all_paths_with_sum.paths_with_sum))
