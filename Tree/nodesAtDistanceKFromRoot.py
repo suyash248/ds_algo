@@ -1,10 +1,10 @@
-from commons.commons import insert
+from Tree.commons import insert
 
 def print_K_distant_v1(root, k):
     if root is None:
         return
     if k == 0:
-        print root.key,
+        print(root.key, end=',')
     else:
         print_K_distant_v1(root.left, k - 1)
         print_K_distant_v1(root.right, k - 1)
@@ -14,7 +14,7 @@ def print_K_distant_v2(root, k, distance=-1):
         return
     distance += 1
     if distance == k:
-        print root.key,
+        print(root.key, end=',')
     print_K_distant_v2(root.left, k, distance)
     print_K_distant_v2(root.right, k, distance)
 
@@ -43,10 +43,10 @@ if __name__ == "__main__":
 
     k = 2
 
-    print "\n----- Using V1 -----\n"
-    print "Nodes at distance {distance} from root({root} are - )".format(distance=k, root=root.key)
+    print ("\n----- Using V1 -----\n")
+    print ("Nodes at distance {distance} from root({root} are - )".format(distance=k, root=root.key))
     print_K_distant_v1(root, k)
 
-    print "\n----- Using V1 -----\n"
-    print "Nodes at distance {distance} from root({root} are - )".format(distance=k, root=root.key)
+    print ("\n----- Using V1 -----\n")
+    print ("Nodes at distance {distance} from root({root} are - )".format(distance=k, root=root.key))
     print_K_distant_v2(root, k)
