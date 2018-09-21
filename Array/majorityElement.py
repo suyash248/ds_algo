@@ -1,8 +1,8 @@
 """
 Algorithm - Moore's voting algorithm
 This is a two step process.
-1. The first step gives the element that may be majority element in the array. If there is a majority element in
-    an array, then this step will definitely return majority element, otherwise it will return any other element.
+1. If there is a majority element in an array, then the first step will definitely return majority element,
+    otherwise it will return any other element.
 2. Check/Verify if the element obtained from above step is majority element.This step is necessary as we are not always
     sure that element return by first step is majority element.
 """
@@ -10,7 +10,7 @@ This is a two step process.
 # Time complexity: O(n)
 def majority_element(arr):
     # Step 1 -> Checking for the candidate of `Majority Element`
-    count = 0; majority_index=0
+    count = 0; majority_index = 0
     n = len(arr)
     for i in range(0, n):
         if arr[i] == arr[majority_index]:
@@ -31,4 +31,4 @@ def majority_element(arr):
 
 if __name__ == '__main__':
     arr = [2, 2, 3, 5, 2, 2, 6]
-    print majority_element(arr)
+    print(majority_element(arr))

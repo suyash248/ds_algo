@@ -27,4 +27,4 @@ def dutch_national_flag(arr):
 if __name__ == "__main__":
     arr = [2, 0, 0, 1, 1, 1, 2, 0, 1, 0, 2, 2, 0, 0, 1, 0]
     dutch_national_flag(arr)
-    print "Rearranged array: ", arr
+    print("Rearranged array: ", arr)

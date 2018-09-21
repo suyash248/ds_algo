@@ -9,5 +9,5 @@ def fact_itr(n):
     return fact
 
 if __name__ == '__main__':
-    print fact_rec(5)
-    print fact_itr(5)
+    print (fact_rec(5))
+    print (fact_itr(5))

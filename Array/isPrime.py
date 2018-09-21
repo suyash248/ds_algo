@@ -10,4 +10,4 @@ def is_prime(n):
 if __name__ == '__main__':
     n = input("Enter number - ")
     res = is_prime(n)
-    print "{} is {}".format(n, "prime" if res else "not prime")
+    print("{} is {}".format(n, "prime" if res else "not prime"))

@@ -1,6 +1,6 @@
 def max_and_min_product_subarray(arr):
     """
-    Assumption: Output is alway greater than or equal to 1.
+    Assumption: Output is always greater than or equal to 1.
     :param arr:
     :return:
     """

@@ -19,6 +19,9 @@ public class QuickSort extends AbstractBase {
 	}
 	
 	public int partition(Integer array[], int start, int end){
+		/**
+		All the elements <= pivot will be at the left of pIndex.
+		*/
 		int pIndex=start;
 		int pivot = array[end], temp;
 		for(int i=start; i<end; i++){

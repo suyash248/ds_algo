@@ -1,5 +1,8 @@
+from Array import swap
+
 # O(n^2)
-def rearrange_v1(arr):
+# Original order of elements will be preserved.
+def separate_v1(arr):
     """
     Algorithm: Modified insertion sort -
     for i = 1 to n - 1.
@@ -9,8 +12,7 @@ def rearrange_v1(arr):
     :param arr:
     :return:
     """
-    from Array import swap
-    for i in xrange(0, len(arr)):
+    for i in range(0, len(arr)):
         curr = arr[i]
         if curr >= 0:
             continue
@@ -20,7 +22,21 @@ def rearrange_v1(arr):
             j -= 1
         arr[j+1] = curr
 
+# O(n)
+# Original order of elements will NOT be preserved.
+def separate_v2(arr):
+    # Similar to quick-sort partition.
+    ip = -1; pivot = 0
+    for i in range(0, len(arr)):
+        if arr[i] < pivot:  # if we use `arr[i] <= pivot`, then `0` will be placed somewhere between the -ve numbers.
+            ip += 1
+            swap(arr, i, ip)
+
 if __name__ == "__main__":
-    arr = [-2, 1, 0, 9, -8, -4, 8, 2, -7, 7, -6, 5, 4, 12, 14]
-    rearrange_v1(arr)
-    print arr
+    arr1 = [-2, 1, 0, 9, -8, -4, 8, 2, -7, 7, -6, 5, 4, 12, 14]
+    separate_v1(arr1)
+    print("Using v1(Orignal ordering)", arr1)
+
+    arr2 = [-2, 1, 0, 9, -8, -4, 8, 2, -7, 7, -6, 5, 4, 12, 14]
+    separate_v2(arr2)
+    print("Using v2(Random ordering)", arr2)
