@@ -1,4 +1,4 @@
-from commons.commons import insert, print_tree, is_leaf
+from Tree.commons import insert, print_tree, is_leaf
 
 # fs(50) - 50, fs(30)
 #					fs(30) - 80, fs(20)
@@ -26,4 +26,4 @@ if __name__ == "__main__":
     insert(root, 60)
     insert(root, 80)
 
-    print "Sum of all nodes is", find_sum(root)
+    print("Sum of all nodes is", find_sum(root))

@@ -1,4 +1,4 @@
-from commons.commons import insert, Node, print_tree
+from Tree.commons import insert, Node, print_tree
 from collections import OrderedDict
 
 # Vertical sum = sum of nodes'data at same hd.
@@ -44,4 +44,4 @@ if __name__ == '__main__':
     vertical_sum(root)
     #print vertical_sum.hm
     vertical_sum.hm = OrderedDict(sorted(vertical_sum.hm.items()))
-    print "Vertical sum - ", vertical_sum.hm.values()
+    print("Vertical sum - ", vertical_sum.hm.values())

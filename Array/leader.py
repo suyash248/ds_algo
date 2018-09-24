@@ -5,7 +5,7 @@ def leader(arr):
     max_so_far = MIN
     for elt in arr[::-1]:  # for i=n-1 to 0
         if elt > max_so_far:
-            print elt,
+            print(elt, end=',')
             max_so_far = elt
 
 if __name__ == '__main__':

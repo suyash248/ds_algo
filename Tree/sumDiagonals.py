@@ -1,5 +1,5 @@
-from commons.commons import insert, Node, print_tree
-from Queue import Queue
+from Tree.commons import insert, Node, print_tree
+from queue import Queue
 
 def diagonals_sum_recursive(root, d=0):
     if root is None:
@@ -25,7 +25,7 @@ def diagonals_sum_iterative(root):
         if pnode is None:
             # A delimiter `None` is used to mark the starting of next diagonal.
             # Diagonal is complete, print sum.
-            print sum
+            print(sum)
             sum = 0
             q.put(None)
             pnode = q.get()
@@ -59,13 +59,13 @@ if __name__ == '__main__':
     insert(root, 60)
     insert(root, 80)
 
-    print "\n------------------ Using recursive approach ------------------\n"
+    print("\n------------------ Using recursive approach ------------------\n")
 
     diagonals_sum_recursive.hm = {}
     diagonals_sum_recursive(root)
     for k,v in diagonals_sum_recursive.hm.items():
-        print sum(v)
+        print(sum(v))
 
-    print "\n------------------ Using iterative approach ------------------\n"
+    print("\n------------------ Using iterative approach ------------------\n")
 
     diagonals_sum_iterative(root)

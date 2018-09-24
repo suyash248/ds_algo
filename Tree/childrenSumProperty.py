@@ -1,4 +1,4 @@
-from commons.commons import Node, print_tree, is_leaf
+from Tree.commons import Node, print_tree, is_leaf
 
 # fs(50) - 50, fs(30)
 #					fs(30) - 80, fs(20)
@@ -44,4 +44,4 @@ if __name__ == "__main__":
     node35.left = node25
     node35.right = node10
 
-    print "Is binary tree following children-sum property?", children_sum(root)
+    print("Is binary tree following children-sum property?", children_sum(root))

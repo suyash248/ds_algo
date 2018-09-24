@@ -1,6 +1,6 @@
 import sys
 
-MAX = sys.maxint
+MAX = sys.maxsize
 MIN = 1 - MAX
 
 def print_array(arr, start=-1, end=-1):
@@ -13,7 +13,7 @@ def print_array(arr, start=-1, end=-1):
     start = 0 if start < 0 or start >= alen else start
     end = alen if end < 0 or end >= alen else end
     for i in range(start, end):
-        print arr[i],
+        print (arr[i], end=',')
 
 
 def swap(arr, i, j):
@@ -34,7 +34,7 @@ def empty_2d_array(rows, cols, fill_default=None):
     :return:
     """
     arr_2d = []
-    for row in xrange(0, rows):
+    for row in range(0, rows):
         col_arr = empty_1d_array(cols, fill_default)
         arr_2d.append(col_arr)
     return arr_2d
@@ -52,7 +52,7 @@ def max_in_subarray(arr, start=0, end=None):
 
     max_so_far = MIN
     i_max_so_far = -1
-    for i in xrange(start, end):
+    for i in range(start, end):
         if arr[i] > max_so_far:
             max_so_far, i_max_so_far = arr[i], i
     return max_so_far, i_max_so_far
@@ -70,7 +70,7 @@ def min_in_subarray(arr, start=0, end=None):
 
     min_so_far = MAX
     i_min_so_far = -1
-    for i in xrange(start, end):
+    for i in range(start, end):
         if arr[i] < min_so_far:
             min_so_far, i_min_so_far = arr[i], i
     return min_so_far, i_min_so_far

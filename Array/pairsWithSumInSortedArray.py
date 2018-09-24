@@ -9,7 +9,7 @@ def find_pair(arr, sum):
         elif curr_sum > sum:
             end -= 1
         else:
-            #print "({}, {})".format(arr[start], arr[end])
+            # print("({}, {})".format(arr[start], arr[end]))
             pairs.append((arr[start], arr[end]))
             start += 1
             end -= 1
@@ -19,4 +19,4 @@ if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]
     sum = 7
     pairs = find_pair(arr, sum)
-    print "Pair(s) with sum equals to {sum} are {pairs}".format(sum=sum, pairs=pairs)
+    print("Pair(s) with sum equals to {sum} are {pairs}".format(sum=sum, pairs=pairs))

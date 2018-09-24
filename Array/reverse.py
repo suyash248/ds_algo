@@ -12,4 +12,4 @@ def reverse_arr(arr, start=0, end=-1):
 if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]
     reverse_arr(arr)
-    print arr
+    print(arr)

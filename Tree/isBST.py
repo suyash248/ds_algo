@@ -1,5 +1,4 @@
-import sys
-from commons.commons import insert, is_leaf
+from Tree.commons import insert, is_leaf, Node
 from Array import MAX, MIN
 
 def is_bst(root, min, max):
@@ -48,7 +47,6 @@ if __name__ == "__main__":
     insert(root1, 60)
     insert(root1, 80)
 
-    from commons.commons import Node
     root2 = Node(
         1,
         left=Node(
@@ -71,16 +69,16 @@ if __name__ == "__main__":
         )
     )
 
-    print "\n ---------- USING V1 ---------- \n"
+    print ("\n ---------- USING V1 ---------- \n")
 
     b1 = is_bst(root1, MIN, MAX)
     b2 = is_bst(root2, MIN, MAX)
-    print "Tree-1 is " + ("BST" if b1 else "Not BST")
-    print "Tree-2 is " + ("BST" if b2 else "Not BST")
+    print ("Tree-1 is " + ("BST" if b1 else "Not BST"))
+    print ("Tree-2 is " + ("BST" if b2 else "Not BST"))
 
-    print "\n ---------- USING V2 ---------- \n"
+    print ("\n ---------- USING V2 ---------- \n")
 
     b1 = is_bst_v2(root1)
     b2 = is_bst_v2(root2)
-    print "Tree-1 is " + ("BST" if b1 else "Not BST")
-    print "Tree-2 is " + ("BST" if b2 else "Not BST")
+    print ("Tree-1 is " + ("BST" if b1 else "Not BST"))
+    print ("Tree-2 is " + ("BST" if b2 else "Not BST"))

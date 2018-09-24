@@ -32,7 +32,7 @@ def print_tree(root):
     else:
         left = str(root.left.key) if root.left is not None else "NULL"
         right = str(root.right.key) if root.right is not None else "NULL"
-        print str(root.key) + " : left->{left} , right->{right}".format(left=left, right=right)
+        print (str(root.key) + " : left->{left} , right->{right}".format(left=left, right=right))
     print_tree(root.left)
     print_tree(root.right)
 

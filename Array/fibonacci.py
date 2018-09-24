@@ -46,7 +46,7 @@ if __name__ == '__main__':
     n = 6
 
     # As `n` starts from 0 in case of recursive versions. so n-1 is passed as an argument.
-    print fib_rec(n-1)
-    print fib_dp(n-1)
+    print(fib_rec(n-1))
+    print(fib_dp(n-1))
 
-    print fib_itr(n)
+    print(fib_itr(n))

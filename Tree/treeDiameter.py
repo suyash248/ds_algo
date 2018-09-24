@@ -1,5 +1,5 @@
-from commons.commons import insert, print_tree, is_leaf
-from treeHeight import calculate_height
+from Tree.commons import insert, print_tree, is_leaf
+from Tree.treeHeight import calculate_height
 
 # O(n^2)
 def calculate_diameter_v1(root):
@@ -51,11 +51,11 @@ if __name__ == "__main__":
     insert(root, 60)
     insert(root, 80)
 
-    print "\n----- Diameter via V1 -----\n"
+    print("\n----- Diameter via V1 -----\n")
     d = calculate_diameter_v1(root)
-    print "Diameter is {diameter}".format(diameter=d)
+    print("Diameter is {diameter}".format(diameter=d))
 
-    print "\n----- Diameter via V2 -----\n"
+    print("\n----- Diameter via V2 -----\n")
     calculate_diameter_v2.d = -1
     d = calculate_diameter_v2(root)
-    print "Diameter is {diameter}".format(diameter=calculate_diameter_v2.d)
+    print("Diameter is {diameter}".format(diameter=calculate_diameter_v2.d))

@@ -1,5 +1,5 @@
-from commons.commons import insert, Node, print_tree
-from Queue import Queue
+from Tree.commons import insert, Node, print_tree
+from queue import Queue
 
 # https://www.geeksforgeeks.org/diagonal-traversal-of-binary-tree/
 def diagonals_recursive(root, d=0):
@@ -25,11 +25,11 @@ def diagonals_iterative(root):
         if pnode is None:
             # Diagonal is complete.
             # A delimiter `None` is used to mark the starting of next diagonal.
-            print ""
+            print ("")
             q.put(None)
             pnode = q.get()
         while pnode is not None:
-            print pnode.key,
+            print (pnode.key, end=',')
             if pnode.left is not None:
                 q.put(pnode.left)
             pnode = pnode.right
@@ -58,12 +58,12 @@ if __name__ == '__main__':
     insert(root, 60)
     insert(root, 80)
 
-    print "\n------------------ Using recursive approach ------------------\n"
+    print("\n------------------ Using recursive approach ------------------\n")
 
     diagonals_recursive.hm = {}
     diagonals_recursive(root)
-    print diagonals_recursive.hm
+    print(diagonals_recursive.hm)
 
-    print "\n------------------ Using iterative approach ------------------\n"
+    print("\n------------------ Using iterative approach ------------------\n")
 
     diagonals_iterative(root)

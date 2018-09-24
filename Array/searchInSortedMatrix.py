@@ -30,6 +30,6 @@ if __name__ == "__main__":
     key = input("Please enter key/element you want to search: ")
     i_tup = find(table, rows, cols, key)
     if i_tup[0] < 0 and i_tup[1] < 0:
-        print "{} is not present.".format(key)
+        print("{} is not present.".format(key))
     else:
-        print "{} is present at position -> {}".format(key, i_tup)
+        print("{} is present at position -> {}".format(key, i_tup))

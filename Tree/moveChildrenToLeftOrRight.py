@@ -1,4 +1,4 @@
-from commons.commons import insert, print_tree, is_leaf
+from Tree.commons import insert, print_tree, is_leaf
 
 def move_children_right(root):
     if root is None:

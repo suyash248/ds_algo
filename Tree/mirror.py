@@ -1,4 +1,4 @@
-from commons.commons import insert, print_tree
+from Tree.commons import insert, print_tree
 from copy import deepcopy
 
 def convert_to_mirror(root):
@@ -42,12 +42,12 @@ if __name__ == "__main__":
     insert(root, 60)
     insert(root, 80)
 
-    print "\n----- Tree -----\n"
+    print ("\n----- Tree -----\n")
     print_tree(root)
 
-    print "\n----- Mirror -----\n"
+    print ("\n----- Mirror -----\n")
     mirror_root = deepcopy(root)
     convert_to_mirror(mirror_root)
     print_tree(mirror_root)
 
-    print "\n---- Are mirror ? ----\n", is_mirror(root, mirror_root)
+    print ("\n---- Are mirror ? ----\n", is_mirror(root, mirror_root))

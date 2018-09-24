@@ -1,11 +1,11 @@
-from commons.commons import insert
-from treeHeight import calculate_height
+from Tree.commons.commons import insert
+from Tree.treeHeight import calculate_height
 from Array import empty_1d_array
 
 # Time Complexity: O(n)
 # Space Complexity: O(n)
 def maximum_width_using_level_order_traversal(root):
-    from Queue import Queue
+    from queue import Queue
     q = Queue()
     q.put(root)
     max_width = 0
@@ -53,9 +53,9 @@ if __name__ == '__main__':
     insert(root, 60)
     insert(root, 80)
 
-    print "Maximum width of tree is - ", maximum_width_using_level_order_traversal(root)
+    print ("Maximum width of tree is - ", maximum_width_using_level_order_traversal(root))
 
     tree_height = calculate_height(root)
     counts_arr = empty_1d_array(tree_height, fill_default=0)
     maximum_width_using_pre_order_traversal(root)
-    print "Maximum width of tree is - ", max(counts_arr)
+    print ("Maximum width of tree is - ", max(counts_arr))

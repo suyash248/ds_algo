@@ -5,6 +5,8 @@ from Array import empty_2d_array
 def is_subset_sum(arr, n, half_sum):
     """
     Algorithm ->
+    Let is_subset_sum(arr, n, sum/2) be the function that returns true if there is a subset of arr[0..n-1] 
+    with sum equal to sum/2(i.e. half_sum).
 
     Case 1: If sum of all the elements in array is odd, array can't be partitioned into 2 subsets of equals sum.
             So return `False`.

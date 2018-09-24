@@ -1,12 +1,12 @@
-from commons.commons import insert, print_tree, is_leaf
+from Tree.commons import insert, print_tree, is_leaf
 
 def all_paths_root_to_leaves_v1(root):
     if root == None:
         return
     all_paths_root_to_leaves_v1.paths.append(root.key)
     all_paths_root_to_leaves_v1(root.left)
-    if root.left == None and root.right == None:
-        print all_paths_root_to_leaves_v1.paths
+    if is_leaf(root):
+        print(all_paths_root_to_leaves_v1.paths)
     all_paths_root_to_leaves_v1(root.right)
     all_paths_root_to_leaves_v1.paths.pop()
 
@@ -17,9 +17,9 @@ def all_paths_root_to_leaves_v2(root, path, path_len):
     path_len += 1
 
     if is_leaf(root):
-        for i in xrange(0, path_len):
-            print path[i],
-        print
+        for i in range(0, path_len):
+            print(path[i], end=',')
+        print('\n')
     else:
         all_paths_root_to_leaves_v2(root.left, path, path_len)
         all_paths_root_to_leaves_v2(root.right, path, path_len)
@@ -46,9 +46,9 @@ if __name__ == "__main__":
     insert(root, 60)
     insert(root, 80)
 
-    print "\n-------- Using v1 ---------\n"
+    print("\n-------- Using v1 ---------\n")
     all_paths_root_to_leaves_v1.paths = []
     all_paths_root_to_leaves_v1(root)
 
-    print "\n-------- Using v2 ---------\n"
+    print("\n-------- Using v2 ---------\n")
     all_paths_root_to_leaves_v2(root, [None] * 20, 0)
