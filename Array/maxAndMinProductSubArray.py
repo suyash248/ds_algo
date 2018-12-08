@@ -31,4 +31,4 @@ def max_and_min_product_subarray(arr):
 if __name__ == "__main__":
     arr = [1, 0, -4, -2, 2, 3, -2]
     max_n_min = max_and_min_product_subarray(arr)
-    print "Product of max-product-sub-array is {} & product of min-product-sub-array is {}".format(*max_n_min)
+    print("Product of max-product-sub-array is {} & product of min-product-sub-array is {}".format(*max_n_min))

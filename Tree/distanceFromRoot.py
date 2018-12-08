@@ -32,14 +32,14 @@ def distance_from_root_v2(root, key, level=0):
         distance_v2 = level
         return level
 
-    left = distance_from_root_v2(root.left, key, level+1)
+    ld = distance_from_root_v2(root.left, key, level+1)
     # if key found in left-subtree, return it.
-    if left != -1:
-        return left
+    if ld != -1:
+        return ld
     # if key is not found in left-subtree, try searching for key in right-subtree
     else:
-        right = distance_from_root_v2(root.right, key, level+1)
-        return right
+        rd = distance_from_root_v2(root.right, key, level+1)
+        return rd
 
 
 def distance_from_root_v3(root, key, distance=0):

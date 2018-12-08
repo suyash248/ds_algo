@@ -1,7 +1,6 @@
 from Heap.BinaryHeap.maxHeap import MaxHeap
 from copy import deepcopy
 
-
 class PriorityQueue(object):
     def __init__(self, pq_capacity=10):
         self._pq_capacity_ = pq_capacity
@@ -12,7 +11,7 @@ class PriorityQueue(object):
     def insert(self, item, priority):
         res = False
         if self.is_full():
-            print "Priority queue is full, please delete older items in order to insert newer ones."
+            print("Priority queue is full, please delete older items in order to insert newer ones.")
             return res
         e = Entry(item, priority)
         res = self._pq_heap_.insert(e)
@@ -24,7 +23,7 @@ class PriorityQueue(object):
     def delete_item_with_highest_priority(self):
         res = False
         if self.is_empty():
-            print "Priority queue is empty"
+            print("Priority queue is empty")
             return res
         res = self._pq_heap_.delete_max()
         if isinstance(res, bool) and res == False:
@@ -36,7 +35,7 @@ class PriorityQueue(object):
     # Time Complexity : O(1)
     def get_item_with_highest_priority(self):
         if self.is_empty():
-            print "Priority queue is empty"
+            print("Priority queue is empty")
             return False
         return self._pq_heap_.get_max()
 
@@ -104,9 +103,9 @@ def test():
         mh_test.insert(priority)
         pq.insert(item, priority)
 
-    print pq.pq_arr()
-    print mh_test.heap_arr()
-    print "Element with highest priority: ", pq.get_item_with_highest_priority()
+    print(pq.pq_arr())
+    print(mh_test.heap_arr())
+    print("Element with highest priority: ", pq.get_item_with_highest_priority())
 
 
 if __name__ == '__main__':
@@ -122,40 +121,40 @@ if __name__ == '__main__':
         5. Get the size and capacity of priority queue.
         6. Stop.
     """
-    print menu
+    print(menu)
     while True:
         try:
             choice = input("Please enter your choice - ")
         except:
-            print "Incorrect choice, please select from menu."
+            print("Incorrect choice, please select from menu.")
             continue
         try:
             if choice == 1:
-                item_priority = raw_input("Enter item & priority separated by a white-space - ")
+                item_priority = input("Enter item & priority separated by a white-space - ")
                 item_priority = item_priority.split(" ")
                 item = item_priority[0].strip()
                 priority = item_priority[1].strip()
                 res = pq.insert(item, priority)
-                print res
+                print(res)
                 continue
             if choice == 2:
-                print pq.pq_print()
+                print(pq.pq_print())
                 continue
             if choice == 3:
                 res = pq.get_item_with_highest_priority()
-                print res
+                print(res)
                 continue
             if choice == 4:
                 res = pq.delete_item_with_highest_priority()
-                print res
+                print(res)
                 continue
             if choice == 5:
-                print "Size : {} | Capacity: {}".format(pq.pq_size(), pq.pq_capacity())
+                print("Size : {} | Capacity: {}".format(pq.pq_size(), pq.pq_capacity()))
                 continue
             if choice == 6:
                 break
         except Exception as ex:
-            print "Error occurred while performing last operation(choice: {}):".format(choice)
-            print ex.message, ex.args
+            print("Error occurred while performing last operation(choice: {}):".format(choice))
+            print(ex.message, ex.args)
 
-        print menu
+        print(menu)

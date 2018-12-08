@@ -68,9 +68,9 @@ if __name__ == '__main__':
     currency = "INR"
     prices = [2, 11, 10, 6, 9, 7, 16, 8, 3, 4, 14, 1, 10, 2]
     res = maximize_profit(prices)
-    print """Maximum profit is {max_profit}, 
+    print("""Maximum profit is {max_profit}, 
     Buy at price {currency} {buy_price} at index/time {buy_index}.
     Sell at price {currency} {sell_price} at index/time {sell_index}
     """.format(max_profit=res['max_profit'], currency=currency,
                        buy_price=res['buy']['price'], buy_index=res['buy']['index'],
-                       sell_price=res['sell']['price'], sell_index=res['sell']['index'])
+                       sell_price=res['sell']['price'], sell_index=res['sell']['index']))

@@ -57,7 +57,7 @@ class Heap(object):
         return self.heap_size <= 0
 
     def print_heap(self):
-        for idx in xrange(0, self.heap_size):
+        for idx in range(0, self.heap_size):
             l_idx = Heap.left(idx)
             r_idx = Heap.right(idx)
 
@@ -65,5 +65,5 @@ class Heap(object):
             l_elt = self.get(l_idx)
             r_elt = self.get(r_idx)
 
-            print "{current} : left -> {left} | right -> {right}".format(current=curr_elt,
-                                                                         left=l_elt, right=r_elt)
+            print("{current} : left -> {left} | right -> {right}".format(current=curr_elt,
+                                                                         left=l_elt, right=r_elt))

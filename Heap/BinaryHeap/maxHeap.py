@@ -1,5 +1,5 @@
 from Array import swap
-from Heap import Heap
+from Heap.BinaryHeap import Heap
 from copy import deepcopy
 
 class MaxHeap(Heap):
@@ -49,20 +49,20 @@ class MaxHeap(Heap):
         :return:
         """
         if len(harr) > self.capacity:
-            print '''Can't build heap as the array contains {} elements, 
-                        which is more than specified capacity({}) of heap'''.format(len(harr), self.capacity)
+            print('''Can't build heap as the array contains {} elements, 
+                        which is more than specified capacity({}) of heap'''.format(len(harr), self.capacity))
 
         self.harr = harr
         self.heap_size = len(harr)
-        half = self.heap_size / 2
+        half = int(self.heap_size / 2)
 
-        for idx in xrange(half, -1, -1): # for idx=half; idx<=0; idx++
+        for idx in range(half, -1, -1): # for idx=half; idx<=0; idx++
             self.max_heapify(idx)
 
     # Time Complexity: O(log(n))
     def insert(self, elt):
         if self.is_full():
-            print "Heap is full, can't insert key"
+            print("Heap is full, can't insert key")
             return False
 
         # First insert the new key at the end.
@@ -83,14 +83,14 @@ class MaxHeap(Heap):
     # Time Complexity: O(1)
     def get_max(self):
         if self.is_empty():
-            print "Heap is empty"
+            print("Heap is empty")
             return False
         return deepcopy(self.harr[0])
 
     # Time Complexity: O(log(n))
     def delete_max(self):
         if self.is_empty():
-            print "Heap is empty"
+            print("Heap is empty")
             return False
 
         root = self.harr[0]
@@ -113,13 +113,13 @@ if __name__ == "__main__":
     mh = MaxHeap(12)
     mh.build_heap(harr)
 
-    print "Array {} is converted to Max-Heap {}".format(harr_copy, harr)
+    print("Array {} is converted to Max-Heap {}".format(harr_copy, harr))
 
     elt = 1
     mh.insert(elt)
-    print "Inserted {}:".format(elt), harr
+    print("Inserted {}:".format(elt), harr)
 
     d_elt = mh.delete_max()
-    print "Deleted maximum element(root)=>{}:".format(d_elt), harr
+    print("Deleted maximum element(root)=>{}:".format(d_elt), harr)
 
     #mh.print_heap()

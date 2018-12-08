@@ -1,4 +1,5 @@
 from Tree.commons import insert, print_tree, is_leaf
+from copy import deepcopy
 
 def all_paths_root_to_leaves_v1(root):
     if root == None:
@@ -23,6 +24,17 @@ def all_paths_root_to_leaves_v2(root, path, path_len):
     else:
         all_paths_root_to_leaves_v2(root.left, path, path_len)
         all_paths_root_to_leaves_v2(root.right, path, path_len)
+
+def all_paths_root_to_leaves_v3(root, path = []):
+    if root is None: return
+    path.append(root.key)
+    if is_leaf(root):
+        for elt in path:
+            print(elt, end=',')
+        print('\n')
+    else:
+        all_paths_root_to_leaves_v3(root.left, deepcopy(path))
+        all_paths_root_to_leaves_v3(root.right, deepcopy(path))
 
 # Driver program to test above function
 if __name__ == "__main__":
@@ -52,3 +64,6 @@ if __name__ == "__main__":
 
     print("\n-------- Using v2 ---------\n")
     all_paths_root_to_leaves_v2(root, [None] * 20, 0)
+
+    print("\n-------- Using v3 ---------\n")
+    all_paths_root_to_leaves_v3(root)

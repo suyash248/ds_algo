@@ -1,5 +1,5 @@
 from Array import swap
-from Heap import Heap
+from Heap.BinaryHeap import Heap
 from copy import deepcopy
 
 class MinHeap(Heap):
@@ -10,7 +10,7 @@ class MinHeap(Heap):
         Algorithm: We move downwards(bottom) in the heap in each step until heap is in it's correct form.
 
         Min-Heapify (A, i):
-            left = 2*i // = means "assignment"
+            left = 2*i          # `=` means `assignment`
             right = 2*i + 1
             smallest = i
 
@@ -44,28 +44,28 @@ class MinHeap(Heap):
     def build_heap(self, harr):
         """
         Build-Min-Heap (A):
-            for i=floor(length[A]/2); i<=0; i--:
+            for i=floor(length[A]/2); i>=0; i--:
                 Min-Heapify(A, i)
         :param harr:
         :return:
         """
 
         if len(harr) > self.capacity:
-            print '''Can't build heap as the array contains {} elements, 
-                        which is more than specified capacity({}) of heap'''.format(len(harr), self.capacity)
+            print('''Can't build heap as the array contains {} elements, 
+                        which is more than specified capacity({}) of heap'''.format(len(harr), self.capacity))
 
         self.harr = harr
         self.heap_size = len(harr)
-        half = self.heap_size/2
+        half = int(self.heap_size/2)
 
-        for idx in xrange(half, -1, -1): # for idx=half; idx<=0; idx++
+        for idx in range(half, -1, -1): # for idx=half; idx>=0; idx--
             self.min_heapify(idx)
         return deepcopy(self.harr)
 
     # Time Complexity: O(log(n))
     def insert(self, elt):
         if self.is_full():
-            print "Heap is full, can't insert key"
+            print("Heap is full, can't insert key")
             return False
 
         # First insert the new key at the end.
@@ -86,14 +86,14 @@ class MinHeap(Heap):
     # Time Complexity: O(1)
     def get_min(self):
         if self.is_empty():
-            print "Heap is empty"
+            print ("Heap is empty")
             return False
         return deepcopy(self.harr[0])
 
     # Time Complexity: O(log(n))
     def delete_min(self):
         if self.is_empty():
-            print "Heap is empty"
+            print ("Heap is empty")
             return False
 
         root = self.harr[0]
@@ -116,13 +116,13 @@ if __name__ == "__main__":
     mh = MinHeap(12)
     mh.build_heap(harr)
 
-    print "Array {} is converted to Min-Heap {}".format(harr_copy, harr)
+    print("Array {} is converted to Min-Heap {}".format(harr_copy, harr))
 
     elt = 1
     mh.insert(elt)
-    print "Inserted {}:".format(elt), harr
+    print("Inserted {}:".format(elt), harr)
 
     d_elt = mh.delete_min()
-    print "Deleted minimum element(root)=>{}:".format(d_elt), harr
+    print("Deleted minimum element(root)=>{}:".format(d_elt), harr)
 
     #mh.print_heap()

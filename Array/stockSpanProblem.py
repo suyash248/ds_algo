@@ -24,5 +24,5 @@ def stock_span(prices):
 if __name__ == '__main__':
     prices = [10, 4, 5, 90, 120, 80]
     spans = stock_span(prices)
-    print "Prices:", prices
-    print "Spans:", spans
+    print("Prices:", prices)
+    print("Spans:", spans)
