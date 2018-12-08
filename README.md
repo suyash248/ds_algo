@@ -145,6 +145,7 @@
 * [Time-based Cache with TTL(Like Redis/Aerospike)](https://github.com/suyash248/ds_algo/blob/master/Misc/TimeBasedCache.java)
 * [Villagers-Queue-Bucket problem](https://github.com/suyash248/ds_algo/blob/master/Misc/villagersInQueue.py)
 * [Battleship game](https://github.com/suyash248/ds_algo/blob/master/Misc/battleshipGame/src)
+* [Check if strings are anagrams](https://github.com/suyash248/ds_algo/blob/master/Misc/anagram/src)
 
 ## How to run?
 1. Move to ```<project-dir>```, create virtual environment and then activate it as
