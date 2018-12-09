@@ -5,7 +5,7 @@ from Tree.commons import insert, print_tree, is_leaf
 """
 1. If root is NULL
       then return
-2. if key is found then
+2. if key is found (key == root) then
     a. If its left subtree is not null
         Then predecessor will be the right most 
         child of left subtree or left child itself.
@@ -13,10 +13,10 @@ from Tree.commons import insert, print_tree, is_leaf
         The successor will be the left most child 
         of right subtree or right child itself.
     return
-3. If key is smaller then root node
+3. If key < root
         set the successor as root
         search recursively into left subtree
-    else
+4. Else if key > root
         set the predecessor as root
         search recursively into right subtree
 """

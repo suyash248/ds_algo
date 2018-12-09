@@ -30,14 +30,46 @@ def move_children_left(root):
             lmost = lmost.left
         lmost.left = ltemp
 
+def move_children_left_v2(root):
+    if root is None:
+        return
+
+    if root.right is not None:
+        ltemp = root.left
+        root.left = root.right
+        root.right = None
+        lmost = root.left
+        while lmost.left is not None:
+            lmost = lmost.left
+        lmost.left = ltemp
+
+    move_children_left_v2(root.left)
+    move_children_left_v2(root.right)
+
+def move_children_left_v3(root):
+    if is_leaf(root):
+        return
+
+    if root.right is not None:
+        ltemp = root.left
+        root.left = root.right
+        root.right = None
+        lmost = root.left
+        while lmost.left is not None:
+            lmost = lmost.left
+        lmost.left = ltemp
+
+    move_children_left_v2(root.left)
+    # move_children_left_v2(root.right) => root.right is set to None so there is no need to traverse right subtree
+
 # Driver program to test above function
 if __name__ == "__main__":
     """ Let us create following BST
             50
          /		\
         30		70
-        / 	\   / 	\
-        20 	40	60 	80
+       /  \    /   \
+      20  40  60 	80
     """
     root = None
     root = insert(root, 50)
@@ -48,6 +80,15 @@ if __name__ == "__main__":
     insert(root, 60)
     insert(root, 80)
 
-    move_children_left(root)
+    # move_children_left(root)
+    move_children_left_v2(root)
     #move_children_right(root)
     print_tree(root)
+
+# 50 : left->70 , right->NULL
+# 70 : left->80 , right->NULL
+# 80 : left->60 , right->NULL
+# 60 : left->30 , right->NULL
+# 30 : left->40 , right->NULL
+# 40 : left->20 , right->NULL
+# 20 : left->NULL , right->NULL
