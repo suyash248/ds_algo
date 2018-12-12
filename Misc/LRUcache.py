@@ -106,17 +106,17 @@ class CustomDLL(object):
     def print_tail_to_head(self):
         temp = self.__tail__
         while temp is not None:
-            print temp.data,
+            print(temp.data, end=',')
             temp = temp.prev
-        print ""
+        print("")
 
     # Time complexity: O(n)
     def print_head_to_tail(self):
         temp = self.__head__
         while temp is not None:
-            print temp.data,
+            print(temp.data, end=',')
             temp = temp.next
-        print ""
+        print("")
 
 class Result(object):
     HIT = "HIT"
@@ -209,10 +209,10 @@ def test_cdll():
 
     #cdll.print_tail_to_head()
     cdll.print_head_to_tail()
-    print "Size - ", cdll.size()
+    print("Size - ", cdll.size())
 
     del_res = cdll.delete(2)
-    print "Deleted", del_res
+    print("Deleted", del_res)
     cdll.print_head_to_tail()
     # print "Size - ", cdll.size()
     # print "HEAD", cdll.head()
@@ -235,27 +235,27 @@ if __name__ == '__main__':
 
     choices = "\n1. Put\n2. Get\n3. Size\n4. Is Full?\n5. Print cache\n6. Exit\n"
     while True:
-        print choices
+        print(choices)
         choice = input("Please enter your choice - ")
 
         if choice == 1:
-            elt = raw_input("Please enter element to be inserted - ")
+            elt = input("Please enter element to be inserted - ")
             res = lru.put(elt)
-            print res
+            print(res)
         elif choice == 2:
-            elt = raw_input("Please enter element to be searched - ")
+            elt = input("Please enter element to be searched - ")
             res = lru.get(elt)
-            print res
+            print(res)
         elif choice == 3:
-            print "Size -",lru.size()
+            print("Size -",lru.size())
         elif choice == 4:
-            print "LRU cache is full -", lru.full()
+            print("LRU cache is full -", lru.full())
         elif choice == 5:
-            print "Cache - "
+            print("Cache - ")
             lru.print_cache()
         elif choice == 6:
             break
         else:
-            print "Invalid choice"
+            print("Invalid choice")
             continue
 
