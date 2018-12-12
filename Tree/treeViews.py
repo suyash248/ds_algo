@@ -1,7 +1,6 @@
-import Queue
+import queue
 from collections import OrderedDict
-from commons.commons import insert, Node, print_tree
-
+from Tree.commons.commons import insert, Node, print_tree
 
 max_level = -1
 def left_view(root, curr_level=0):
@@ -10,7 +9,7 @@ def left_view(root, curr_level=0):
         return
 
     if max_level < curr_level:
-        print root.key,
+        print(root.key, end=',')
         max_level = curr_level
 
     # Recur for left subtree first, then right subtree
@@ -24,7 +23,7 @@ def right_view(root, curr_level=0):
         return
 
     if max_level < curr_level:
-        print root.key,
+        print(root.key, end=',')
         max_level = curr_level
 
     # Recur for right subtree first, then left subtree
@@ -34,7 +33,7 @@ def right_view(root, curr_level=0):
 
 def top_view(root):
     hm = {}
-    q = Queue.Queue()
+    q = queue.Queue()
     root.hd = 0
     q.put(root)
     hm[0] = root.key
@@ -60,7 +59,7 @@ def top_view(root):
 
 def bottom_view(root):
     hm = {}
-    q = Queue.Queue()
+    q = queue.Queue()
     root.hd = 0
     q.put(root)
     hm[0] = root.key
@@ -103,23 +102,23 @@ if __name__ == "__main__":
     insert(root, 60)
     insert(root, 80)
 
-    print "\n ---- Left View ---- \n"
+    print("\n ---- Left View ---- \n")
     left_view(root, 0)
     max_level = -1
-    print "\n"
+    print("\n")
 
-    print "\n ---- Right View ---- \n"
+    print("\n ---- Right View ---- \n")
     right_view(root, 0)
     max_level = -1
-    print "\n"
+    print("\n")
 
-    print "\n ---- Top View ---- \n"
+    print("\n ---- Top View ---- \n")
     top_view_nodes = top_view(root)
-    print top_view_nodes
+    print(top_view_nodes)
 
-    print "\n ---- Bottom View ---- \n"
+    print("\n ---- Bottom View ---- \n")
     bottom_view_nodes = bottom_view(root)
-    print bottom_view_nodes
+    print(bottom_view_nodes)
 
 
 # root2 = Node(
