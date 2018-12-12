@@ -43,13 +43,13 @@ def top_view(root):
 
         if popped_node.left is not None:
             popped_node.left.hd = popped_node.hd - 1
-            if not hm.has_key(popped_node.left.hd):
+            if popped_node.left.hd not in hm:
                 hm[popped_node.left.hd] = popped_node.left.key
             q.put(popped_node.left)
 
         if popped_node.right is not None:
             popped_node.right.hd = popped_node.hd + 1
-            if not hm.has_key(popped_node.right.hd):
+            if popped_node.right.hd not in hm:
                 hm[popped_node.right.hd] = popped_node.right.key
             q.put(popped_node.right)
 
@@ -104,12 +104,10 @@ if __name__ == "__main__":
 
     print("\n ---- Left View ---- \n")
     left_view(root, 0)
-    max_level = -1
     print("\n")
 
     print("\n ---- Right View ---- \n")
     right_view(root, 0)
-    max_level = -1
     print("\n")
 
     print("\n ---- Top View ---- \n")
