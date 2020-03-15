@@ -8,3 +8,4 @@ target
 .env
 .environment
 environment
+test.py

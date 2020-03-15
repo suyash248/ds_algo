@@ -21,7 +21,7 @@ class CustomDLL(object):
 
         * Insert - Element is inserted at the tail/end. Also copy the element to `hashtable(dict)`.
         * Search - Element is searched in `hashtable(dict)` and corresponding `Node` reference is returned.
-        * Insert - Element is searched in `hashtable(dict)` and deleted from `hashtable(dict)` as well as from DLL.
+        * Delete - Element is searched in `hashtable(dict)` and deleted from `hashtable(dict)` as well as from DLL.
 
     | Time complexity: O(1)
     | Space complexity: O(n)
@@ -37,7 +37,7 @@ class CustomDLL(object):
         :param elt:
         :return:
         """
-        node = Node(data=elt, prev=self.__tail__    )
+        node = Node(data=elt, prev=self.__tail__)
 
         # First node
         if self.__count__ == 0:
