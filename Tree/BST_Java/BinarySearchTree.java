@@ -402,22 +402,16 @@ public class BinarySearchTree {
 		// If data in a node to be deleted is equal to data in current node then, we found the target node, 
 		// Now go ahead and delete it.
 		else {	// data == current.data
-			// Case -1 No or 0 child. i.e. leaf node.
-			if(current.left==null && current.right==null){
-				current = null;
+		
+			// node with only one child or no child 
+			if(current.left == null) {
+				current = current.right;
 			}
-			
-			// Case -2 1 child. (left child)
-			else if(current.left != null) {
+			else if(current.right == null) {
 				current = current.left;
 			}
 			
-			// Case -2 1 child. (right child)
-			else if(current.right != null) {
-				current = current.right;
-			}
-			
-			// Case-3 2 children
+			// node with 2 children
 			else {
 				// There are following 2 approaches-
 				
