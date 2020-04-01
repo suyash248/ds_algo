@@ -3,6 +3,7 @@
 ## Index
 * [Topics](https://github.com/suyash248/ds_algo#topics)
   * [Tree](https://github.com/suyash248/ds_algo#tree)
+  * [Graph](https://github.com/suyash248/ds_algo#graph)
   * [Array](https://github.com/suyash248/ds_algo#array)
   * [Dynamic programming](https://github.com/suyash248/ds_algo#dynamic-programming)
   * [Searching](https://github.com/suyash248/ds_algo#searching)
@@ -50,6 +51,9 @@
 * [Segment Tree](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree)
   * [Min-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/minRangeSegmentTree.py)
   * [Sum-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/sumRangeSegmentTree.py)
+
+### Graph
+* [Representation - Sparse matrix, Adjecency list](https://github.com/suyash248/ds_algo/blob/master/Graph/graph_representation.py)
 
 ### Array
 * [To reverse an array](https://github.com/suyash248/ds_algo/blob/master/Array/reverse.py)
