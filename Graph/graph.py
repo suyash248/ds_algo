@@ -133,12 +133,24 @@ if __name__ == '__main__':
 
     av = graph.get_all_vertex()
     ae = graph.get_all_edges()
+
+    # a: a-->b, a-->c
+    # b: b-->a, b-->d, b-->e
+    # e: e-->b, e-->d
+    # d: d-->e, d-->b, d-->c
+    # c: c-->d, c-->a
     print(graph)
 
+    # a [b, c]
+    # b [a, e, d]
+    # e [b, d]
+    # d [b, e, c]
+    # c [d, a]
     for v in av:
         print(v, v.get_all_adjacent_vertex())
 
     bfs_arr = graph.BFS('b')
+    # [b, a, e, d, c]
     print(bfs_arr)
 
     g = Graph()
@@ -150,4 +162,5 @@ if __name__ == '__main__':
     g.add_edge(3, 3)
 
     bfs_arr = g.BFS(2)
+    # [2, 0, 1, 3]
     print(bfs_arr)
