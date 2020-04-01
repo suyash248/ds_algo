@@ -81,6 +81,21 @@ class Graph(typing.Generic[T]):
     def get_all_edges(self) -> typing.Set[Edge]:
         return deepcopy(self.__all_edges__)
 
+    def __str__(self):
+        graph_str = []
+        for vertex, edges in self.__graph__.items():
+            vertex_str = vertex.__str__()
+            edges_str = set(map(lambda e: e.__str__(), edges))
+            graph_str.append('{vertex}: {edges}'.format(vertex=vertex_str, edges=', '.join(edges_str)))
+        return '\n'.join(graph_str)
+
+    def __repr__(self):
+        return self.__str__()
+
+
+    ###################################### Traversals ######################################
+
+
     def BFS(self, source_vertex_data: T) -> typing.List[Vertex[T]]:
         bfs: typing.List[Vertex[T]] = []
         visited: typing.Dict[T, bool] = dict()
@@ -104,17 +119,6 @@ class Graph(typing.Generic[T]):
 
     def DFS(self):
         pass
-
-    def __str__(self):
-        graph_str = []
-        for vertex, edges in self.__graph__.items():
-            vertex_str = vertex.__str__()
-            edges_str = set(map(lambda e: e.__str__(), edges))
-            graph_str.append('{vertex}: {edges}'.format(vertex=vertex_str, edges=', '.join(edges_str)))
-        return '\n'.join(graph_str)
-
-    def __repr__(self):
-        return self.__str__()
 
 if __name__ == '__main__':
     # a -- b
