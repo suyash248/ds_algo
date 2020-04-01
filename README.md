@@ -54,6 +54,7 @@
 
 ### Graph
 * [Representation - Sparse matrix, Adjecency list](https://github.com/suyash248/ds_algo/blob/master/Graph/graph_representation.py)
+* [Traversals - BFS, DFS](https://github.com/suyash248/ds_algo/blob/master/Graph/graph.py)
 
 ### Array
 * [To reverse an array](https://github.com/suyash248/ds_algo/blob/master/Array/reverse.py)

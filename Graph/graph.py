@@ -27,10 +27,10 @@ class Vertex(typing.Generic[T]):
         return self.data == other.data
 
     def __repr__(self):
-        return self.data
+        return self.__str__()
 
     def __str__(self):
-        return self.data
+        return self.data.__str__()
 
 class Edge(object):
     def __init__(self, vertex1: Vertex, vertex2: Vertex, weight=None, is_directed: bool = False):
@@ -81,6 +81,30 @@ class Graph(typing.Generic[T]):
     def get_all_edges(self) -> typing.Set[Edge]:
         return deepcopy(self.__all_edges__)
 
+    def BFS(self, source_vertex_data: T) -> typing.List[Vertex[T]]:
+        bfs: typing.List[Vertex[T]] = []
+        visited: typing.Dict[T, bool] = dict()
+        q: typing.List[Vertex[T]] = list()
+        source_vertex: Vertex[T] = self.__all_vertex__.get(source_vertex_data)
+        if source_vertex_data is None:
+            print('Invalid vertex: {}'.format(source_vertex_data))
+            return []
+
+        q.append(source_vertex)
+        visited[source_vertex_data] = True
+        while len(q) > 0:   # while q is not empty
+            popped_vertex: Vertex[T] = q.pop(0)
+            bfs.append(popped_vertex)
+
+            for ver in popped_vertex.get_all_adjacent_vertex():
+                if not visited.get(ver.data, False): #  visited.get(ver.data, False) == False
+                    visited[ver.data] = True
+                    q.append(ver)
+        return bfs
+
+    def DFS(self):
+        pass
+
     def __str__(self):
         graph_str = []
         for vertex, edges in self.__graph__.items():
@@ -113,3 +137,17 @@ if __name__ == '__main__':
 
     for v in av:
         print(v, v.get_all_adjacent_vertex())
+
+    bfs_arr = graph.BFS('b')
+    print(bfs_arr)
+
+    g = Graph()
+    g.add_edge(0, 1)
+    g.add_edge(0, 2)
+    g.add_edge(1, 2)
+    g.add_edge(2, 0)
+    g.add_edge(2, 3)
+    g.add_edge(3, 3)
+
+    bfs_arr = g.BFS(2)
+    print(bfs_arr)
