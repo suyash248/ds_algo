@@ -8,10 +8,11 @@ from Graph.graph import Graph, Vertex
 
 T = typing.TypeVar('T')
 
-'''
-Breadth-First-Search
-'''
 def BFS(graph: Graph[T]) -> typing.List[Vertex[T]]:
+    """
+    Breadth-First-Search
+    Time complexity: O(V+E)
+    """
     all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertex())
 
     bfs: typing.List[Vertex[T]] = []
@@ -37,10 +38,11 @@ def BFS(graph: Graph[T]) -> typing.List[Vertex[T]]:
             __BFS__(ver, visited)
     return bfs
 
-'''
-Depth-First-Search using stack
-'''
 def DFS_using_stack(graph: Graph[T]) -> typing.List[Vertex[T]]:
+    """
+    Depth-First-Search using stack
+    Time complexity: O(V+E)
+    """
     all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertex())
 
     visited: typing.Dict[T, bool] = dict()
@@ -77,10 +79,11 @@ def DFS_using_stack(graph: Graph[T]) -> typing.List[Vertex[T]]:
             __DFS__(ver, visited)
     return dfs
 
-'''
-Depth-First-Search using recrusion
-'''
 def DFS_recursive(graph: Graph[T]) -> typing.List[Vertex[T]]:
+    """
+    Depth-First-Search using recursion
+    Time complexity: O(V+E)
+    """
     all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertex())
 
     visited: typing.Dict[T, bool] = dict()
