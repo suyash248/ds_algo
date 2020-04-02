@@ -11,78 +11,77 @@ T = typing.TypeVar('T')
 '''
 Breadth-First-Search
 '''
-def BFS(graph: Graph[T], source_vertex_data: T) -> typing.List[Vertex[T]]:
+def BFS(graph: Graph[T]) -> typing.List[Vertex[T]]:
     all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertex())
 
     bfs: typing.List[Vertex[T]] = []
     visited: typing.Dict[T, bool] = dict()
     q: typing.List[Vertex[T]] = list()
 
-    source_vertex: Vertex[T] = all_data_vertex_mapping.get(source_vertex_data)
-    if source_vertex is None:
-        print('Invalid vertex: {}'.format(source_vertex_data))
-        return []
+    def __BFS__(vertex: Vertex[T], visited: typing.Dict[T, bool]):
+        q.append(vertex)
+        visited[vertex.data] = True
+        while len(q) > 0:  # while q is not empty
+            popped_vertex: Vertex[T] = q.pop(0)
+            bfs.append(popped_vertex)
 
-    q.append(source_vertex)
-    visited[source_vertex_data] = True
-    while len(q) > 0:  # while q is not empty
-        popped_vertex: Vertex[T] = q.pop(0)
-        bfs.append(popped_vertex)
+            for adjacent_ver in popped_vertex.get_all_adjacent_vertex():
+                if not visited.get(adjacent_ver.data, False):  # visited.get(ver.data, False) == False
+                    visited[adjacent_ver.data] = True
+                    q.append(adjacent_ver)
 
-        for adjacent_ver in popped_vertex.get_all_adjacent_vertex():
-            if not visited.get(adjacent_ver.data, False):  # visited.get(ver.data, False) == False
-                visited[adjacent_ver.data] = True
-                q.append(adjacent_ver)
+    # We could randomly start from any vertex and all __BFS__(random_vertex, visited) only once. But then, if graph
+    # would be disconnected then, we might miss a few vertex while traversing the graph.
+    for data, ver in all_data_vertex_mapping.items():
+        if not visited.get(data, False):
+            __BFS__(ver, visited)
     return bfs
 
 '''
 Depth-First-Search using stack
 '''
-def DFS_using_stack(graph: Graph[T], source_vertex_data: T) -> typing.List[Vertex[T]]:
+def DFS_using_stack(graph: Graph[T]) -> typing.List[Vertex[T]]:
     all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertex())
-
-    source_vertex: Vertex[T] = all_data_vertex_mapping.get(source_vertex_data)
-    if source_vertex is None:
-        print('Invalid vertex: {}'.format(source_vertex_data))
-        return []
 
     visited: typing.Dict[T, bool] = dict()
     dfs: typing.List[Vertex[T]] = []
     stack = list()
 
-    stack.append(source_vertex)
-    visited[source_vertex_data] = True
-    dfs.append(source_vertex)
+    def __DFS__(vertex, visited):
+        stack.append(vertex)
+        visited[vertex.data] = True
+        dfs.append(vertex)
 
-    while len(stack) > 0:
-        top_ver = stack[-1]
-        unvisited_adjacent_ver:Vertex[T] = None
-        # Find a unvisited adjacent vertex of top_ver
-        for adjacent_ver in top_ver.get_all_adjacent_vertex():
-            if not visited.get(adjacent_ver.data, False): # visited.get(ver.data, False) == False
-                unvisited_adjacent_ver = adjacent_ver
-                break
+        while len(stack) > 0:
+            top_ver = stack[-1]
+            unvisited_adjacent_ver:Vertex[T] = None
+            # Find a unvisited adjacent vertex of top_ver
+            for adjacent_ver in top_ver.get_all_adjacent_vertex():
+                if not visited.get(adjacent_ver.data, False): # visited.get(ver.data, False) == False
+                    unvisited_adjacent_ver = adjacent_ver
+                    break
 
-        if unvisited_adjacent_ver:
-            stack.append(unvisited_adjacent_ver)
-            visited[unvisited_adjacent_ver.data] = True
-            dfs.append(unvisited_adjacent_ver)
+            if unvisited_adjacent_ver:
+                stack.append(unvisited_adjacent_ver)
+                visited[unvisited_adjacent_ver.data] = True
+                dfs.append(unvisited_adjacent_ver)
 
-        # If there is no unvisited adjacent vertex of popper_ver is found, then pop the stack
-        elif unvisited_adjacent_ver is None and len(stack) > 0:
-            stack.pop(-1)
+            # If there is no unvisited adjacent vertex of popper_ver is found, then pop the stack
+            elif unvisited_adjacent_ver is None and len(stack) > 0:
+                stack.pop(-1)
+
+    # We could randomly start from any vertex and all __DFS__(random_vertex, visited) only once. But then, if graph
+    # would be disconnected then, we might miss a few vertex while traversing the graph.
+    for data, ver in all_data_vertex_mapping.items():
+        if not visited.get(data, False):
+            __DFS__(ver, visited)
     return dfs
 
 '''
 Depth-First-Search using recrusion
 '''
-def DFS_recursive(graph: Graph[T], source_vertex_data: T) -> typing.List[Vertex[T]]:
+def DFS_recursive(graph: Graph[T]) -> typing.List[Vertex[T]]:
     all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertex())
-
-    source_vertex: Vertex[T] = all_data_vertex_mapping.get(source_vertex_data)
-    if source_vertex is None:
-        print('Invalid vertex: {}'.format(source_vertex_data))
-        return []
 
     visited: typing.Dict[T, bool] = dict()
     dfs: typing.List[Vertex[T]] = []
@@ -96,14 +95,18 @@ def DFS_recursive(graph: Graph[T], source_vertex_data: T) -> typing.List[Vertex[
             if not visited.get(adjacent_ver.data, False):  # visited.get(ver.data, False) == False
                 __DFS__(adjacent_ver, visited)
 
-    __DFS__(source_vertex, visited)
+    # We could randomly start from any vertex and all __DFS__(random_vertex, visited) only once. But then, if graph
+    # would be disconnected then, we might miss a few vertex while traversing the graph.
+    for data, ver in all_data_vertex_mapping.items():
+        if not visited.get(data, False):
+            __DFS__(ver, visited)
     return dfs
 
 
 if __name__ == '__main__':
-    # a -- b
-    # |    |  \
-    # |    |   e
+    # a -- b             x
+    # |    |  \        /   \
+    # |    |   e      y     z
     # |    |  /
     # c -- d
 
@@ -114,17 +117,19 @@ if __name__ == '__main__':
     graph1.add_edge('e', 'd', is_directed=False)
     graph1.add_edge('d', 'c', is_directed=False)
     graph1.add_edge('c', 'a', is_directed=False)
+    graph1.add_edge('x', 'y', is_directed=False)
+    graph1.add_edge('x', 'z', is_directed=False)
 
     print(graph1)
-    bfs_arr = BFS(graph1, 'b')
+    bfs_arr = BFS(graph1)
     # [b, a, e, d, c]
     print("\nBFS:", bfs_arr)
 
-    dfs_arr = DFS_recursive(graph1, 'b')
+    dfs_arr = DFS_recursive(graph1)
     # [b, d, c, a, e]
     print("\nDFS(Recursive):", dfs_arr)
 
-    dfs_arr = DFS_using_stack(graph1, 'b')
+    dfs_arr = DFS_using_stack(graph1)
     # [b, d, c, a, e]
     print("\nDFS(Using stack):", dfs_arr)
 
@@ -141,14 +146,14 @@ if __name__ == '__main__':
     graph2.add_edge(3, 3)
 
     print(graph2)
-    bfs_arr = BFS(graph2, 2)
+    bfs_arr = BFS(graph2)
     # [2, 0, 1, 3]
     print("\nBFS:", bfs_arr)
 
-    dfs_arr = DFS_recursive(graph2, 2)
+    dfs_arr = DFS_recursive(graph2)
     # [2, 0, 1, 3]
     print("\nDFS(Recursive):", dfs_arr)
 
-    dfs_arr = DFS_using_stack(graph2, 2)
+    dfs_arr = DFS_using_stack(graph2)
     # [2, 0, 1, 3]
     print("\nDFS(Using stack):", dfs_arr)
