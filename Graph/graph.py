@@ -11,18 +11,18 @@ T = typing.TypeVar('T')
 class Vertex(typing.Generic[T]):
     def __init__(self, data: T):
         self.data = data
-        self.__adjacent_vertex__: typing.Set[Vertex] = set()
+        self.__adjacent_vertices__: typing.Set[Vertex] = set()
 
     def add_adjacent_vertex(self, vertex: Vertex[T]):
-        self.__adjacent_vertex__.add(vertex)
+        self.__adjacent_vertices__.add(vertex)
 
-    def get_all_adjacent_vertex(self) -> typing.Tuple[Vertex[T], ...]:
+    def get_all_adjacent_vertices(self) -> typing.Tuple[Vertex[T], ...]:
         """
-        To get all adjacent vertex of given `vertex`
+        To get all adjacent vertices of given `vertex`
 
-        :return: A tuple of all adjacent vertex.
+        :return: A tuple of all adjacent vertices.
         """
-        return tuple(self.__adjacent_vertex__)
+        return tuple(self.__adjacent_vertices__)
 
     def __hash__(self):
         return self.data.__hash__()
@@ -60,7 +60,7 @@ class Edge(object):
 class Graph(typing.Generic[T]):
     def __init__(self):
         self.__graph__: dict[Vertex: typing.Set[Edge]] = defaultdict(set)
-        self.__all_vertex__: typing.Dict[T, Vertex[T]] = dict()
+        self.__all_vertices__: typing.Dict[T, Vertex[T]] = dict()
         self.__all_edges__: typing.Set[Edge] = set()
 
     def add_edge(self, from_vertex_data: T, to_vertex_data: T, weight=None, is_directed: bool = False):
@@ -78,8 +78,8 @@ class Graph(typing.Generic[T]):
         :param weight:
         :param is_directed:
         """
-        vertex1: Vertex = self.__all_vertex__.setdefault(from_vertex_data, Vertex(from_vertex_data))
-        vertex2: Vertex = self.__all_vertex__.setdefault(to_vertex_data, Vertex(to_vertex_data))
+        vertex1: Vertex = self.__all_vertices__.setdefault(from_vertex_data, Vertex(from_vertex_data))
+        vertex2: Vertex = self.__all_vertices__.setdefault(to_vertex_data, Vertex(to_vertex_data))
 
         edge = Edge(vertex1, vertex2, weight=weight, is_directed=is_directed)
         self.__all_edges__.add(edge)
@@ -95,14 +95,14 @@ class Graph(typing.Generic[T]):
             self.__graph__[vertex2].add(edge2)
             vertex2.add_adjacent_vertex(vertex1)
 
-    def get_all_vertex(self) -> typing.List[typing.Tuple[T, Vertex[T]]]:
+    def get_all_vertices(self) -> typing.List[typing.Tuple[T, Vertex[T]]]:
         """
-        To get all vertex along with the data.
+        To get all vertices along with the data.
 
         :return: A list of tuples, each tuple is a pair of vertex data and vertex.
         e.g. [(v1_data, vertex1), (v2_data, vertex2), .... (vN_data, vertexN)]
         """
-        return [(data, ver) for data, ver in self.__all_vertex__.items()]
+        return [(data, ver) for data, ver in self.__all_vertices__.items()]
 
     def get_all_edges(self) -> typing.Tuple[Edge]:
         """
@@ -145,7 +145,7 @@ if __name__ == '__main__':
     # c: c-->d, c-->a
     print(graph1)
 
-    all_vertex = graph1.get_all_vertex()
+    all_vertices = graph1.get_all_vertices()
     all_edges = graph1.get_all_edges
 
     # (a-->c, d-->c, b-->e, b-->a, c-->d, b-->d, d-->b, e-->d, c-->a, e-->b, d-->e, a-->b)
@@ -156,8 +156,8 @@ if __name__ == '__main__':
     # e (d, b)
     # d (e, c, b)
     # c (a, d)
-    print("\nAdjacent vertex: ")
-    for data, v in all_vertex: print(v, v.get_all_adjacent_vertex())
+    print("\nAdjacent vertices: ")
+    for data, v in all_vertices: print(v, v.get_all_adjacent_vertices())
 
     print('\n' + '#'*100 + '\n')
 
@@ -170,7 +170,7 @@ if __name__ == '__main__':
     graph2.add_edge(3, 3)
 
     print(graph2)
-    all_vertex = graph2.get_all_vertex()
+    all_vertices = graph2.get_all_vertices()
     all_edges = graph2.get_all_edges
 
     # (0-->1, 1-->2, 3-->2, 3-->3, 2-->1, 2-->0, 2-->3, 1-->0, 0-->2)
@@ -180,5 +180,5 @@ if __name__ == '__main__':
     # 1 (0, 2)
     # 2 (0, 1, 3)
     # 3 (2, 3)
-    print("\nAdjacent vertex: ")
-    for data, v in all_vertex: print(v, v.get_all_adjacent_vertex())
+    print("\nAdjacent vertices: ")
+    for data, v in all_vertices: print(v, v.get_all_adjacent_vertices())

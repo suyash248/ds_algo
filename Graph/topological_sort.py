@@ -9,14 +9,14 @@ from Graph.graph import Graph, Vertex
 T = typing.TypeVar('T')
 
 def topological_sort(graph: Graph[T]):
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertex())
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertices())
 
     visited: typing.Set[T] = set()
     stack: typing.List[Vertex[T]] = list()
 
     def __top_sort__(vertex: Vertex[T], visited: typing.Set[T]):
         visited.add(vertex.data)
-        for adjacent_ver in vertex.get_all_adjacent_vertex():
+        for adjacent_ver in vertex.get_all_adjacent_vertices():
             if adjacent_ver.data not in visited:
                 __top_sort__(adjacent_ver, visited)
         stack.append(vertex)
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     print('Graph:')
     print(graph1, '\n')
 
-    all_vertex = graph1.get_all_vertex()
+    all_vertex = graph1.get_all_vertices()
     # A (C,)
     # C (E,)
     # B (D, C)
@@ -61,9 +61,9 @@ if __name__ == '__main__':
     # F (G,)
     # H ()
     # G ()
-    print("Adjacent vertex:")
+    print("Adjacent vertices:")
     for data, v in all_vertex:
-        print(v, v.get_all_adjacent_vertex())
+        print(v, v.get_all_adjacent_vertices())
 
     top_sort = topological_sort(graph1)
     # [B, D, A, C, E, H, F, G] or [A, B, C, D, E, F, H, G]

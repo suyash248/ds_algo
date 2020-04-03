@@ -24,13 +24,13 @@ BLACK: COLOR = COLOR(name='BLACK')
 # https://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
 # Time complexity: O(V+E)
 def has_cycle_directed(graph: Graph[T]) -> typing.Tuple[bool, typing.List[Vertex[T]]]:
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertex())
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertices())
     vertex_color_mapping: typing.Dict[T, COLOR] = defaultdict(COLOR) # by default every vertex has white color
     vertex_parent_mapping: typing.Dict[Vertex[T], Vertex[T]] = dict()
 
     def __has_cycle__(vertex: Vertex[T], vertex_color_mapping: typing.Dict[T, COLOR]) -> bool:
         vertex_color_mapping[vertex.data] = GREY
-        for adjacent_ver in vertex.get_all_adjacent_vertex():
+        for adjacent_ver in vertex.get_all_adjacent_vertices():
             # If adjacent_ver/neighbour is of GREY color, then graph has the cycle.
 
             vertex_parent_mapping[adjacent_ver] = vertex
@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
     graph1 = Graph()
     graph1.add_edge('A', 'B', is_directed=True)
-    graph1.add_edge('B', 'C', is_directed=True)
+    graph1.add_edge('B', 'C', is_directed=True)     # Replace edge B -> C to B -> G it to remove cycle.
     # graph1.add_edge('B', 'G', is_directed=True)
     graph1.add_edge('B', 'D', is_directed=True)
     graph1.add_edge('C', 'A', is_directed=True)
@@ -103,7 +103,13 @@ if __name__ == '__main__':
     graph1.add_edge('F', 'D', is_directed=True)
     graph1.add_edge('F', 'G', is_directed=True)
 
-    print(graph1)
+    # A: A-->B
+    # B: B-->D, B-->C
+    # C: C-->E, C-->A
+    # D: D-->E
+    # F: F-->D, F-->G
+    print('Graph:')
+    print(graph1, '\n')
 
     is_cycle_present, cyclic_path = has_cycle_directed(graph1)
     if is_cycle_present:
