@@ -56,7 +56,9 @@
 * [Representation - Sparse matrix, Adjecency list](https://github.com/suyash248/ds_algo/blob/master/Graph/graph_representation.py)
 * [Traversals - BFS, DFS](https://github.com/suyash248/ds_algo/blob/master/Graph/traversals.py)
 * [Topological sort](https://github.com/suyash248/ds_algo/blob/master/Graph/topological_sort.py)
-* [Detect cycle](https://github.com/suyash248/ds_algo/blob/master/Graph/detect_cycle.py)
+* [Detect cycle - Directed graph](https://github.com/suyash248/ds_algo/blob/master/Graph/detect_cycle_directed_graph.py)
+* [Detect cycle - Undirected graph](https://github.com/suyash248/ds_algo/blob/master/Graph/detect_cycle_undirected_graph.py)
+* [Disjoint set](https://github.com/suyash248/ds_algo/blob/master/Graph/disjoint_set.py)
 
 ### Array
 * [To reverse an array](https://github.com/suyash248/ds_algo/blob/master/Array/reverse.py)
