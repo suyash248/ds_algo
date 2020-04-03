@@ -27,6 +27,13 @@ class Node(typing.Generic[T]):
     def __repr__(self):
         return self.__str__()
 
+    def __hash__(self):
+        return self.data.__hash__()
+
+    def __eq__(self, other):
+        if other is not None: return self.data == other.data
+        return False
+
 class DisjointSet(typing.Generic[T]):
     def __init__(self):
         self.__data_node_mapping__: typing.Dict[T, Node[T]] = dict()
@@ -86,6 +93,15 @@ class DisjointSet(typing.Generic[T]):
             parent2.parent = parent1
         return True
 
+    def __str__(self):
+        a = []
+        for data, node in self.__data_node_mapping__.items():
+            a.append(node.__str__())
+        return '\n'.join(a)
+
+    def __repr__(self):
+        return self.__str__()
+
 if __name__ == '__main__':
     ds: DisjointSet[int] = DisjointSet()
     ds.make_set(1)
@@ -110,3 +126,6 @@ if __name__ == '__main__':
     print(ds.find_set(5))
     print(ds.find_set(6))
     print(ds.find_set(7))
+
+    print('\n')
+    print(ds)

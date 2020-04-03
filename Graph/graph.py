@@ -4,12 +4,14 @@ __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
 from _collections import defaultdict
+from uuid import uuid4
 import typing
 
 T = typing.TypeVar('T')
 
 class Vertex(typing.Generic[T]):
     def __init__(self, data: T):
+        self.id = str(uuid4())
         self.data = data
         self.__adjacent_vertices__: typing.Set[Vertex] = set()
 
@@ -25,7 +27,7 @@ class Vertex(typing.Generic[T]):
         return tuple(self.__adjacent_vertices__)
 
     def __hash__(self):
-        return self.data.__hash__()
+        return hash(self.data)
 
     def __eq__(self, other: Vertex):
         if other is None: return False
@@ -37,25 +39,51 @@ class Vertex(typing.Generic[T]):
     def __str__(self):
         return self.data.__str__()
 
-class Edge(object):
-    def __init__(self, vertex1: Vertex, vertex2: Vertex, weight=None, is_directed: bool = False):
+class Edge(typing.Generic[T]):
+    def __init__(self, vertex1: Vertex[T], vertex2: Vertex[T], weight=None, is_directed: bool = False):
         self.vertex1 = vertex1
         self.vertex2 = vertex2
         self.weight = weight
         self.is_directed = is_directed
 
     def __hash__(self):
-        return hash((self.vertex1, self.vertex2))
+        return hash((self.vertex1.id, self.vertex2.id))
 
-    def __eq__(self, other: Edge):
+    def __eq__(self, other: Edge[T]):
         if other is None: return False
-        return (self.vertex1, self.vertex2) == (other.vertex1, other.vertex2)
+        return (self.vertex1.id, self.vertex2.id) == (other.vertex1.id, other.vertex2.id)
 
     def __str__(self):
         return "{}-{}->{}".format(self.vertex1.__str__(), self.weight if self.weight else '', self.vertex2.__str__())
 
     def __repr__(self):
         return self.__str__()
+
+class UndirectedEdge(Edge[T]):
+    def __init__(self, vertex1: Vertex[T], vertex2: Vertex[T], weight=None):
+        super().__init__(vertex1, vertex2, weight, False)
+        self.vertex1 = vertex1
+        self.vertex2 = vertex2
+        self.weight = weight
+        self.is_directed = False
+
+    @classmethod
+    def convert_directed_to_undirected(cls, edge: Edge[T]) -> UndirectedEdge[T]:
+        return UndirectedEdge(edge.vertex1, edge.vertex2, weight=edge.weight)
+
+    def __hash__(self):
+        return hash(hash(self.vertex1.id) + hash(self.vertex2.id))
+
+    def __eq__(self, other):
+        if other is None: return False
+        return (hash(self.vertex1.id) + hash(self.vertex2.id)) == (hash(other.vertex1.id) + hash(other.vertex2.id))
+
+    def __str__(self):
+        return "{}-{}--{}".format(self.vertex1.__str__(), self.weight if self.weight else '', self.vertex2.__str__())
+
+    def __repr__(self):
+        return self.__str__()
+
 
 class Graph(typing.Generic[T]):
     def __init__(self):
@@ -104,13 +132,28 @@ class Graph(typing.Generic[T]):
         """
         return [(data, ver) for data, ver in self.__all_vertices__.items()]
 
-    def get_all_edges(self) -> typing.Tuple[Edge]:
+    def get_all_edges(self) -> typing.Tuple[Edge[T], ...]:
         """
         To get all edges.
 
+        :rtype: object
         :return: A tuple of edges.
         """
         return tuple(self.__all_edges__)
+
+    def get_all_undirected_edges(self) -> typing.Tuple[Edge[T], ...]:
+        """
+        To get all edges.
+
+        :rtype: object
+        :return: A tuple of edges.
+        """
+        undirected_edges: typing.Set[UndirectedEdge[T]] = set()
+        for edge in self.__all_edges__:
+            undirected_edge: UndirectedEdge[T] = UndirectedEdge.convert_directed_to_undirected(edge)
+            # print(undirected_edge, undirected_edge.__hash__())
+            undirected_edges.add(undirected_edge)
+        return tuple(undirected_edges)
 
     def __str__(self):
         graph_str = []
