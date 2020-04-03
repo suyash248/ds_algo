@@ -46,7 +46,7 @@ class DisjointSet(typing.Generic[T]):
     def find_set(self, data: T) -> Node[T]:
         """
         Finds set(representative node) and also performs path compression to make subsequent find_set calls faster
-        by avoiding skewed tree.
+        by avoiding skewed tree(By attaching all the descendants to root node directly).
 
         :param data: target data node.
         :return: Representative node of the set where the node(corresponding to data) belongs to.
