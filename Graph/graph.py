@@ -28,6 +28,7 @@ class Vertex(typing.Generic[T]):
         return self.data.__hash__()
 
     def __eq__(self, other: Vertex):
+        if other is None: return False
         return self.data == other.data
 
     def __repr__(self):
@@ -47,6 +48,7 @@ class Edge(object):
         return hash((self.vertex1, self.vertex2))
 
     def __eq__(self, other: Edge):
+        if other is None: return False
         return (self.vertex1, self.vertex2) == (other.vertex1, other.vertex2)
 
     def __str__(self):
