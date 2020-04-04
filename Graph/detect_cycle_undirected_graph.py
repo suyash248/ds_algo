@@ -42,9 +42,9 @@ def detect_cycle_using_BFS(graph: Graph[T]) -> bool:
 
 if __name__ == '__main__':
     graph1: Graph[str] = Graph()
-    graph1.add_edge('A', 'B')
-    graph1.add_edge('B', 'C')
-    graph1.add_edge('C', 'A')
+    graph1.add_edge('A', 'B', reverse=False)
+    graph1.add_edge('B', 'C', reverse=False)
+    graph1.add_edge('C', 'A', reverse=False)
 
     print('Graph:')
     print(graph1, '\n')
@@ -59,12 +59,12 @@ if __name__ == '__main__':
     print("\nGraph has cycle" if has_cycle else "Graph does NOT have cycle")
 
     graph2: Graph[int] = Graph()
-    graph2.add_edge(0, 1)
-    graph2.add_edge(1, 2)
-    graph2.add_edge(0, 3)
-    graph2.add_edge(3, 4)
-    graph2.add_edge(4, 5)
-    graph2.add_edge(5, 1)
+    graph2.add_edge(0, 1, reverse=False)
+    graph2.add_edge(1, 2, reverse=False)
+    graph2.add_edge(0, 3, reverse=False)
+    graph2.add_edge(3, 4, reverse=False)
+    graph2.add_edge(4, 5, reverse=False)
+    graph2.add_edge(5, 1, reverse=False)
 
     print('\n' + '#' * 100 + '\n')
 

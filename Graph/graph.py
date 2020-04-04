@@ -59,39 +59,13 @@ class Edge(typing.Generic[T]):
     def __repr__(self):
         return self.__str__()
 
-class UndirectedEdge(Edge[T]):
-    def __init__(self, vertex1: Vertex[T], vertex2: Vertex[T], weight=None):
-        super().__init__(vertex1, vertex2, weight, False)
-        self.vertex1 = vertex1
-        self.vertex2 = vertex2
-        self.weight = weight
-        self.is_directed = False
-
-    @classmethod
-    def convert_directed_to_undirected(cls, edge: Edge[T]) -> UndirectedEdge[T]:
-        return UndirectedEdge(edge.vertex1, edge.vertex2, weight=edge.weight)
-
-    def __hash__(self):
-        return hash(hash(self.vertex1.id) + hash(self.vertex2.id))
-
-    def __eq__(self, other):
-        if other is None: return False
-        return (hash(self.vertex1.id) + hash(self.vertex2.id)) == (hash(other.vertex1.id) + hash(other.vertex2.id))
-
-    def __str__(self):
-        return "{}-{}--{}".format(self.vertex1.__str__(), self.weight if self.weight else '', self.vertex2.__str__())
-
-    def __repr__(self):
-        return self.__str__()
-
-
 class Graph(typing.Generic[T]):
     def __init__(self):
         self.__graph__: dict[Vertex: typing.Set[Edge]] = defaultdict(set)
         self.__all_vertices__: typing.Dict[T, Vertex[T]] = dict()
         self.__all_edges__: typing.Set[Edge] = set()
 
-    def add_edge(self, from_vertex_data: T, to_vertex_data: T, weight=None, is_directed: bool = False):
+    def add_edge(self, from_vertex_data: T, to_vertex_data: T, weight=None, is_directed: bool = False, reverse: bool = True):
         """
         Creates an @Edge from a vertex corresponding to `from_vertex_data` to a vertex corresponding to `to_vertex_data`.
 
@@ -101,10 +75,12 @@ class Graph(typing.Generic[T]):
 
         e.g. **(to_vertex ---- (weight) ----> from_vertex)**
 
-        :param from_vertex_data:
-        :param to_vertex_data:
-        :param weight:
-        :param is_directed:
+        :param from_vertex_data: source vertex data
+        :param to_vertex_data: destination vertex data
+        :param weight: weight associated to the edge
+        :param is_directed: directed or undirected edge
+        :param reverse: defaults to True, which means for undirected edge, for an edge from v1 to v2 there is a
+        reverse edge also from v2 to v1
         """
         vertex1: Vertex = self.__all_vertices__.setdefault(from_vertex_data, Vertex(from_vertex_data))
         vertex2: Vertex = self.__all_vertices__.setdefault(to_vertex_data, Vertex(to_vertex_data))
@@ -116,7 +92,7 @@ class Graph(typing.Generic[T]):
 
         vertex1.add_adjacent_vertex(vertex2)
 
-        if not is_directed:
+        if not is_directed and reverse:
             edge2 = Edge(vertex2, vertex1, is_directed)
             self.__all_edges__.add(edge2)
 
@@ -143,16 +119,21 @@ class Graph(typing.Generic[T]):
 
     def get_all_undirected_edges(self) -> typing.Tuple[Edge[T], ...]:
         """
-        To get all edges.
+        To get all undirected edges. i.e. if there is an edge u to v, there won't be an edge v to u
 
         :rtype: object
         :return: A tuple of edges.
         """
-        undirected_edges: typing.Set[UndirectedEdge[T]] = set()
+        hm: typing.Dict[T, T] = defaultdict(list)
+        undirected_edges: typing.Set[Edge[T]] = set()
+
         for edge in self.__all_edges__:
-            undirected_edge: UndirectedEdge[T] = UndirectedEdge.convert_directed_to_undirected(edge)
-            # print(undirected_edge, undirected_edge.__hash__())
-            undirected_edges.add(undirected_edge)
+            if edge.vertex2.data in hm[edge.vertex1.data] or edge.vertex1.data in hm[edge.vertex2.data]:
+                continue
+            hm[edge.vertex1.data].append(edge.vertex2.data)
+            hm[edge.vertex2.data].append(edge.vertex1.data)
+            undirected_edges.add(edge)
+        # print(hm)
         return tuple(undirected_edges)
 
     def __str__(self):
