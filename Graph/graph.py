@@ -133,14 +133,14 @@ class Graph(Generic[T]):
             vertex2.__add_adjacent_vertex__(vertex1)
 
     @property
-    def vertices(self) -> List[Tuple[T, Vertex[T]]]:
+    def vertices(self) -> Tuple[Tuple[T, Vertex[T]], ...]:
         """
         To get all vertices along with the data.
 
-        :return: A list of tuples, each tuple is a pair of vertex data and vertex.
-        e.g. [(v1_data, vertex1), (v2_data, vertex2), .... (vN_data, vertexN)]
+        :return: A tuple of tuples, each tuple is a pair of vertex data and vertex.
+        e.g. ( (v1_data, vertex1), (v2_data, vertex2), .... (vN_data, vertexN) )
         """
-        return [(data, ver) for data, ver in self._vertices_.items()]
+        return tuple([(data, ver) for data, ver in self._vertices_.items()])
 
     @property
     def edges(self) -> Tuple[Edge[T], ...]:
