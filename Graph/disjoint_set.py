@@ -3,9 +3,9 @@ from __future__ import annotations
 __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
-import typing
+from typing import TypeVar, Generic, Dict
 
-T = typing.TypeVar('T')
+T = TypeVar('T')
 
 # References:
 # https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/DisjointSet.java
@@ -13,7 +13,7 @@ T = typing.TypeVar('T')
 # https://www.geeksforgeeks.org/union-find-algorithm-set-2-union-by-rank/
 
 
-class Node(typing.Generic[T]):
+class Node(Generic[T]):
     def __init__(self, data: T, parent: Node[T] = None, rank: int = 0):
         self.data = data
         self.rank = rank
@@ -34,9 +34,9 @@ class Node(typing.Generic[T]):
         if other is not None: return self.data == other.data
         return False
 
-class DisjointSet(typing.Generic[T]):
+class DisjointSet(Generic[T]):
     def __init__(self):
-        self.__data_node_mapping__: typing.Dict[T, Node[T]] = dict()
+        self.__data_node_mapping__: Dict[T, Node[T]] = dict()
 
     def make_set(self, data: T):
         """

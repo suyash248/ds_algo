@@ -3,18 +3,18 @@ from __future__ import annotations
 __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
-import typing
+from typing import TypeVar, Set, List, Dict
 from Graph.graph import Graph, Vertex
 
-T = typing.TypeVar('T')
+T = TypeVar('T')
 
 def topological_sort_using_DFS(graph: Graph[T]):
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
+    all_data_vertex_mapping: Dict[T, Vertex[T]] = dict(graph.vertices)
 
-    visited: typing.Set[T] = set()
-    stack: typing.List[Vertex[T]] = list()
+    visited: Set[T] = set()
+    stack: List[Vertex[T]] = list()
 
-    def __top_sort__(vertex: Vertex[T], visited: typing.Set[T]):
+    def __top_sort__(vertex: Vertex[T], visited: Set[T]):
         visited.add(vertex.data)
         for adjacent_ver in vertex.adjacent_vertices:
             if adjacent_ver.data not in visited:
@@ -29,11 +29,11 @@ def topological_sort_using_DFS(graph: Graph[T]):
 # Kahn's algo: keeps track of degree of each vertex.
 # https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/
 def topological_sort_using_BFS(graph: Graph[T]):
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
+    all_data_vertex_mapping: Dict[T, Vertex[T]] = dict(graph.vertices)
     vertex_in_degree_mapping = {data: ver.in_degree for data, ver in all_data_vertex_mapping.items()}
 
-    top_order: typing.List[Vertex[T]] = []
-    q: typing.List[Vertex[T]] = [v_zero for v_zero in filter(lambda v: v.in_degree == 0, all_data_vertex_mapping.values())]
+    top_order: List[Vertex[T]] = []
+    q: List[Vertex[T]] = [v_zero for v_zero in filter(lambda v: v.in_degree == 0, all_data_vertex_mapping.values())]
     count = 0
 
     while q:

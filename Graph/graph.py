@@ -5,23 +5,23 @@ __email__ = "suyash.soni248@gmail.com"
 
 from _collections import defaultdict
 from uuid import uuid4
-import typing
+from typing import TypeVar, Generic, List, Set, Tuple, Dict
 
-T = typing.TypeVar('T')
+T = TypeVar('T')
 
-class Vertex(typing.Generic[T]):
+class Vertex(Generic[T]):
     def __init__(self, data: T):
         self._id_: str = str(uuid4())
         self._data_: T = data
         self._in_degree_: int = 0
         self._out_degree_: int = 0
-        self._adjacent_vertices_: typing.Set[Vertex] = set()
+        self._adjacent_vertices_: Set[Vertex] = set()
 
     def __add_adjacent_vertex__(self, vertex: Vertex[T]):
         self._adjacent_vertices_.add(vertex)
 
     @property
-    def adjacent_vertices(self) -> typing.Tuple[Vertex[T], ...]:
+    def adjacent_vertices(self) -> Tuple[Vertex[T], ...]:
         """
         To get all adjacent vertices of given `vertex`
 
@@ -57,7 +57,7 @@ class Vertex(typing.Generic[T]):
     def __str__(self):
         return self.data.__str__()
 
-class Edge(typing.Generic[T]):
+class Edge(Generic[T]):
     def __init__(self, vertex1: Vertex[T], vertex2: Vertex[T], weight=None, is_directed: bool = False):
         self._vertex1_: Vertex[T] = vertex1
         self._vertex2_: Vertex[T] = vertex2
@@ -89,11 +89,11 @@ class Edge(typing.Generic[T]):
     def __repr__(self):
         return self.__str__()
 
-class Graph(typing.Generic[T]):
+class Graph(Generic[T]):
     def __init__(self):
-        self._graph_: dict[Vertex: typing.Set[Edge]] = defaultdict(set)
-        self._vertices_: typing.Dict[T, Vertex[T]] = dict()
-        self._edges_: typing.Set[Edge] = set()
+        self._graph_: Dict[Vertex[T], Set[Edge]] = defaultdict(set)
+        self._vertices_: Dict[T, Vertex[T]] = dict()
+        self._edges_: Set[Edge] = set()
 
     def add_edge(self, from_vertex_data: T, to_vertex_data: T, weight=None, is_directed: bool = False, reverse: bool = True):
         """
@@ -133,7 +133,7 @@ class Graph(typing.Generic[T]):
             vertex2.__add_adjacent_vertex__(vertex1)
 
     @property
-    def vertices(self) -> typing.List[typing.Tuple[T, Vertex[T]]]:
+    def vertices(self) -> List[Tuple[T, Vertex[T]]]:
         """
         To get all vertices along with the data.
 
@@ -143,7 +143,7 @@ class Graph(typing.Generic[T]):
         return [(data, ver) for data, ver in self._vertices_.items()]
 
     @property
-    def edges(self) -> typing.Tuple[Edge[T], ...]:
+    def edges(self) -> Tuple[Edge[T], ...]:
         """
         To get all edges.
 
@@ -153,15 +153,15 @@ class Graph(typing.Generic[T]):
         return tuple(self._edges_)
 
     @property
-    def all_undirected_edges(self) -> typing.Tuple[Edge[T], ...]:
+    def all_undirected_edges(self) -> Tuple[Edge[T], ...]:
         """
         To get all undirected edges. i.e. if there is an edge u to v, there won't be an edge v to u
 
         :rtype: object
         :return: A tuple of edges.
         """
-        hm: typing.Dict[T, T] = defaultdict(list)
-        undirected_edges: typing.Set[Edge[T]] = set()
+        hm: Dict[T, T] = defaultdict(list)
+        undirected_edges: Set[Edge[T]] = set()
 
         for edge in self._edges_:
             if edge.vertex2.data in hm[edge.vertex1.data] or edge.vertex1.data in hm[edge.vertex2.data]:
@@ -173,11 +173,11 @@ class Graph(typing.Generic[T]):
         return tuple(undirected_edges)
 
     @property
-    def adjecency_list(self):
+    def adjecency_list(self) -> Tuple[Tuple[Vertex[T], Set[Edge]], ...]:
         """
         :return: Adjecency list representation of the graph - ((v1, {e1, e2}), (v2, {e5, e7}), ... (vN, {e3, e12}))
         """
-        return tuple([(data, vertices) for data, vertices in self._graph_.items()])
+        return tuple([(vertex, edges) for vertex, edges in self._graph_.items()])
 
     def __str__(self):
         graph_str = []

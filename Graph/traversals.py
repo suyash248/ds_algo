@@ -3,23 +3,23 @@ from __future__ import annotations
 __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
-import typing
+from typing import TypeVar, List, Dict, Set
 from Graph.graph import Graph, Vertex
 
-T = typing.TypeVar('T')
+T = TypeVar('T')
 
-def BFS(graph: Graph[T]) -> typing.List[Vertex[T]]:
+def BFS(graph: Graph[T]) -> List[Vertex[T]]:
     """
     Breadth-First-Search
     Time complexity: O(V+E)
     """
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
+    all_data_vertex_mapping: Dict[T, Vertex[T]] = dict(graph.vertices)
 
-    bfs: typing.List[Vertex[T]] = []
-    visited: typing.Dict[T, bool] = dict()
-    q: typing.List[Vertex[T]] = list()
+    bfs: List[Vertex[T]] = []
+    visited: Dict[T, bool] = dict()
+    q: List[Vertex[T]] = list()
 
-    def __BFS__(vertex: Vertex[T], visited: typing.Dict[T, bool]):
+    def __BFS__(vertex: Vertex[T], visited: Dict[T, bool]):
         q.append(vertex)
         visited[vertex.data] = True
         while len(q) > 0:  # while q is not empty
@@ -38,15 +38,15 @@ def BFS(graph: Graph[T]) -> typing.List[Vertex[T]]:
             __BFS__(ver, visited)
     return bfs
 
-def DFS_using_stack(graph: Graph[T]) -> typing.List[Vertex[T]]:
+def DFS_using_stack(graph: Graph[T]) -> List[Vertex[T]]:
     """
     Depth-First-Search using stack
     Time complexity: O(V+E)
     """
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
+    all_data_vertex_mapping: Dict[T, Vertex[T]] = dict(graph.vertices)
 
-    visited: typing.Dict[T, bool] = dict()
-    dfs: typing.List[Vertex[T]] = []
+    visited: Dict[T, bool] = dict()
+    dfs: List[Vertex[T]] = []
     stack = list()
 
     def __DFS__(vertex, visited):
@@ -79,15 +79,15 @@ def DFS_using_stack(graph: Graph[T]) -> typing.List[Vertex[T]]:
             __DFS__(ver, visited)
     return dfs
 
-def DFS_recursive(graph: Graph[T]) -> typing.List[Vertex[T]]:
+def DFS_recursive(graph: Graph[T]) -> List[Vertex[T]]:
     """
     Depth-First-Search using recursion
     Time complexity: O(V+E)
     """
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
+    all_data_vertex_mapping: Dict[T, Vertex[T]] = dict(graph.vertices)
 
-    visited: typing.Dict[T, bool] = dict()
-    dfs: typing.List[Vertex[T]] = []
+    visited: Dict[T, bool] = dict()
+    dfs: List[Vertex[T]] = []
 
     def __DFS__(ver: Vertex[T], visited):
         if not visited.get(ver.data, False):

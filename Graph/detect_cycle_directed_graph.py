@@ -4,10 +4,10 @@ __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
 from collections import namedtuple, defaultdict
-import typing
+from typing import TypeVar, List, Tuple, Dict
 from Graph.graph import Graph, Vertex
 
-T = typing.TypeVar('T')
+T = TypeVar('T')
 
 COLOR = namedtuple('COLOR', 'name')
 COLOR.__new__.__defaults__ = ('WHITE',) # by default every vertex is of white color, so default value is set to `WHITE`.
@@ -23,12 +23,12 @@ BLACK: COLOR = COLOR(name='BLACK')
 
 # https://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
 # Time complexity: O(V+E)
-def has_cycle_using_DFS_coloring(graph: Graph[T]) -> typing.Tuple[bool, typing.List[Vertex[T]]]:
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
-    vertex_color_mapping: typing.Dict[T, COLOR] = defaultdict(COLOR) # by default every vertex has white color
-    vertex_parent_mapping: typing.Dict[Vertex[T], Vertex[T]] = dict()
+def has_cycle_using_DFS_coloring(graph: Graph[T]) -> Tuple[bool, List[Vertex[T]]]:
+    all_data_vertex_mapping: Dict[T, Vertex[T]] = dict(graph.vertices)
+    vertex_color_mapping: Dict[T, COLOR] = defaultdict(COLOR) # by default every vertex has white color
+    vertex_parent_mapping: Dict[Vertex[T], Vertex[T]] = dict()
 
-    def __has_cycle__(vertex: Vertex[T], vertex_color_mapping: typing.Dict[T, COLOR]) -> bool:
+    def __has_cycle__(vertex: Vertex[T], vertex_color_mapping: Dict[T, COLOR]) -> bool:
         vertex_color_mapping[vertex.data] = GREY
         for adjacent_ver in vertex.adjacent_vertices:
             # If adjacent_ver/neighbour is of GREY color, then graph has the cycle.
@@ -50,7 +50,7 @@ def has_cycle_using_DFS_coloring(graph: Graph[T]) -> typing.Tuple[bool, typing.L
         vertex_color_mapping[vertex.data] = BLACK
         return False
 
-    def get_cyclic_path(vertex: Vertex[T], vertex_parent_mapping: typing.Dict[Vertex[T], Vertex[T]]) -> typing.List[Vertex[T]]:
+    def get_cyclic_path(vertex: Vertex[T], vertex_parent_mapping: Dict[Vertex[T], Vertex[T]]) -> List[Vertex[T]]:
         """
         :param vertex: Starting vertex of the cycle.
         :param vertex_parent_mapping: Dict containing `vertex` to `immediate parent` mapping.
@@ -63,7 +63,7 @@ def has_cycle_using_DFS_coloring(graph: Graph[T]) -> typing.Tuple[bool, typing.L
         # ver: A
         # vertex_parent_mapping: {B: A, C: B, E: C, A: C}
         # cycle_path: [A, B, C, A] -> reverse it to get the cyclic path
-        cycle_path: typing.List[Vertex[T]] = []
+        cycle_path: List[Vertex[T]] = []
         while curr_vertex != start_vertex:
             if curr_vertex is None:
                 curr_vertex = start_vertex
