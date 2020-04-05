@@ -13,7 +13,7 @@ def BFS(graph: Graph[T]) -> typing.List[Vertex[T]]:
     Breadth-First-Search
     Time complexity: O(V+E)
     """
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.all_vertices)
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
 
     bfs: typing.List[Vertex[T]] = []
     visited: typing.Dict[T, bool] = dict()
@@ -43,7 +43,7 @@ def DFS_using_stack(graph: Graph[T]) -> typing.List[Vertex[T]]:
     Depth-First-Search using stack
     Time complexity: O(V+E)
     """
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.all_vertices)
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
 
     visited: typing.Dict[T, bool] = dict()
     dfs: typing.List[Vertex[T]] = []
@@ -84,7 +84,7 @@ def DFS_recursive(graph: Graph[T]) -> typing.List[Vertex[T]]:
     Depth-First-Search using recursion
     Time complexity: O(V+E)
     """
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.all_vertices)
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
 
     visited: typing.Dict[T, bool] = dict()
     dfs: typing.List[Vertex[T]] = []

@@ -92,8 +92,8 @@ class Edge(typing.Generic[T]):
 class Graph(typing.Generic[T]):
     def __init__(self):
         self._graph_: dict[Vertex: typing.Set[Edge]] = defaultdict(set)
-        self._all_vertices_: typing.Dict[T, Vertex[T]] = dict()
-        self._all_edges_: typing.Set[Edge] = set()
+        self._vertices_: typing.Dict[T, Vertex[T]] = dict()
+        self._edges_: typing.Set[Edge] = set()
 
     def add_edge(self, from_vertex_data: T, to_vertex_data: T, weight=None, is_directed: bool = False, reverse: bool = True):
         """
@@ -112,14 +112,14 @@ class Graph(typing.Generic[T]):
         :param reverse: defaults to True, which means for undirected edge, for an edge from v1 to v2 there is a
         reverse edge also from v2 to v1
         """
-        vertex1: Vertex = self._all_vertices_.setdefault(from_vertex_data, Vertex(from_vertex_data))
-        vertex2: Vertex = self._all_vertices_.setdefault(to_vertex_data, Vertex(to_vertex_data))
+        vertex1: Vertex = self._vertices_.setdefault(from_vertex_data, Vertex(from_vertex_data))
+        vertex2: Vertex = self._vertices_.setdefault(to_vertex_data, Vertex(to_vertex_data))
 
         vertex1._out_degree_ += 1
         vertex2._in_degree_ += 1
 
         edge = Edge(vertex1, vertex2, weight=weight, is_directed=is_directed)
-        self._all_edges_.add(edge)
+        self._edges_.add(edge)
 
         self._graph_[vertex1].add(edge)
 
@@ -127,30 +127,30 @@ class Graph(typing.Generic[T]):
 
         if not is_directed and reverse:
             edge2 = Edge(vertex2, vertex1, is_directed)
-            self._all_edges_.add(edge2)
+            self._edges_.add(edge2)
 
             self._graph_[vertex2].add(edge2)
             vertex2.__add_adjacent_vertex__(vertex1)
 
     @property
-    def all_vertices(self) -> typing.List[typing.Tuple[T, Vertex[T]]]:
+    def vertices(self) -> typing.List[typing.Tuple[T, Vertex[T]]]:
         """
         To get all vertices along with the data.
 
         :return: A list of tuples, each tuple is a pair of vertex data and vertex.
         e.g. [(v1_data, vertex1), (v2_data, vertex2), .... (vN_data, vertexN)]
         """
-        return [(data, ver) for data, ver in self._all_vertices_.items()]
+        return [(data, ver) for data, ver in self._vertices_.items()]
 
     @property
-    def all_edges(self) -> typing.Tuple[Edge[T], ...]:
+    def edges(self) -> typing.Tuple[Edge[T], ...]:
         """
         To get all edges.
 
         :rtype: object
         :return: A tuple of edges.
         """
-        return tuple(self._all_edges_)
+        return tuple(self._edges_)
 
     @property
     def all_undirected_edges(self) -> typing.Tuple[Edge[T], ...]:
@@ -163,7 +163,7 @@ class Graph(typing.Generic[T]):
         hm: typing.Dict[T, T] = defaultdict(list)
         undirected_edges: typing.Set[Edge[T]] = set()
 
-        for edge in self._all_edges_:
+        for edge in self._edges_:
             if edge.vertex2.data in hm[edge.vertex1.data] or edge.vertex1.data in hm[edge.vertex2.data]:
                 continue
             hm[edge.vertex1.data].append(edge.vertex2.data)
@@ -171,6 +171,13 @@ class Graph(typing.Generic[T]):
             undirected_edges.add(edge)
         # print(hm)
         return tuple(undirected_edges)
+
+    @property
+    def adjecency_list(self):
+        adj_list = []
+        for data, vertices in self._graph_.items():
+            adj_list.append((data, vertices))
+        return tuple(adj_list)
 
     def __str__(self):
         graph_str = []
@@ -205,8 +212,8 @@ if __name__ == '__main__':
     # c: c-->d, c-->a
     print(graph1)
 
-    all_vertices = graph1.all_vertices
-    all_edges = graph1.all_edges
+    all_vertices = graph1.vertices
+    all_edges = graph1.edges
 
     # (a-->c, d-->c, b-->e, b-->a, c-->d, b-->d, d-->b, e-->d, c-->a, e-->b, d-->e, a-->b)
     print("\nAll edges: ", all_edges)
@@ -230,8 +237,8 @@ if __name__ == '__main__':
     graph2.add_edge(3, 3)
 
     print(graph2)
-    all_vertices = graph2.all_vertices
-    all_edges = graph2.all_edges
+    all_vertices = graph2.vertices
+    all_edges = graph2.edges
 
     # (0-->1, 1-->2, 3-->2, 3-->3, 2-->1, 2-->0, 2-->3, 1-->0, 0-->2)
     print("\nAll edges: ", all_edges)
@@ -242,3 +249,5 @@ if __name__ == '__main__':
     # 3 (2, 3)
     print("\nAdjacent vertices: ")
     for data, v in all_vertices: print(v, v.adjacent_vertices)
+
+    print(graph2.adjecency_list)

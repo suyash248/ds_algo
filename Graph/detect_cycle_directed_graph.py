@@ -24,7 +24,7 @@ BLACK: COLOR = COLOR(name='BLACK')
 # https://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
 # Time complexity: O(V+E)
 def has_cycle_using_DFS_coloring(graph: Graph[T]) -> typing.Tuple[bool, typing.List[Vertex[T]]]:
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.all_vertices)
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
     vertex_color_mapping: typing.Dict[T, COLOR] = defaultdict(COLOR) # by default every vertex has white color
     vertex_parent_mapping: typing.Dict[Vertex[T], Vertex[T]] = dict()
 

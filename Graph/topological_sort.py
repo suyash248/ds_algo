@@ -9,7 +9,7 @@ from Graph.graph import Graph, Vertex
 T = typing.TypeVar('T')
 
 def topological_sort_using_DFS(graph: Graph[T]):
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.all_vertices)
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
 
     visited: typing.Set[T] = set()
     stack: typing.List[Vertex[T]] = list()
@@ -29,7 +29,7 @@ def topological_sort_using_DFS(graph: Graph[T]):
 # Kahn's algo: keeps track of degree of each vertex.
 # https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/
 def topological_sort_using_BFS(graph: Graph[T]):
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.all_vertices)
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.vertices)
     vertex_in_degree_mapping = {data: ver.in_degree for data, ver in all_data_vertex_mapping.items()}
 
     top_order: typing.List[Vertex[T]] = []
@@ -78,7 +78,7 @@ if __name__ == '__main__':
     print('Graph:')
     print(graph1, '\n')
 
-    all_vertex = graph1.all_vertices
+    all_vertex = graph1.vertices
     # A (C,)
     # C (E,)
     # B (D, C)
