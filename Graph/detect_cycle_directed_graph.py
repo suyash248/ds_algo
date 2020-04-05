@@ -23,14 +23,14 @@ BLACK: COLOR = COLOR(name='BLACK')
 
 # https://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
 # Time complexity: O(V+E)
-def has_cycle_directed(graph: Graph[T]) -> typing.Tuple[bool, typing.List[Vertex[T]]]:
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertices())
+def has_cycle_using_DFS_coloring(graph: Graph[T]) -> typing.Tuple[bool, typing.List[Vertex[T]]]:
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.all_vertices)
     vertex_color_mapping: typing.Dict[T, COLOR] = defaultdict(COLOR) # by default every vertex has white color
     vertex_parent_mapping: typing.Dict[Vertex[T], Vertex[T]] = dict()
 
     def __has_cycle__(vertex: Vertex[T], vertex_color_mapping: typing.Dict[T, COLOR]) -> bool:
         vertex_color_mapping[vertex.data] = GREY
-        for adjacent_ver in vertex.get_all_adjacent_vertices():
+        for adjacent_ver in vertex.adjacent_vertices:
             # If adjacent_ver/neighbour is of GREY color, then graph has the cycle.
 
             vertex_parent_mapping[adjacent_ver] = vertex
@@ -81,6 +81,14 @@ def has_cycle_directed(graph: Graph[T]) -> typing.Tuple[bool, typing.List[Vertex
                 return True, cycle_path
     return False, []
 
+# Uses topological sort(Kahn's algo), considers the degree of vertices.
+# https://www.geeksforgeeks.org/detect-cycle-in-a-directed-graph-using-bfs/?ref=rp
+def has_cycle_BFS(graph: Graph[T]) -> bool:
+    from Graph.topological_sort import topological_sort_using_BFS
+    is_acyclic, top_order = topological_sort_using_BFS(graph)
+    return not is_acyclic
+
+
 if __name__ == '__main__':
     #
     #    ⟶ B ⟶ D ⟵ F
@@ -111,8 +119,11 @@ if __name__ == '__main__':
     print('Graph:')
     print(graph1, '\n')
 
-    is_cycle_present, cyclic_path = has_cycle_directed(graph1)
+    is_cycle_present, cyclic_path = has_cycle_using_DFS_coloring(graph1)
     if is_cycle_present:
         print("Cycle is present:", cyclic_path)
     else:
         print("Cycle is NOT present.")
+
+    is_cycle_present = has_cycle_BFS(graph1)
+    print("Cycle is present" if is_cycle_present else "Cycle is NOT present.")

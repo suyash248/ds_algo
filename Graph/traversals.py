@@ -13,7 +13,7 @@ def BFS(graph: Graph[T]) -> typing.List[Vertex[T]]:
     Breadth-First-Search
     Time complexity: O(V+E)
     """
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertices())
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.all_vertices)
 
     bfs: typing.List[Vertex[T]] = []
     visited: typing.Dict[T, bool] = dict()
@@ -26,7 +26,7 @@ def BFS(graph: Graph[T]) -> typing.List[Vertex[T]]:
             popped_vertex: Vertex[T] = q.pop(0)
             bfs.append(popped_vertex)
 
-            for adjacent_ver in popped_vertex.get_all_adjacent_vertices():
+            for adjacent_ver in popped_vertex.adjacent_vertices:
                 if not visited.get(adjacent_ver.data, False):  # visited.get(ver.data, False) == False
                     visited[adjacent_ver.data] = True
                     q.append(adjacent_ver)
@@ -43,7 +43,7 @@ def DFS_using_stack(graph: Graph[T]) -> typing.List[Vertex[T]]:
     Depth-First-Search using stack
     Time complexity: O(V+E)
     """
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertices())
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.all_vertices)
 
     visited: typing.Dict[T, bool] = dict()
     dfs: typing.List[Vertex[T]] = []
@@ -58,7 +58,7 @@ def DFS_using_stack(graph: Graph[T]) -> typing.List[Vertex[T]]:
             top_ver = stack[-1]
             unvisited_adjacent_ver:Vertex[T] = None
             # Find a unvisited adjacent vertex of top_ver
-            for adjacent_ver in top_ver.get_all_adjacent_vertices():
+            for adjacent_ver in top_ver.adjacent_vertices:
                 if not visited.get(adjacent_ver.data, False): # visited.get(ver.data, False) == False
                     unvisited_adjacent_ver = adjacent_ver
                     break
@@ -84,7 +84,7 @@ def DFS_recursive(graph: Graph[T]) -> typing.List[Vertex[T]]:
     Depth-First-Search using recursion
     Time complexity: O(V+E)
     """
-    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.get_all_vertices())
+    all_data_vertex_mapping: typing.Dict[T, Vertex[T]] = dict(graph.all_vertices)
 
     visited: typing.Dict[T, bool] = dict()
     dfs: typing.List[Vertex[T]] = []
@@ -94,7 +94,7 @@ def DFS_recursive(graph: Graph[T]) -> typing.List[Vertex[T]]:
             visited[ver.data] = True
             dfs.append(ver)
 
-        for adjacent_ver in ver.get_all_adjacent_vertices():
+        for adjacent_ver in ver.adjacent_vertices:
             if not visited.get(adjacent_ver.data, False):  # visited.get(ver.data, False) == False
                 __DFS__(adjacent_ver, visited)
 
