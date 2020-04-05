@@ -157,11 +157,13 @@
 * [Check if strings are anagrams](https://github.com/suyash248/ds_algo/blob/master/Misc/anagram/src)
 
 ## How to run?
+
+#### For python files:
 1. Move to ```<project-dir>```, create virtual environment and then activate it as
 
 ```sh
 $ cd <project-dir>
-$ virtualenv .environment
+$ virtualenv -p python3 .environment
 $ source .environment/bin/activate
 ```
 >Note: Step-1 is optional but recommended.
@@ -173,3 +175,10 @@ $ export PYTHONPATH="$PYTHONPATH:." # . corresponds to current directory(project
 ```
 
 > If you are using PyCharm then it can be done under `run configuration`.
+
+#### For java files:
+1. Compile & Run
+```java
+javac <file_name>.java
+java <Main>
+```
