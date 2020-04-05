@@ -19,7 +19,7 @@ def detect_cycle_using_disjoint_set(graph: Graph[T]) -> bool:
     for data, vertex in all_data_vertex_mapping.items():
         disjoint_set.make_set(data)
 
-    edges: Tuple[Edge[T], ...] = graph.all_undirected_edges
+    edges: Tuple[Edge[T], ...] = graph.undirected_edges
     for edge in edges:
         node1: Node[T] = disjoint_set.find_set(edge.vertex1.data)
         node2: Node[T] = disjoint_set.find_set(edge.vertex2.data)
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     print("All edges:", graph1.edges)
 
     # (B---A, A---C, B---C)
-    print("Undirected/unique edges:", graph1.all_undirected_edges)
+    print("Undirected/unique edges:", graph1.undirected_edges)
 
     has_cycle = detect_cycle_using_disjoint_set(graph1)
     print("\nUsing Disjoint set - " + ("Graph has cycle" if has_cycle else "Graph does NOT have cycle"))
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     print("All edges:", graph2.edges)
 
     # (2---1, 1---5, 3---0, 3---4, 0---1, 5---4)
-    print("Undirected/unique edges:", graph2.all_undirected_edges)
+    print("Undirected/unique edges:", graph2.undirected_edges)
 
     has_cycle = detect_cycle_using_disjoint_set(graph2)
     print("\nUsing Disjoint set - " + ("Graph has cycle" if has_cycle else "Graph does NOT have cycle"))

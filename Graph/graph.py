@@ -153,12 +153,12 @@ class Graph(Generic[T]):
         return tuple(self._edges_)
 
     @property
-    def all_undirected_edges(self) -> Tuple[Edge[T], ...]:
+    def undirected_edges(self) -> Tuple[Edge[T], ...]:
         """
-        To get all undirected edges. i.e. if there is an edge u to v, there won't be an edge v to u
+        For an **undirected edge** connecting vertices **U** & **V**, it will either include
+        the edge **U-->V** or **V-->U**.
 
-        :rtype: object
-        :return: A tuple of edges.
+        :return: A tuple of all the undirected edges.
         """
         hm: Dict[T, T] = defaultdict(list)
         undirected_edges: Set[Edge[T]] = set()
