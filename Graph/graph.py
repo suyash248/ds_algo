@@ -174,10 +174,10 @@ class Graph(typing.Generic[T]):
 
     @property
     def adjecency_list(self):
-        adj_list = []
-        for data, vertices in self._graph_.items():
-            adj_list.append((data, vertices))
-        return tuple(adj_list)
+        """
+        :return: Adjecency list representation of the graph - ((v1, {e1, e2}), (v2, {e5, e7}), ... (vN, {e3, e12}))
+        """
+        return tuple([(data, vertices) for data, vertices in self._graph_.items()])
 
     def __str__(self):
         graph_str = []
