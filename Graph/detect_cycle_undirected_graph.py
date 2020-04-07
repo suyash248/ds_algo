@@ -3,7 +3,7 @@ from __future__ import annotations
 __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
-from typing import Tuple, TypeVar, Dict, Set
+from typing import Tuple, TypeVar, Dict, Set, List
 from Graph.graph import Graph, Vertex, Edge
 from Graph.disjoint_set import DisjointSet, Node
 
@@ -57,7 +57,7 @@ def detect_cycle_using_DFS(graph: Graph[T]) -> bool:
 
 # TODO
 # https://www.geeksforgeeks.org/detect-cycle-in-an-undirected-graph-using-bfs/
-def detect_cycle_using_BFS(graph: Graph[T]) -> bool:
+def detect_cycle_using_BFS(graph: Graph[T]) -> Tuple[bool, List[Vertex[T]]]:
     pass
 
 # TODO
@@ -65,10 +65,6 @@ def detect_cycle_using_BFS(graph: Graph[T]) -> bool:
 def detct_cycle_using_degree(graph: Graph[T]) -> bool:
     pass
 
-# TODO
-# https://www.youtube.com/watch?v=vXrv3kruvwE
-def detect_cycle_using_coloring(graph: Graph[T]) -> bool:
-    pass
 
 if __name__ == '__main__':
     graph1: Graph[str] = Graph()
@@ -92,12 +88,12 @@ if __name__ == '__main__':
     print("\nUsing DFS - " + ("Graph has cycle" if has_cycle else "Graph does NOT have cycle"))
 
     graph2: Graph[int] = Graph()
-    graph2.add_edge(0, 1, reverse=False)
-    graph2.add_edge(1, 2, reverse=False)
-    graph2.add_edge(0, 3, reverse=False)
-    graph2.add_edge(3, 4, reverse=False)
-    graph2.add_edge(4, 5, reverse=False)
-    graph2.add_edge(5, 1, reverse=False)
+    graph2.add_edge(0, 1)
+    graph2.add_edge(1, 2)
+    graph2.add_edge(0, 3)
+    graph2.add_edge(3, 4)
+    graph2.add_edge(4, 5)
+    graph2.add_edge(5, 1)
 
     print('\n' + '#' * 100 + '\n')
 
@@ -115,4 +111,6 @@ if __name__ == '__main__':
 
     has_cycle = detect_cycle_using_DFS(graph2)
     print("\nUsing DFS - " + ("Graph has cycle" if has_cycle else "Graph does NOT have cycle"))
+
+    detect_cycle_using_BFS(graph2)
 
