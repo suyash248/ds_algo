@@ -11,8 +11,6 @@ T = TypeVar('T')
 # https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/DisjointSet.java
 # https://www.youtube.com/watch?v=ID00PMy0-vE
 # https://www.geeksforgeeks.org/union-find-algorithm-set-2-union-by-rank/
-
-
 class Node(Generic[T]):
     def __init__(self, data: T, parent: Node[T] = None, rank: int = 0):
         self.data = data
