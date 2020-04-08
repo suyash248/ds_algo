@@ -41,6 +41,16 @@ def prims_mst(graph: Graph[T]) -> List[Edge[T]]:
     return list(vertex_edge_mapping.values())
 
 if __name__ == '__main__':
+    #
+    #       1     6
+    #   A ---- D ---- E
+    #   |     /|     /|
+    # 3 |  3/  |1  /5 | 2
+    #   | /    | /    |
+    #   B ---- C ---- F
+    #      1      4
+    #
+
     graph: Graph[T] = Graph()
     graph.add_edge('A', 'B', weight=3)
     graph.add_edge('A', 'D', weight=1)
@@ -55,5 +65,7 @@ if __name__ == '__main__':
     print(graph)
 
     mst_edges: List[Edge] = prims_mst(graph)
+
+    # [C--(1)-->B, A--(1)-->D, F--(2)-->E, D--(1)-->C, C--(4)-->F]
     print(mst_edges)
 

@@ -84,7 +84,7 @@ class Edge(Generic[T]):
         return (self.vertex1.id, self.vertex2.id) == (other.vertex1.id, other.vertex2.id)
 
     def __str__(self):
-        return "{}-{}->{}".format(self.vertex1.__str__(), self.weight if self.weight else '', self.vertex2.__str__())
+        return "{}-{}->{}".format(self.vertex1.__str__(), ('-(' + str(self.weight) + ')-') if self.weight else '-', self.vertex2.__str__())
 
     def __repr__(self):
         return self.__str__()
