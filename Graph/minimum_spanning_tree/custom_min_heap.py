@@ -9,6 +9,8 @@ from Array import swap
 T = TypeVar('T')
 K = TypeVar('K')
 
+# https://www.youtube.com/watch?v=oP2-8ysT3QQ
+# https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/BinaryMinHeap.java
 # https://www.geeksforgeeks.org/prims-mst-for-adjacency-list-representation-greedy-algo-6/
 class HeapNode(Generic[T, K]):
     def __init__(self, data: T, weight: K, *args: Tuple[Any], **kwargs: Dict[Any, Any]):
@@ -96,8 +98,8 @@ class MinBinaryHeap(Generic[T]):
             smallest_elt_idx = right_idx
 
         if smallest_elt_idx != curr_index:
-            self._data_position_mapping_[self._harr_[smallest_elt_idx]] = curr_index
-            self._data_position_mapping_[self._harr_[curr_index]] = smallest_elt_idx
+            self._data_position_mapping_[self._harr_[smallest_elt_idx].data] = curr_index
+            self._data_position_mapping_[self._harr_[curr_index].data] = smallest_elt_idx
             swap(self._harr_, smallest_elt_idx, curr_index)
 
     def extract_min(self) -> HeapNode[T, K]:
@@ -150,6 +152,24 @@ class MinBinaryHeap(Generic[T]):
 
         return True
 
+    def __str__(self):
+        s_heap = []
+
+        half = int(self.size / 2)
+        for idx in range(0, half):
+            l_idx = self.left_child(idx)
+            r_idx = self.right_child(idx)
+
+            curr_elt = self._harr_[idx]
+            l_elt = self._harr_[l_idx]
+            r_elt = self._harr_[r_idx]
+
+            s_heap.append("{current} : left -> {left} | right -> {right}".format(current=curr_elt.__str__(),
+                                                                         left=l_elt.__str__(), right=r_elt.__str__()))
+        return '\n'.join(s_heap)
+
+    def __repr__(self): return self.__str__()
+
 if __name__ == '__main__':
     heap = MinBinaryHeap()
     heap.push('D', 5)
@@ -164,6 +184,9 @@ if __name__ == '__main__':
     print("extract min", heap.extract_min())
     print(heap.peek('R'))
     heap.push('G', 2)
-    print("extract min", heap.extract_min())
-    print("extract min", heap.extract_min())
+    print(heap.replace_weight('G', 6))
+    print(heap.peek('G'))
+    print(heap)
+    # print("extract min", heap.extract_min())
+    # print("extract min", heap.extract_min())
 
