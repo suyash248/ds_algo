@@ -11,8 +11,6 @@ T = TypeVar('T')
 # https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/DisjointSet.java
 # https://www.youtube.com/watch?v=ID00PMy0-vE
 # https://www.geeksforgeeks.org/union-find-algorithm-set-2-union-by-rank/
-
-
 class Node(Generic[T]):
     def __init__(self, data: T, parent: Node[T] = None, rank: int = 0):
         self.data = data
@@ -34,6 +32,8 @@ class Node(Generic[T]):
         if other is not None: return self.data == other.data
         return False
 
+# Space complexity: O(n)
+# Space complexity: O(m), where n is number or elements, m is number of operations.
 class DisjointSet(Generic[T]):
     def __init__(self):
         self.__data_node_mapping__: Dict[T, Node[T]] = dict()
