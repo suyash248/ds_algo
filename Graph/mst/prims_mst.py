@@ -7,7 +7,7 @@ import sys
 from collections import namedtuple, defaultdict
 from typing import TypeVar, Generic, List, Set, Tuple, Dict, Any
 from Graph.graph import Graph, Vertex, Edge
-from Graph.minimum_spanning_tree.custom_min_heap import MinBinaryHeap, HeapNode
+from Graph.mst.custom_min_heap import MinBinaryHeap, HeapNode
 
 T = TypeVar('T')
 K = TypeVar('K')
@@ -15,6 +15,7 @@ K = TypeVar('K')
 # https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/PrimMST.java
 # https://www.youtube.com/watch?v=oP2-8ysT3QQ
 def prims_mst(graph: Graph[T]) -> List[Edge[T]]:
+    # Each element/node(HeapNode) in the heap contains Vertex as data and edge weight.
     min_binary_heap: MinBinaryHeap[Vertex[T], int] = MinBinaryHeap()
     vertex_edge_mapping: Dict[Vertex[T], Edge[T]] = dict()
     adjacency_list: Dict[Vertex[T], Set[Edge[T]]] = graph.adjacency_list
@@ -30,13 +31,16 @@ def prims_mst(graph: Graph[T]) -> List[Edge[T]]:
             min_binary_heap.push(vertex, sys.maxsize)
 
     while min_binary_heap.size > 0:
-        heap_node: HeapNode[Vertex[T], int] = min_binary_heap.extract_min()
-        min_vertex: Vertex[T] = heap_node.data
-        for connecting_edge in adjacency_list[min_vertex]:
+        popped_heap_node: HeapNode[Vertex[T], int] = min_binary_heap.extract_min()
+        for connecting_edge in adjacency_list[popped_heap_node.data]:
             # connecting_edge: vertex1 -> vertex2 (here vertex1 = min_vertex, vertex2 = connecting.edge.vertex2)
             heap_node: HeapNode[Vertex[T], int] = min_binary_heap.peek(connecting_edge.vertex2)
+
+            # If adjacent vertex(connecting_edge.vertex2) exists in min_heap and edge weight is lower
             if heap_node and connecting_edge.weight < heap_node.weight:
                 min_binary_heap.replace_weight(heap_node.data, connecting_edge.weight)
+
+                # Update MST dict
                 vertex_edge_mapping[connecting_edge.vertex2] = connecting_edge
     return list(vertex_edge_mapping.values())
 
@@ -65,7 +69,9 @@ if __name__ == '__main__':
     print(graph)
 
     mst_edges: List[Edge] = prims_mst(graph)
+    total_weight: int = sum(map(lambda e: e.weight, mst_edges))
 
     # [C--(1)-->B, A--(1)-->D, F--(2)-->E, D--(1)-->C, C--(4)-->F]
-    print(mst_edges)
+    print("\nTotal weight of MST:",total_weight)
+    print("MST:", mst_edges)
 

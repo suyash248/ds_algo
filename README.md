@@ -59,6 +59,8 @@
 * [Detect cycle - Directed graph(Using DFS coloring, topological order)](https://github.com/suyash248/ds_algo/blob/master/Graph/detect_cycle_directed_graph.py)
 * [Detect cycle - Undirected graph(Using disjoint set, BFS, DFS, DFS coloring)](https://github.com/suyash248/ds_algo/blob/master/Graph/detect_cycle_undirected_graph.py)
 * [Disjoint set](https://github.com/suyash248/ds_algo/blob/master/Graph/disjoint_set.py)
+* [Minimum spanning tree - Prim's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/mst/prims_mst.py)
+* [Minimum spanning tree - Kruskal's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/mst/kruskals_mst.py)
 
 ### Array
 * [To reverse an array](https://github.com/suyash248/ds_algo/blob/master/Array/reverse.py)
