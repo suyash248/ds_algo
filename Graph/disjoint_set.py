@@ -32,6 +32,8 @@ class Node(Generic[T]):
         if other is not None: return self.data == other.data
         return False
 
+# Space complexity: O(n)
+# Space complexity: O(m) - n is number or elements, m is number of operations.
 class DisjointSet(Generic[T]):
     def __init__(self):
         self.__data_node_mapping__: Dict[T, Node[T]] = dict()
