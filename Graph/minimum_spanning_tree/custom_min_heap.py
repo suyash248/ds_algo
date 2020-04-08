@@ -3,6 +3,7 @@ from __future__ import annotations
 __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
+import sys
 from typing import TypeVar, Generic, List, Dict, Any, Tuple
 from Array import swap
 
@@ -86,15 +87,17 @@ class MinBinaryHeap(Generic[T, K]):
         left_idx = MinBinaryHeap.left_child(curr_index)
         right_idx = MinBinaryHeap.right_child(curr_index)
 
-        left_elt = self._harr_[left_idx]
-        right_elt = self._harr_[right_idx]
+        left_elt = None
+        right_elt = None
+        if len(self._harr_) >= (left_idx + 1): left_elt = self._harr_[left_idx]
+        if len(self._harr_) >= (right_idx + 1): right_elt = self._harr_[right_idx]
 
         smallest_elt_idx = curr_index
 
-        if left_elt < self._harr_[smallest_elt_idx]:
+        if left_elt and left_elt < self._harr_[smallest_elt_idx]:
             smallest_elt_idx = left_idx
 
-        if right_elt < self._harr_[smallest_elt_idx]:
+        if right_elt and right_elt < self._harr_[smallest_elt_idx]:
             smallest_elt_idx = right_idx
 
         if smallest_elt_idx != curr_index:

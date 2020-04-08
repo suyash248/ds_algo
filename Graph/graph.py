@@ -126,7 +126,7 @@ class Graph(Generic[T]):
         vertex1.__add_adjacent_vertex__(vertex2)
 
         if not is_directed and reverse:
-            edge2 = Edge(vertex2, vertex1, is_directed)
+            edge2 = Edge(vertex2, vertex1, weight=weight, is_directed=is_directed)
             self._edges_.add(edge2)
 
             self._graph_[vertex2].add(edge2)
