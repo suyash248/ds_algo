@@ -4,7 +4,6 @@ __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
 import sys
-from collections import namedtuple, defaultdict
 from typing import TypeVar, Generic, List, Set, Tuple, Dict, Any
 from Graph.graph import Graph, Vertex, Edge
 from Graph.mst.custom_min_heap import MinBinaryHeap, HeapNode
@@ -25,7 +24,6 @@ def prims_mst(graph: Graph[T]) -> List[Edge[T]]:
         if i == 0:
             # Starting from the `start_vertex` and making weight corresponding to it as 0, so that extract_min() will
             # return `start_vertex` from the heap.
-            # start_vertex = vertex
             min_binary_heap.push(vertex, 0)
         else:
             min_binary_heap.push(vertex, sys.maxsize)
@@ -73,5 +71,7 @@ if __name__ == '__main__':
 
     # [C--(1)-->B, A--(1)-->D, F--(2)-->E, D--(1)-->C, C--(4)-->F]
     print("\nTotal weight of MST:",total_weight)
+
+    # 9
     print("MST:", mst_edges)
 
