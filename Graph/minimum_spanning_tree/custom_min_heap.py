@@ -13,9 +13,9 @@ K = TypeVar('K')
 # https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/BinaryMinHeap.java
 # https://www.geeksforgeeks.org/prims-mst-for-adjacency-list-representation-greedy-algo-6/
 class HeapNode(Generic[T, K]):
-    def __init__(self, data: T, weight: K, *args: Tuple[Any], **kwargs: Dict[Any, Any]):
-        self.data = data
-        self.weight = weight
+    def __init__(self, data: T = None, weight: K = None, *args: Tuple[Any], **kwargs: Dict[Any, Any]):
+        self.data: T = data
+        self.weight: K = weight
         self.args = args
         for k, v in kwargs.items(): setattr(self, k, v)
 
@@ -32,7 +32,7 @@ class HeapNode(Generic[T, K]):
     def __repr__(self): return self.__str__()
 
 
-class MinBinaryHeap(Generic[T]):
+class MinBinaryHeap(Generic[T, K]):
     """
     Data structure to support following operations
     extract_min - O(logn)
@@ -149,6 +149,9 @@ class MinBinaryHeap(Generic[T]):
                 # curr_idx, parent_idx = parent_idx, MinBinaryHeap.parent(curr_idx)
         elif new_weight > curr_weight:
             self.min_heapify(curr_idx)
+        else:
+            print("Old weight({}) and new weight({}) are same".format(curr_weight, new_weight))
+            return False
 
         return True
 
@@ -172,6 +175,8 @@ class MinBinaryHeap(Generic[T]):
 
 if __name__ == '__main__':
     heap = MinBinaryHeap()
+    from Graph.graph import Vertex
+
     heap.push('D', 5)
     heap.push('A', 2)
     heap.push('B', 9)
@@ -187,6 +192,33 @@ if __name__ == '__main__':
     print(heap.replace_weight('G', 6))
     print(heap.peek('G'))
     print(heap)
+    print("extract min", heap.extract_min())
+    print("extract min", heap.extract_min())
+
+    print('\n' + '#' * 50 + '\n')
+    ############ Vertex object as data ############
+
+    heap = MinBinaryHeap()
+    from Graph.graph import Vertex
+
+    heap.push(Vertex('D'), 5)
+    heap.push(Vertex('A'), 2)
+    heap.push(Vertex('B'), 9)
+    heap.push(Vertex('C'), 1)
+    heap.push(Vertex('F'), 4)
+
+    print(heap.peek(Vertex('B')))
+    print(heap.replace_weight(Vertex('B'), 3))
+    print(heap.peek(Vertex('B')))
+    print("extract min", heap.extract_min())
+    print(heap.peek(Vertex('R')))
+    heap.push(Vertex('G'), 2)
+    print(heap.peek(Vertex('G')))
+    print(heap.replace_weight(Vertex('G'), 6))
+    print(heap.replace_weight(Vertex('G'), 6))
+    print(heap.peek(Vertex('G')))
+    print(heap)
     # print("extract min", heap.extract_min())
     # print("extract min", heap.extract_min())
+
 

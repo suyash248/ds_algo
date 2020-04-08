@@ -173,11 +173,12 @@ class Graph(Generic[T]):
         return tuple(undirected_edges)
 
     @property
-    def adjecency_list(self) -> Tuple[Tuple[Vertex[T], Set[Edge]], ...]:
+    def adjacency_list(self) -> Dict[Vertex[T], Set[Edge]]:
         """
-        :return: Adjecency list representation of the graph - ((v1, {e1, e2}), (v2, {e5, e7}), ... (vN, {e3, e12}))
+        :return: Adjacency list representation of the graph - {v1: {e1, e2}, v2: {e5, e7}, ... vN: {e3, e12}}
         """
-        return tuple([(vertex, edges) for vertex, edges in self._graph_.items()])
+        return self._graph_
+        # return tuple([(vertex, edges) for vertex, edges in self._graph_.items()])
 
     def __str__(self):
         graph_str = []
@@ -250,4 +251,5 @@ if __name__ == '__main__':
     print("\nAdjacent vertices: ")
     for data, v in all_vertices: print(v, v.adjacent_vertices)
 
-    print(graph2.adjecency_list)
+    # {0: {0-->1, 0-->2}, 1: {1-->2, 1-->0}, 2: {2-->3, 2-->1, 2-->0}, 3: {3-->2, 3-->3}}
+    print(graph2.adjacency_list)
