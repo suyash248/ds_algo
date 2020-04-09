@@ -55,6 +55,11 @@ if __name__ == '__main__':
     graph.add_edge('E', 'F', weight=2, reverse=False)
 
     print("Adjacency list:")
+    # A: A--(3)-->B, A--(1)-->D
+    # B: B--(3)-->D, B--(1)-->C
+    # C: C--(1)-->D, C--(4)-->F, C--(5)-->E
+    # D: D--(6)-->E
+    # E: E--(2)-->F
     print(graph)
     print('\n' + '#' * 75 + '\n')
 
