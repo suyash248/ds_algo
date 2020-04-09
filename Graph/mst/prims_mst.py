@@ -11,8 +11,10 @@ from Graph.mst.custom_min_heap import MinBinaryHeap, HeapNode
 T = TypeVar('T')
 K = TypeVar('K')
 
+# References:
 # https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/PrimMST.java
 # https://www.youtube.com/watch?v=oP2-8ysT3QQ
+
 # Space complexity: O(E+V)
 # Time complexity: O(E*log(V))
 def prims_mst(graph: Graph[T]) -> List[Edge[T]]:

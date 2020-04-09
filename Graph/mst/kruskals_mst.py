@@ -10,12 +10,14 @@ from Graph.disjoint_set import DisjointSet, DisjointNode
 T = TypeVar('T')
 K = TypeVar('K')
 
-# https://www.geeksforgeeks.org/kruskals-algorithm-simple-implementation-for-adjacency-matrix/?ref=rp
-# https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
+# References:
 # https://www.youtube.com/watch?v=fAuF0EuZVCk
 # https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/KruskalMST.java
+# https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
 # Disjoint set: https://github.com/suyash248/ds_algo/blob/master/Graph/disjoint_set.py
 
+# Time complexity: O(ElogE)
+# Space complexity: O(E+V)
 def kruskals_mst_using_disjoint_set(graph: Graph[T]) -> List[Edge[T]]:
     mst: List[Edge[T]] = []
     sorted_edges: List[Edge[T]] = sorted(graph.edges, key=lambda e: e.weight)
