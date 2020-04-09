@@ -11,8 +11,8 @@ T = TypeVar('T')
 # https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/DisjointSet.java
 # https://www.youtube.com/watch?v=ID00PMy0-vE
 # https://www.geeksforgeeks.org/union-find-algorithm-set-2-union-by-rank/
-class Node(Generic[T]):
-    def __init__(self, data: T, parent: Node[T] = None, rank: int = 0):
+class DisjointNode(Generic[T]):
+    def __init__(self, data: T, parent: DisjointNode[T] = None, rank: int = 0):
         self.data = data
         self.rank = rank
         self.parent = parent
@@ -36,7 +36,7 @@ class Node(Generic[T]):
 # Space complexity: O(m), where n is number or elements, m is number of operations.
 class DisjointSet(Generic[T]):
     def __init__(self):
-        self.__data_node_mapping__: Dict[T, Node[T]] = dict()
+        self.__data_node_mapping__: Dict[T, DisjointNode[T]] = dict()
 
     def make_set(self, data: T):
         """
@@ -44,13 +44,13 @@ class DisjointSet(Generic[T]):
 
         :param data:
         """
-        node: Node[T] = self.__data_node_mapping__.get(data)
+        node: DisjointNode[T] = self.__data_node_mapping__.get(data)
         if node is None:
-            node = Node(data)
+            node = DisjointNode(data)
             node.parent = node
             self.__data_node_mapping__[data] = node
 
-    def find_set(self, data: T) -> Node[T]:
+    def find_set(self, data: T) -> DisjointNode[T]:
         """
         Finds set(representative node) and also performs path compression to make subsequent find_set calls faster
         by avoiding skewed tree(By attaching all the descendants to root node directly).
@@ -58,7 +58,7 @@ class DisjointSet(Generic[T]):
         :param data: target data node.
         :return: Representative node of the set where the node(corresponding to data) belongs to.
         """
-        def __find_set__(node: Node[T]) -> Node[T]:
+        def __find_set__(node: DisjointNode[T]) -> DisjointNode[T]:
             if node.parent == node:
                 return node.parent
             node.parent = __find_set__(node.parent) # Path compression
@@ -76,8 +76,8 @@ class DisjointSet(Generic[T]):
 
         :return: `True`, if both data1 and data2 belong to different sets, `False` otherwise.
         """
-        parent1: Node[T] = self.find_set(data1)
-        parent2: Node[T] = self.find_set(data2)
+        parent1: DisjointNode[T] = self.find_set(data1)
+        parent2: DisjointNode[T] = self.find_set(data2)
 
         if parent1.data == parent2.data:
             return False

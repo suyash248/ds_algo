@@ -132,6 +132,3 @@ if __name__ == '__main__':
 
     # 9
     print("MST:", mst_edges)
-
-
-

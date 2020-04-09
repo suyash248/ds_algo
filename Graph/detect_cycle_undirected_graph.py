@@ -5,7 +5,7 @@ __email__ = "suyash.soni248@gmail.com"
 
 from typing import Tuple, TypeVar, Dict, Set, List
 from Graph.graph import Graph, Vertex, Edge
-from Graph.disjoint_set import DisjointSet, Node
+from Graph.disjoint_set import DisjointSet, DisjointNode
 
 T = TypeVar('T')
 
@@ -21,8 +21,8 @@ def detect_cycle_using_disjoint_set(graph: Graph[T]) -> bool:
 
     edges: Tuple[Edge[T], ...] = graph.undirected_edges
     for edge in edges:
-        node1: Node[T] = disjoint_set.find_set(edge.vertex1.data)
-        node2: Node[T] = disjoint_set.find_set(edge.vertex2.data)
+        node1: DisjointNode[T] = disjoint_set.find_set(edge.vertex1.data)
+        node2: DisjointNode[T] = disjoint_set.find_set(edge.vertex2.data)
 
         # If both vertices belong to same set, then there is a cycle.
         if node1 == node2:
