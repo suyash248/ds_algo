@@ -34,6 +34,9 @@ def kruskals_mst_using_disjoint_set(graph: Graph[T]) -> List[Edge[T]]:
             disjoint_set.union(v1_parent.data, v2_parent.data)
     return mst
 
+# References:
+# https://www.geeksforgeeks.org/kruskals-algorithm-simple-implementation-for-adjacency-matrix/?ref=rp
+
 if __name__ == '__main__':
     #
     #       1     6
