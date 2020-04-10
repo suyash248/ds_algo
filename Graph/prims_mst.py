@@ -4,9 +4,9 @@ __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
 import sys
-from typing import TypeVar, Generic, List, Set, Tuple, Dict, Any
+from typing import TypeVar, List, Set, Tuple, Dict
 from Graph.graph import Graph, Vertex, Edge
-from Graph.mst.custom_min_heap import MinBinaryHeap, HeapNode
+from Graph.custom_min_heap import MinBinaryHeap, HeapNode
 
 T = TypeVar('T')
 K = TypeVar('K')

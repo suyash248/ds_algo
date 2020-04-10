@@ -126,6 +126,9 @@ class Graph(Generic[T]):
         vertex1.__add_adjacent_vertex__(vertex2)
 
         if not is_directed and reverse:
+            vertex2._out_degree_ += 1
+            vertex1._in_degree_ += 1
+
             edge2 = Edge(vertex2, vertex1, weight=weight, is_directed=is_directed)
             self._edges_.add(edge2)
 
@@ -219,13 +222,14 @@ if __name__ == '__main__':
     # (a-->c, d-->c, b-->e, b-->a, c-->d, b-->d, d-->b, e-->d, c-->a, e-->b, d-->e, a-->b)
     print("\nAll edges: ", all_edges)
 
-    # a (c, b)
-    # b (a, d, e)
-    # e (d, b)
-    # d (e, c, b)
-    # c (a, d)
-    print("\nAdjacent vertices: ")
-    for data, v in all_vertices: print(v, v.adjacent_vertices)
+    # Vertex a Degree: (In, Out, Total): (1, 1, 2) Adjacent vertices: (c, b)
+    # Vertex b Degree: (In, Out, Total): (1, 2, 3) Adjacent vertices: (a, d, e)
+    # Vertex e Degree: (In, Out, Total): (1, 1, 2) Adjacent vertices: (d, b)
+    # Vertex d Degree: (In, Out, Total): (2, 1, 3) Adjacent vertices: (c, b, e)
+    # Vertex c Degree: (In, Out, Total): (1, 1, 2) Adjacent vertices: (a, d)
+    print()
+    for data, v in all_vertices:
+        print('Vertex', v, 'Degree: (In, Out, Total):', '({}, {}, {})'.format(v.in_degree, v.out_degree, v.degree), 'Adjacent vertices:', v.adjacent_vertices)
 
     print('\n' + '#'*100 + '\n')
 
@@ -233,7 +237,6 @@ if __name__ == '__main__':
     graph2.add_edge(0, 1)
     graph2.add_edge(0, 2)
     graph2.add_edge(1, 2)
-    graph2.add_edge(2, 0)
     graph2.add_edge(2, 3)
     graph2.add_edge(3, 3)
 
@@ -244,12 +247,14 @@ if __name__ == '__main__':
     # (0-->1, 1-->2, 3-->2, 3-->3, 2-->1, 2-->0, 2-->3, 1-->0, 0-->2)
     print("\nAll edges: ", all_edges)
 
-    # 0 (1, 2)
-    # 1 (0, 2)
-    # 2 (0, 1, 3)
-    # 3 (2, 3)
-    print("\nAdjacent vertices: ")
-    for data, v in all_vertices: print(v, v.adjacent_vertices)
+    # Vertex 0 Degree: (In, Out, Total): (2, 2, 4) Adjacent vertices: (1, 2)
+    # Vertex 1 Degree: (In, Out, Total): (2, 2, 4) Adjacent vertices: (0, 2)
+    # Vertex 2 Degree: (In, Out, Total): (3, 3, 6) Adjacent vertices: (0, 1, 3)
+    # Vertex 3 Degree: (In, Out, Total): (3, 3, 6) Adjacent vertices: (2, 3)
+    print()
+    for data, v in all_vertices:
+        print('Vertex', v, 'Degree: (In, Out, Total):', '({}, {}, {})'.format(v.in_degree, v.out_degree, v.degree), 'Adjacent vertices:', v.adjacent_vertices)
+
 
     # {0: {0-->1, 0-->2}, 1: {1-->2, 1-->0}, 2: {2-->3, 2-->1, 2-->0}, 3: {3-->2, 3-->3}}
     print(graph2.adjacency_list)

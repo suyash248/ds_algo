@@ -59,8 +59,9 @@
 * [Detect cycle - Directed graph(Using DFS coloring, topological order)](https://github.com/suyash248/ds_algo/blob/master/Graph/detect_cycle_directed_graph.py)
 * [Detect cycle - Undirected graph(Using disjoint set, BFS, DFS, DFS coloring)](https://github.com/suyash248/ds_algo/blob/master/Graph/detect_cycle_undirected_graph.py)
 * [Disjoint set](https://github.com/suyash248/ds_algo/blob/master/Graph/disjoint_set.py)
-* [Minimum spanning tree - Prim's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/mst/prims_mst.py)
-* [Minimum spanning tree - Kruskal's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/mst/kruskals_mst.py)
+* [Minimum spanning tree - Prim's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/prims_mst.py)
+* [Minimum spanning tree - Kruskal's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/kruskals_mst.py)
+* [Single source shortest path - Dijkstra's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/dijkstras.py)
 * [Knight tour with custom rules - Warnsdorff's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/mst/warnsdorffs_knight_algo.py)
 
 ### Array
