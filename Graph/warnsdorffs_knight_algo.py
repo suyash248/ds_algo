@@ -3,7 +3,7 @@ from __future__ import annotations
 __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
-import sys, copy
+import sys, copy, time
 from collections import defaultdict
 from Array import empty_2d_array
 from typing import TypeVar, Generic, List, Set, Tuple, Dict, Tuple
@@ -88,6 +88,7 @@ def get_adjacent_vertex_with_min_rank_via_Ira_Pohl(vertex: Vertex[T], visited: S
         return min_rank, vertices_with_min_rank[0]
     else:
         # Tie between multiple adjacent vertices with same min_rank, using Ira Pohl's algo.
+        # https://stackoverflow.com/questions/8402648/how-to-improve-knights-tour-with-warnsdorffs-rule
         print('tie between vertices(with min_rank {}):'.format(min_rank), vertices_with_min_rank)
         _vertex: Vertex[T] = vertices_with_min_rank[0]
         _min_rank: int = sys.maxsize
@@ -136,12 +137,9 @@ def warnsdoffs_algo(graph: Graph[T], rows:int = 4, cols:int = 4) -> List[List[in
         indices: List[T] = curr_vertex.data.split(',')
         chess[int(indices[0])][int(indices[1])] = step
 
-        # os.system(clear_screen)
-        # print("This Move: [", graph_node.row, ",", graph_node.col, "]. Next Move: ", next_move, "Min Moves from next: ", min_no_moves)
         display(chess)
         import time
         time.sleep(.1)
-        display(chess)
     return chess
 
 def display(chess):

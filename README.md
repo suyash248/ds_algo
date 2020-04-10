@@ -61,6 +61,7 @@
 * [Disjoint set](https://github.com/suyash248/ds_algo/blob/master/Graph/disjoint_set.py)
 * [Minimum spanning tree - Prim's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/mst/prims_mst.py)
 * [Minimum spanning tree - Kruskal's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/mst/kruskals_mst.py)
+* [Knight tour with custom rules - Warnsdorff's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/mst/warnsdorffs_knight_algo.py)
 
 ### Array
 * [To reverse an array](https://github.com/suyash248/ds_algo/blob/master/Array/reverse.py)
