@@ -13,21 +13,15 @@ class Vertex(Generic[T]):
     def __init__(self, data: T):
         self._id_: str = str(uuid4())
         self._data_: T = data
-        self._in_degree_: int = 0
-        self._out_degree_: int = 0
+        self._incoming_edges_: List[Edge[T]] = []
+        self._outgoing_edges_: List[Edge[T]] = []
         self._adjacent_vertices_: Set[Vertex] = set()
 
     def __add_adjacent_vertex__(self, vertex: Vertex[T]):
         self._adjacent_vertices_.add(vertex)
 
     @property
-    def adjacent_vertices(self) -> Tuple[Vertex[T], ...]:
-        """
-        To get all adjacent vertices of given `vertex`
-
-        :return: A tuple of all adjacent vertices.
-        """
-        return tuple(self._adjacent_vertices_)
+    def adjacent_vertices(self) -> Tuple[Vertex[T], ...]: return tuple(self._adjacent_vertices_)
 
     @property
     def id(self) -> str: return self._id_
@@ -36,13 +30,22 @@ class Vertex(Generic[T]):
     def data(self) -> T: return self._data_
 
     @property
-    def in_degree(self) -> int: return self._in_degree_
+    def incoming_edges(self) -> Tuple[Edge[T], ...]: return tuple(self._incoming_edges_)
 
     @property
-    def out_degree(self) -> int: return self._out_degree_
+    def outgoing_edges(self) -> Tuple[Edge[T], ...]: return tuple(self._outgoing_edges_)
 
     @property
-    def degree(self) -> int: return self._in_degree_ + self._out_degree_
+    def edges(self) -> Tuple[Edge[T], ...]: return tuple(self._incoming_edges_ + self._outgoing_edges_)
+
+    @property
+    def in_degree(self) -> int: return len(self._incoming_edges_)
+
+    @property
+    def out_degree(self) -> int: return len(self._outgoing_edges_)
+
+    @property
+    def degree(self) -> int: return (self.in_degree + self.out_degree)
 
     def __hash__(self):
         return hash(self.data)
@@ -115,22 +118,22 @@ class Graph(Generic[T]):
         vertex1: Vertex = self._vertices_.setdefault(from_vertex_data, Vertex(from_vertex_data))
         vertex2: Vertex = self._vertices_.setdefault(to_vertex_data, Vertex(to_vertex_data))
 
-        vertex1._out_degree_ += 1
-        vertex2._in_degree_ += 1
-
         edge = Edge(vertex1, vertex2, weight=weight, is_directed=is_directed)
         self._edges_.add(edge)
+
+        vertex1._outgoing_edges_.append(edge)
+        vertex2._incoming_edges_.append(edge)
 
         self._graph_[vertex1].add(edge)
 
         vertex1.__add_adjacent_vertex__(vertex2)
 
         if not is_directed and reverse:
-            vertex2._out_degree_ += 1
-            vertex1._in_degree_ += 1
-
             edge2 = Edge(vertex2, vertex1, weight=weight, is_directed=is_directed)
             self._edges_.add(edge2)
+
+            vertex2._outgoing_edges_.append(edge2)
+            vertex1._incoming_edges_.append(edge2)
 
             self._graph_[vertex2].add(edge2)
             vertex2.__add_adjacent_vertex__(vertex1)
@@ -221,15 +224,18 @@ if __name__ == '__main__':
 
     # (a-->c, d-->c, b-->e, b-->a, c-->d, b-->d, d-->b, e-->d, c-->a, e-->b, d-->e, a-->b)
     print("\nAll edges: ", all_edges)
-
-    # Vertex a Degree: (In, Out, Total): (1, 1, 2) Adjacent vertices: (c, b)
-    # Vertex b Degree: (In, Out, Total): (1, 2, 3) Adjacent vertices: (a, d, e)
-    # Vertex e Degree: (In, Out, Total): (1, 1, 2) Adjacent vertices: (d, b)
-    # Vertex d Degree: (In, Out, Total): (2, 1, 3) Adjacent vertices: (c, b, e)
-    # Vertex c Degree: (In, Out, Total): (1, 1, 2) Adjacent vertices: (a, d)
     print()
+
+    # Vertex: a | Degree: (In, Out): (2, 2) | Adjacent vertices: (b, c) | Incoming edges: (b--->a, c--->a) | Outgoing edges: (a--->b, a--->c)
+    # Vertex: b | Degree: (In, Out): (3, 3) | Adjacent vertices: (a, d, e) | Incoming edges: (a--->b, e--->b, d--->b) | Outgoing edges: (b--->a, b--->e, b--->d)
+    # Vertex: e | Degree: (In, Out): (2, 2) | Adjacent vertices: (b, d) | Incoming edges: (b--->e, d--->e) | Outgoing edges: (e--->b, e--->d)
+    # Vertex: d | Degree: (In, Out): (3, 3) | Adjacent vertices: (c, b, e) | Incoming edges: (b--->d, e--->d, c--->d) | Outgoing edges: (d--->b, d--->e, d--->c)
+    # Vertex: c | Degree: (In, Out): (2, 2) | Adjacent vertices: (a, d) | Incoming edges: (d--->c, a--->c) | Outgoing edges: (c--->d, c--->a)
     for data, v in all_vertices:
-        print('Vertex', v, 'Degree: (In, Out, Total):', '({}, {}, {})'.format(v.in_degree, v.out_degree, v.degree), 'Adjacent vertices:', v.adjacent_vertices)
+        print(' | '.join(['Vertex: ' + str(v),
+                          'Degree: (In, Out): ' + '({}, {})'.format(v.in_degree, v.out_degree),
+                          'Adjacent vertices: ' + str(v.adjacent_vertices), 'Incoming edges: ' + str(v.incoming_edges),
+                          'Outgoing edges: ' + str(v.outgoing_edges)]))
 
     print('\n' + '#'*100 + '\n')
 
@@ -246,14 +252,16 @@ if __name__ == '__main__':
 
     # (0-->1, 1-->2, 3-->2, 3-->3, 2-->1, 2-->0, 2-->3, 1-->0, 0-->2)
     print("\nAll edges: ", all_edges)
-
-    # Vertex 0 Degree: (In, Out, Total): (2, 2, 4) Adjacent vertices: (1, 2)
-    # Vertex 1 Degree: (In, Out, Total): (2, 2, 4) Adjacent vertices: (0, 2)
-    # Vertex 2 Degree: (In, Out, Total): (3, 3, 6) Adjacent vertices: (0, 1, 3)
-    # Vertex 3 Degree: (In, Out, Total): (3, 3, 6) Adjacent vertices: (2, 3)
     print()
+
+    # Vertex: 0 | Degree: (In, Out): (2, 2) | Adjacent vertices: (1, 2) | Incoming edges: (1--->0, 2--->0) | Outgoing edges: (0--->1, 0--->2)
+    # Vertex: 1 | Degree: (In, Out): (2, 2) | Adjacent vertices: (0, 2) | Incoming edges: (0--->1, 2--->1) | Outgoing edges: (1--->0, 1--->2)
+    # Vertex: 2 | Degree: (In, Out): (3, 3) | Adjacent vertices: (0, 1, 3) | Incoming edges: (0--->2, 1--->2, 3--->2) | Outgoing edges: (2--->0, 2--->1, 2--->3)
+    # Vertex: 3 | Degree: (In, Out): (3, 3) | Adjacent vertices: (2, 3) | Incoming edges: (2--->3, 3--->3, 3--->3) | Outgoing edges: (3--->2, 3--->3, 3--->3)
     for data, v in all_vertices:
-        print('Vertex', v, 'Degree: (In, Out, Total):', '({}, {}, {})'.format(v.in_degree, v.out_degree, v.degree), 'Adjacent vertices:', v.adjacent_vertices)
+        print(' | '.join(['Vertex: ' + str(v), 'Degree: (In, Out): ' + '({}, {})'.format(v.in_degree, v.out_degree),
+              'Adjacent vertices: ' + str(v.adjacent_vertices), 'Incoming edges: ' + str(v.incoming_edges),
+               'Outgoing edges: ' + str(v.outgoing_edges)]))
 
 
     # {0: {0-->1, 0-->2}, 1: {1-->2, 1-->0}, 2: {2-->3, 2-->1, 2-->0}, 3: {3-->2, 3-->3}}
