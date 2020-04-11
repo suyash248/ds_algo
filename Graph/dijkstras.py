@@ -48,7 +48,7 @@ def dijkstras_shortest_path(graph: Graph[T], source_vertex_data: T = None) \
             # Parent of source_vertex will be None
             vertex_parent_mapping[popped_vertex] = None
 
-        # Iterating through all the adjacent vertex of popped_vertex
+        # Iterating through all the outgoing edges from popped_vertex to adjacent vertices.
         for connecting_edge in adjacency_list[popped_vertex]:
             adjacent_vertex: Vertex[T] = connecting_edge.vertex2    # adjacent vertex to popped_vertex
             heap_node: HeapNode[Vertex[T], int] = custom_min_heap.peek(adjacent_vertex)
