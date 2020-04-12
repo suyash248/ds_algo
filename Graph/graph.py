@@ -138,6 +138,9 @@ class Graph(Generic[T]):
             self._graph_[vertex2].add(edge2)
             vertex2.__add_adjacent_vertex__(vertex1)
 
+    def get_vertex(self, vertex_data: T) -> Vertex[T]:
+        return self._vertices_.get(vertex_data)
+
     @property
     def vertices(self) -> Tuple[Tuple[T, Vertex[T]], ...]:
         """

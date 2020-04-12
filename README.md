@@ -61,7 +61,8 @@
 * [Disjoint set](https://github.com/suyash248/ds_algo/blob/master/Graph/disjoint_set.py)
 * [Minimum spanning tree - Prim's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/prims_mst.py)
 * [Minimum spanning tree - Kruskal's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/kruskals_mst.py)
-* [Single source shortest path - Dijkstra's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/dijkstras.py)
+* [Single source shortest path - Dijkstra's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/dijkstras_shortest_path.py)
+* [Single source shortest path - Bellman-Ford's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/bellman_fords_shortest_path.py)
 * [Knight tour with custom rules - Warnsdorff's algorithm](https://github.com/suyash248/ds_algo/blob/master/Graph/mst/warnsdorffs_knight_algo.py)
 
 ### Array

@@ -60,7 +60,7 @@ def dijkstras_shortest_path(graph: Graph[T], source_vertex_data: T = None) \
             adjacent_vertex_distance: int = heap_node.weight
 
             # new distance from source vertex to adjacent_vertex will be -
-            # new_distance = distance from popped_vertex to source + distance from adjacent_vertex to popped_vertex
+            # new_distance = Distance(popped_vertex to source vertex) + Distance(adjacent_vertex to popped_vertex)
             new_distance: int = vertex_distance_mapping[popped_vertex] + connecting_edge.weight
 
             if new_distance < adjacent_vertex_distance:
