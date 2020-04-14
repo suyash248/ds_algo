@@ -19,6 +19,8 @@ K = TypeVar('K')
 # binary heap is used. To find all pairs shortest path we can use Dijkstra's algo V times, overall time complexity in
 # that case will be - O(V*E*logV). Floyd-Warshall's algo performs better in thise case.
 
+# Time complexity: O(V*3)
+# Space complexity: O(V*2)
 def floyd_warshalls_all_pairs_shortest_path(graph: Graph[T]):
     """
     Considers every vertex one-by-one as source, while every other vertex as middle vertex. e.g.
