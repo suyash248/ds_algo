@@ -17,8 +17,8 @@ def max_profit_dp(prices, rod_len):
     rows = len(prices) + 1; cols = rod_len + 1
     table = empty_2d_array(rows, cols)
 
-    for piece_len in xrange(0, rows):
-        for r_len in xrange(0, cols):
+    for piece_len in range(0, rows):
+        for r_len in range(0, cols):
             if piece_len == 0 or r_len == 0:
                 table[piece_len][r_len] = 0
                 continue
@@ -30,11 +30,26 @@ def max_profit_dp(prices, rod_len):
                 incl = prices[piece_len-1] + table[piece_len][r_len-piece_len]
                 table[piece_len][r_len] = max(excl, incl)
 
-    print table
+    print(table)
     return table[rows-1][cols-1]
+
+def max_profit_recursive(prices, lengths, rod_len, idx=0) -> int:
+    if idx >= len(prices) or rod_len <= 0:
+        return 0
+    piece_len: int = lengths[idx]
+    profit_including_current_piece: int = 0
+    if piece_len <= rod_len:
+        profit_including_current_piece: int = prices[idx] + max_profit_recursive(prices, lengths, rod_len-piece_len, idx)
+    profit_excluding_current_piece: int = max_profit_recursive(prices, lengths, rod_len, idx+1)
+
+    return max(profit_including_current_piece, profit_excluding_current_piece)
+
 
 if __name__ == '__main__':
     prices = [2, 5, 9, 6]
     rod_len = 5
     max_profit = max_profit_dp(prices, rod_len)
-    print "Maximum profit - {}".format(max_profit)
+    print("Maximum profit - {}".format(max_profit))
+
+    max_profit = max_profit_recursive(prices, [l+1 for l in range(0, len(prices))], rod_len)
+    print("Maximum profit - {}".format(max_profit))
