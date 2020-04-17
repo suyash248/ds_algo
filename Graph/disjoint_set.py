@@ -61,7 +61,7 @@ class DisjointSet(Generic[T]):
         def __find_set__(node: DisjointNode[T]) -> DisjointNode[T]:
             if node.parent == node:
                 return node.parent
-            node.parent = __find_set__(node.parent) # Path compression
+            node.parent = __find_set__(node.parent) # Path compression: After path compression, height of tree will be reduced to 1.
             return node.parent
 
         return __find_set__(self.__data_node_mapping__[data])
