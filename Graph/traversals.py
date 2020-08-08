@@ -49,7 +49,7 @@ def DFS_using_stack(graph: Graph[T]) -> List[Vertex[T]]:
     dfs: List[Vertex[T]] = []
     stack = list()
 
-    def __DFS__(vertex, visited):
+    def __DFS__(vertex):
         stack.append(vertex)
         visited[vertex.data] = True
         dfs.append(vertex)
@@ -76,7 +76,7 @@ def DFS_using_stack(graph: Graph[T]) -> List[Vertex[T]]:
     # would be disconnected then, we might miss a few vertex while traversing the graph.
     for data, ver in all_data_vertex_mapping.items():
         if not visited.get(data, False):
-            __DFS__(ver, visited)
+            __DFS__(ver)
     return dfs
 
 def DFS_recursive(graph: Graph[T]) -> List[Vertex[T]]:
@@ -89,20 +89,20 @@ def DFS_recursive(graph: Graph[T]) -> List[Vertex[T]]:
     visited: Dict[T, bool] = dict()
     dfs: List[Vertex[T]] = []
 
-    def __DFS__(ver: Vertex[T], visited):
+    def __DFS__(ver: Vertex[T]):
         if not visited.get(ver.data, False):
             visited[ver.data] = True
             dfs.append(ver)
 
         for adjacent_ver in ver.adjacent_vertices:
             if not visited.get(adjacent_ver.data, False):  # visited.get(ver.data, False) == False
-                __DFS__(adjacent_ver, visited)
+                __DFS__(adjacent_ver)
 
     # We could randomly start from any vertex and all __DFS__(random_vertex, visited) only once. But then, if graph
     # would be disconnected then, we might miss a few vertex while traversing the graph.
     for data, ver in all_data_vertex_mapping.items():
         if not visited.get(data, False):
-            __DFS__(ver, visited)
+            __DFS__(ver)
     return dfs
 
 
@@ -125,15 +125,15 @@ if __name__ == '__main__':
 
     print(graph1)
     bfs_arr = BFS(graph1)
-    # [b, a, e, d, c]
+    # [b, a, e, d, c, x, z, y]
     print("\nBFS:", bfs_arr)
 
     dfs_arr = DFS_recursive(graph1)
-    # [b, d, c, a, e]
+    # [b, d, c, a, e, x, z, y]
     print("\nDFS(Recursive):", dfs_arr)
 
     dfs_arr = DFS_using_stack(graph1)
-    # [b, d, c, a, e]
+    # [b, d, c, a, e, x, z, y]
     print("\nDFS(Using stack):", dfs_arr)
 
     #########################################################################################

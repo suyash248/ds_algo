@@ -60,7 +60,7 @@ if __name__ == "__main__":
     insert(root, 60)
     insert(root, 80)
 
-    key1 = 40; key2 = 15
+    key1 = 20; key2 = 15
 
     print ("\n----- Using V1 -----\n")
     print ("LCA of {key1} & {key2} is {lca}".format(key1=key1, key2=key2, lca=lca_v1(root, key1, key2)))

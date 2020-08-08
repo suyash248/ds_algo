@@ -35,6 +35,25 @@ def path_to_target_v2(root, target_key, path=[]):
     elif target_key > root.key:
         return path_to_target_v2(root.right, target_key, path)
 
+path_v3 = []
+def path_to_target_v3(root, target_key):
+    # global path_v3
+    if root is None:
+        return None
+    if root.key == target_key:
+        path_v3.append(root.key)
+        return root
+
+    lpath = path_to_target_v3(root.left, target_key)
+    if lpath is not None:
+        path_v3.append(root.key)
+        return root
+    rpath = path_to_target_v3(root.right, target_key)
+    if rpath is not None:
+        path_v3.append(root.key)
+        return root
+    return None
+
 # Driver program to test above function
 if __name__ == "__main__":
     """ Let us create following BST
@@ -78,3 +97,11 @@ if __name__ == "__main__":
     else:
         print ("Target key {target} not found".format(target=target))
 
+
+    print ("\n----------------- USING V3 -----------------\n")
+    path_to_target_v3(root, target)
+    if len(path_v3) > 0:
+        print("Path from root {root} to node {target} is - {path}" \
+              .format(root=root.key, target=target, path=path_v3[::-1]))
+    else:
+        print ("Target key {target} not found".format(target=target))

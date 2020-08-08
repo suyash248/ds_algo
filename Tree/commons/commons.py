@@ -7,6 +7,11 @@ class Node:
         self.right = right
         self.hd = hd
 
+    def __str__(self):
+        lkey = None if self.left is None else self.left.key
+        rkey = None if self.right is None else self.right.key
+        return '{} <--[{}]--> {}'.format(lkey, self.key, rkey)
+
 
 def insert(node, key):
     """
