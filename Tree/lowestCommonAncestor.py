@@ -22,6 +22,8 @@ def lca_v1(root, key1, key2):
 
 lca_found = False
 def lca_v2(root, key1, key2):
+    # NOTE: This approach doesn't work for the keys(k1,k2) if there is a parent-child relationship between the keys.
+    # e.g. k1=20, k2=15 in the below tree
     global lca_found
     if root is None:
         return None

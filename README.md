@@ -48,6 +48,7 @@
 * [Height of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/treeHeight.py)
 * [Print diagonals of binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/printDiagonals.py)
 * [Diagonal sum of a binary tree](https://github.com/suyash248/ds_algo/blob/master/Tree/sumDiagonals.py)
+* [Binary tree to DDL](https://github.com/suyash248/ds_algo/blob/master/Tree/binaryTreeToDDL.py) 
 * [Segment Tree](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree)
   * [Min-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/minRangeSegmentTree.py)
   * [Sum-Range](https://github.com/suyash248/ds_algo/blob/master/Tree/segment_tree/sumRangeSegmentTree.py)
