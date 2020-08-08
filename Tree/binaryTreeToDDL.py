@@ -23,6 +23,14 @@ def print_DDL(head):
         temp = temp.right
 
 if __name__ == '__main__':
+    """
+            10
+          /    \ 
+        12      15
+       /  \    / 
+      25  30  36
+      
+    """
     n10 = Node(10)
     n12 = Node(12)
     n25 = Node(25)
@@ -47,4 +55,5 @@ if __name__ == '__main__':
     binary_tree_to_DDL.prev = None
     binary_tree_to_DDL(root)
 
+    # 25 <--> 12 <--> 30 <--> 10 <--> 36 <--> 15
     print_DDL(binary_tree_to_DDL.head)
