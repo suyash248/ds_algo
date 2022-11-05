@@ -1,5 +1,13 @@
 from Tree.commons import insert, print_tree, is_leaf
+import copy
 
+""" Let us create following BST
+        50
+     /		\
+    30		70
+   /  \    /   \
+  20  40  60 	80
+"""
 def move_children_right(root):
     if root is None:
         return
@@ -62,6 +70,18 @@ def move_children_left_v3(root):
     move_children_left_v2(root.left)
     # move_children_left_v2(root.right) => root.right is set to None so there is no need to traverse right subtree
 
+def swapChildren(r):
+    if r is None:
+        return
+    right = r.right # copy.deepcopy(r.right)
+    left = r.left # copy.deepcopy(r.left)
+
+    r.left = right
+    r.right = left
+
+    swapChildren(r.left)
+    swapChildren(r.right)
+
 # Driver program to test above function
 if __name__ == "__main__":
     """ Let us create following BST
@@ -80,10 +100,18 @@ if __name__ == "__main__":
     insert(root, 60)
     insert(root, 80)
 
-    # move_children_left(root)
-    move_children_left_v2(root)
-    #move_children_right(root)
-    print_tree(root)
+    r1 = copy.deepcopy(root)
+    # move_children_left(r1)
+    move_children_left_v2(r1)
+    #move_children_right(r1)
+    print_tree(r1)
+
+    print("#################################")
+    r2 = copy.deepcopy(root)
+    swapChildren(r2)
+    print_tree(r2)
+
+
 
 # 50 : left->70 , right->NULL
 # 70 : left->80 , right->NULL

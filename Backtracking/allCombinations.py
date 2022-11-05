@@ -5,7 +5,7 @@ from Array import empty_1d_array
 def all_combinations(input_seq, combinations):
     for elt in input_seq:
         comb_len = len(combinations)
-        for si in xrange(0, comb_len):
+        for si in range(0, comb_len):
             combinations.append(combinations[si] + elt)
 
 
@@ -32,7 +32,7 @@ def all_combinations_v3(input_seq, count, pos, combinations, level):
     # print till pos
     print_till_pos(combinations, level)
 
-    for i in xrange(pos, len(input_seq)):
+    for i in range(pos, len(input_seq)):
         if count[i] == 0:
             continue
         combinations[level] = input_seq[i]
