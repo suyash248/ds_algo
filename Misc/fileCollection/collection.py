@@ -1,5 +1,5 @@
 from typing import Set, List
-from fileCollection.file import File
+from Misc.fileCollection.file import File
 
 
 class Collection(object):

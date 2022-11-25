@@ -1,5 +1,5 @@
-from fileCollection.file import File
-from fileCollection.file_util import FileUtility
+from Misc.fileCollection.file import File
+from Misc.fileCollection.file_util import FileUtility
 
 if __name__ == '__main__':
     file_utility: FileUtility = FileUtility()

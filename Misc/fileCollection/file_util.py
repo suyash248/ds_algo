@@ -1,6 +1,6 @@
 from typing import Dict
-from fileCollection.collection import Collection
-from fileCollection.file import File
+from Misc.fileCollection.collection import Collection
+from Misc.fileCollection.file import File
 
 
 class FileUtility(object):
