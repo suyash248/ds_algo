@@ -4,8 +4,8 @@ __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
 from sys import maxsize
-from typing import TypeVar, List, Set, Tuple, Dict
-from Graph.graph import Graph, Vertex, Edge
+from typing import TypeVar, List, Dict
+from Misc.Graph.graph import Graph, Vertex
 from Array import empty_2d_array
 
 T = TypeVar('T')

@@ -3,8 +3,8 @@ from __future__ import annotations
 __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
-from typing import TypeVar, List, Dict, Set
-from Graph.graph import Graph, Vertex
+from typing import TypeVar, List, Dict
+from Misc.Graph.graph import Graph, Vertex
 
 T = TypeVar('T')
 

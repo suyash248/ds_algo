@@ -4,8 +4,8 @@ __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
 from typing import Tuple, TypeVar, Dict, Set, List
-from Graph.graph import Graph, Vertex, Edge
-from Graph.disjoint_set import DisjointSet, DisjointNode
+from Misc.Graph.graph import Graph, Vertex, Edge
+from Misc.Graph.disjoint_set import DisjointSet, DisjointNode
 
 T = TypeVar('T')
 

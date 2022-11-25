@@ -6,8 +6,8 @@ __email__ = "suyash.soni248@gmail.com"
 from sys import maxsize
 from collections import defaultdict
 from typing import TypeVar, List, Set, Tuple, Dict
-from Graph.graph import Graph, Vertex, Edge
-from Graph.custom_min_heap import MinBinaryHeap, HeapNode
+from Misc.Graph.graph import Graph, Vertex, Edge
+from Misc.Graph.custom_min_heap import MinBinaryHeap, HeapNode
 
 T = TypeVar('T')
 K = TypeVar('K')

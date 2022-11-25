@@ -5,7 +5,7 @@ __email__ = "suyash.soni248@gmail.com"
 
 from collections import namedtuple, defaultdict
 from typing import TypeVar, List, Tuple, Dict
-from Graph.graph import Graph, Vertex
+from Misc.Graph.graph import Graph, Vertex
 
 T = TypeVar('T')
 
@@ -84,7 +84,7 @@ def has_cycle_using_DFS_coloring(graph: Graph[T]) -> Tuple[bool, List[Vertex[T]]
 # Uses topological sort(Kahn's algo), considers the degree of vertices.
 # https://www.geeksforgeeks.org/detect-cycle-in-a-directed-graph-using-bfs/?ref=rp
 def has_cycle_BFS(graph: Graph[T]) -> bool:
-    from Graph.topological_sort import topological_sort_using_BFS
+    from Misc.Graph.topological_sort import topological_sort_using_BFS
     is_acyclic, top_order = topological_sort_using_BFS(graph)
     return not is_acyclic
 

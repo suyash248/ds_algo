@@ -5,9 +5,9 @@ __email__ = "suyash.soni248@gmail.com"
 
 from sys import maxsize
 from collections import defaultdict
-from typing import TypeVar, List, Set, Tuple, Dict
-from Graph.graph import Graph, Vertex, Edge
-from Graph.dijkstras_shortest_path import find_path_from_source_to_vertex
+from typing import TypeVar, List, Tuple, Dict
+from Misc.Graph.graph import Graph, Vertex, Edge
+from Misc.Graph.dijkstras_shortest_path import find_path_from_source_to_vertex
 
 T = TypeVar('T')
 K = TypeVar('K')

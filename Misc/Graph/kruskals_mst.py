@@ -3,9 +3,9 @@ from __future__ import annotations
 __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
-from typing import TypeVar, Generic, List, Set, Tuple, Dict, Any
-from Graph.graph import Graph, Vertex, Edge
-from Graph.disjoint_set import DisjointSet, DisjointNode
+from typing import TypeVar, List
+from Misc.Graph.graph import Graph, Edge
+from Misc.Graph.disjoint_set import DisjointSet, DisjointNode
 
 T = TypeVar('T')
 K = TypeVar('K')

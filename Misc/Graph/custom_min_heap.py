@@ -3,7 +3,6 @@ from __future__ import annotations
 __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
-import sys
 from typing import TypeVar, Generic, List, Dict, Any, Tuple
 from Array import swap
 
@@ -178,7 +177,7 @@ class MinBinaryHeap(Generic[T, K]):
 
 if __name__ == '__main__':
     heap1: MinBinaryHeap[str, int] = MinBinaryHeap()
-    from Graph.graph import Vertex
+    from Misc.Graph.graph import Vertex
 
     heap1.push('D', 5)
     heap1.push('A', 2)
@@ -202,7 +201,7 @@ if __name__ == '__main__':
     ############ Vertex object as data ############
 
     heap2: MinBinaryHeap[Vertex[T], int] = MinBinaryHeap()
-    from Graph.graph import Vertex
+    from Misc.Graph.graph import Vertex
 
     heap2.push(Vertex('D'), 5)
     heap2.push(Vertex('A'), 2)
