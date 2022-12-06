@@ -14,6 +14,7 @@ class ContactNode(object):
     def __str__(self):
         return "Children: {} | {}".format(self.children.keys(), self.endOfWord)
 
+
 class Trie(object):
     def __init__(self):
         self.__root__ = ContactNode()
@@ -53,15 +54,16 @@ class Trie(object):
     def __delete__(self, word, cur, index=0):
         if index == len(word):
             if cur.endOfWord:
-                cur.endOfWord = False           # Mark `endOfWord` as we're going to delete this.
-                return len(cur.children) == 0   # If there are no children, delete this node (True means node will be deleted later)
+                cur.endOfWord = False  # Mark `endOfWord` as we're going to delete this.
+                return len(
+                    cur.children) == 0  # If there are no children, delete this node (True means node will be deleted later)
             return False
 
         ch = word[index]
         child = cur.children.get(ch, None)
         # No need to check if this word exists or not as we've already checked it before calling this method.
         cur.wordsNum -= 1
-        shouldRemove = self.__delete__(word, child, index=index+1)
+        shouldRemove = self.__delete__(word, child, index=index + 1)
 
         # Removing node from memory (i.e. parent's `children' dict) if this is the only node remaining in `children1 dict.
         if shouldRemove:
@@ -80,7 +82,8 @@ class Trie(object):
         for ch, child_node in joint_node.children.items():
             prefix = prefix + ch
             if child_node.endOfWord:
-                print prefix
+                print
+                prefix
             self.__prefix_search__(prefix, child_node)
             prefix = prefix[:-1]  # Backtracking
 
@@ -105,36 +108,36 @@ if __name__ == '__main__':
         5: "Delete contact",
         6: "Exit"
     }
-    choices = '\n'.join(['{}. {}'.format(k,v) for k,v in choices.items()])
+    choices = '\n'.join(['{}. {}'.format(k, v) for k, v in choices.items()])
 
     while True:
-        print "\n" + choices + "\n"
+        print("\n" + choices + "\n")
         try:
-            choice = input("Enter your choice - ") or 0
+            choice = int(input("Enter your choice - ")) or 0
         except:
             choice = 0
 
         if choice == 1:
-            word = raw_input("Please enter a contact name to be inserted - ")
+            word = input("Please enter a contact name to be inserted - ")
             trie.insert(word)
         elif choice == 2:
-            word = raw_input("Please enter contact name to be searched - ")
+            word = input("Please enter contact name to be searched - ")
             is_present = trie.search(word)
-            print "{} is {}present".format(word, "" if is_present else "not ")
+            print("{} is {}present".format(word, "" if is_present else "not "))
         elif choice == 3:
-            prefix = raw_input("Please enter a contact name/prefix to be searched - ")
+            prefix = input("Please enter a contact name/prefix to be searched - ")
             wordsNum = trie.prefix_search_count(prefix)
-            print "There are {} contact(s) starting with prefix {}".format(wordsNum, prefix)
+            print("There are {} contact(s) starting with prefix {}".format(wordsNum, prefix))
         elif choice == 4:
-            prefix = raw_input("Please enter a contact name/prefix to be searched - ")
-            print "Contact(s) starting with prefix {} are -".format(prefix)
+            prefix = input("Please enter a contact name/prefix to be searched - ")
+            print("Contact(s) starting with prefix {} are -".format(prefix))
             trie.prefix_search(prefix)
         elif choice == 5:
-            word = raw_input("Please enter a word/sequence to be deleted - ")
+            word = input("Please enter a word/sequence to be deleted - ")
             trie.delete(word)
         elif choice == 6:
-            print "Thank you!"
+            print("Thank you!")
             break
         else:
-            print "Invalid choice"
+            print("Invalid choice")
             continue

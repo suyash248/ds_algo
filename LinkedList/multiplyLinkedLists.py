@@ -23,6 +23,8 @@ Algorithm to generate the number from linked list representation:
 
 References- https://www.geeksforgeeks.org/multiply-two-numbers-represented-linked-lists/
 """
+
+
 class Multiplier(object):
 
     def __init__(self, head1, head2):
@@ -57,9 +59,9 @@ class Multiplier(object):
     def print_list(cls, head):
         cur = head
         while cur is not None:
-            print str(cur.data) + "->",
+            print(str(cur.data) + "->")
             cur = cur.next
-        print None
+        print(None)
 
 
 def create_linked_list(data=[]):
@@ -75,12 +77,12 @@ if __name__ == '__main__':
     head1 = create_linked_list([1, 0, 5])
     head2 = create_linked_list([1, 2])
 
-    print "List-1: ",
+    print("List-1: ")
     Multiplier.print_list(head1)
-    print "List-2: ",
+    print("List-2: ")
     Multiplier.print_list(head2)
 
     multiplier = Multiplier(head1, head2)
     result = multiplier.multiply()
 
-    print "Result: {}".format(result)
+    print("Result: {}".format(result))

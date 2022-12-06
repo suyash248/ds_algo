@@ -1,7 +1,7 @@
-from costExplorer.entity.customer import Customer
-from costExplorer.entity.plan import Plan
-from costExplorer.entity.product_subscription import ProductSubscription
-from costExplorer.service.cost_service import CostService
+from Misc.costExplorer.entity.customer import Customer
+from Misc.costExplorer.entity.plan import Plan
+from Misc.costExplorer.entity.product_subscription import ProductSubscription
+from Misc.costExplorer.service.cost_service import CostService
 
 if __name__ == '__main__':
     costService: CostService = CostService()

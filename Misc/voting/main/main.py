@@ -45,8 +45,8 @@ votes = [
         Vote(["Mykola"]),
     ]
 """
-from interview.main.vote import Vote
-from interview.main.voteUtility import VoteUtility
+from Misc.voting.main.vote import Vote
+from Misc.voting.main.voteUtility import VoteUtility
 
 if __name__ == '__main__':
     votes = [

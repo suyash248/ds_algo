@@ -6,6 +6,7 @@ class Node(object):
     def __str__(self):
         return "{} | next -> ".format(self.data, self.next.data if self.next else None)
 
+
 """
 Algorithm -
 
@@ -25,6 +26,8 @@ Following are the steps.
 
 References- https://www.geeksforgeeks.org/sum-of-two-linked-lists/
 """
+
+
 class Adder(object):
     def __init__(self, head1, head2):
         self.head1 = head1
@@ -97,7 +100,7 @@ class Adder(object):
             self.result_head = new_node
 
             self.__sum__ += str(new_node.data)
-            #temp = temp.next
+            # temp = temp.next
 
     @classmethod
     def get_size(cls, head):
@@ -112,9 +115,9 @@ class Adder(object):
     def print_list(cls, head):
         cur = head
         while cur is not None:
-            print str(cur.data) + "->",
+            print(str(cur.data) + "->")
             cur = cur.next
-        print None
+        print(None)
 
 
 def create_linked_list(data=None):
@@ -126,6 +129,7 @@ def create_linked_list(data=None):
         prev = cur
     return head
 
+
 # Input:
 #   First List: 5->6->3         // represents number 563
 #   Second List: 8->4->2        //  represents number 842
@@ -135,15 +139,15 @@ if __name__ == '__main__':
     head1 = create_linked_list([2, 8, 9, 7])
     head2 = create_linked_list([1, 8])
 
-    print "List-1: ",
+    print("List-1: ")
     Adder.print_list(head1)
-    print "List-2: ",
+    print("List-2: ")
     Adder.print_list(head2)
 
     adder = Adder(head1, head2)
     result_sum, result_head = adder.add()
 
-    print "Result list: ",
+    print("Result list: ")
     Adder.print_list(result_head)
 
-    print "Total sum: {}".format(result_sum)
+    print("Total sum: {}".format(result_sum))

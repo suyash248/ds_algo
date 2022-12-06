@@ -1,4 +1,4 @@
-from costExplorer.entity.plan import Plan
+from Misc.costExplorer.entity.plan import Plan
 
 
 class ProductSubscription(object):

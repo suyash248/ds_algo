@@ -1,7 +1,7 @@
-from costExplorer.entity.customer import Customer
+from Misc.costExplorer.entity.customer import Customer
 from typing import List
 from datetime import date
-from costExplorer.entity.product_subscription import ProductSubscription
+from Misc.costExplorer.entity.product_subscription import ProductSubscription
 
 
 class CostService(object):

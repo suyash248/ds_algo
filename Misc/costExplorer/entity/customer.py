@@ -1,4 +1,4 @@
-from costExplorer.entity.product_subscription import ProductSubscription
+from Misc.costExplorer.entity.product_subscription import ProductSubscription
 from typing import List
 
 class Customer(object):

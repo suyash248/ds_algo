@@ -1,4 +1,4 @@
-from interview.main.candidate import Candidate
+from Misc.voting.main.candidate import Candidate
 from typing import Dict, List
 from collections import defaultdict
 
