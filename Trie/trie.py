@@ -2,32 +2,34 @@
 # where N is number of keys in Trie.
 
 # https://www.youtube.com/watch?v=AXjmTQ8LEoI
-class _Node(object):
+
+from typing import TypeVar, Dict, List
+
+T = TypeVar('T')
+
+
+class TrieNode(object):
     def __init__(self):
-        self.children = {}
+        self.children: Dict[T, TrieNode] = dict()
         self.endOfWord = False
 
     def __str__(self):
         return "Children: {} | {}".format(self.children.keys(), self.endOfWord)
 
+
 class Trie(object):
     def __init__(self):
-        self.__root__ = _Node()
+        self.__root__ = TrieNode()
 
-
-############################### INSERT ###############################
-
+    ############################### INSERT ###############################
 
     # Time complexity: O(length_of_word)
-    def insert(self, word):
+    def insert(self, word: List[T]):
         cur = self.__root__
         for ch in word:
-            #print ch,
-            child = cur.children.get(ch, None)
-            if child is None:
-                child = _Node()
-                cur.children[ch] = child
-            cur = child
+            if ch not in cur.children:
+                cur.children[ch] = TrieNode()
+            cur = cur.children[ch]
         cur.endOfWord = True
 
     # Time complexity: O(length_of_word)
@@ -36,27 +38,24 @@ class Trie(object):
             cur.endOfWord = True
             return
         ch = word[index]
-        child = cur.children.get(ch, None)
-        if child is None:
-            child = _Node()
-            cur.children[ch] = child
-        self.__insert_recursive__(word, child, index=index+1)
+
+        if ch not in cur.children:
+            cur.children[ch] = TrieNode()
+
+        self.__insert_recursive__(word, cur.children[ch], index=index + 1)
 
     def insert_recursive(self, word):
         self.__insert_recursive__(word, self.__root__)
 
-
-############################### SEARCH (Whole word) ###############################
-
+    ############################### SEARCH (Whole word) ###############################
 
     # Time complexity: O(length_of_word)
     def search(self, word):
         cur = self.__root__
         for ch in word:
-            child = cur.children.get(ch, None)
-            if child is None:
+            if ch not in cur.children:
                 return False
-            cur = child
+            cur = cur.children[ch]
         return cur.endOfWord
 
     # Time complexity: O(length_of_word)
@@ -67,29 +66,28 @@ class Trie(object):
             return cur.endOfWord
         ch = word[index]
         child = cur.children.get(ch, None)
-        return self.__search_recursive__(word, child, index=index+1)
+        return self.__search_recursive__(word, child, index=index + 1)
 
     def search_recursive(self, word):
         return self.__search_recursive__(word, self.__root__)
 
-
-############################### DELETE ###############################
-
+    ############################### DELETE ###############################
 
     # Time complexity: O(length_of_word)
     def __delete__(self, word, cur, index=0):
         if index == len(word):
             if cur.endOfWord:
-                cur.endOfWord = False           # Mark `endOfWord` as we're going to delete this.
-                return len(cur.children) == 0   # If there are no children, delete this node (True means node will be deleted later)
+                cur.endOfWord = False  # Mark `endOfWord` as we're going to delete this.
+                return len(
+                    cur.children) == 0  # If there are no children, delete this node (True means node will be deleted later)
             return False
 
         ch = word[index]
         child = cur.children.get(ch, None)
         if child is None:
-            return False                        # word doesn't exist.
+            return False  # word doesn't exist.
 
-        shouldRemove = self.__delete__(word, child, index=index+1)
+        shouldRemove = self.__delete__(word, child, index=index + 1)
 
         # Removing node from memory (i.e. parent's `children' dict) if this is the only node remaining in `children1 dict.
         if shouldRemove:
@@ -103,15 +101,13 @@ class Trie(object):
     def delete(self, word):
         self.__delete__(word, self.__root__)
 
-
-############################### AUTO-COMPLETE (PREFIX SEARCH) ###############################
-
+    ############################### AUTO-COMPLETE (PREFIX SEARCH) ###############################
 
     def __prefix_search__(self, prefix, joint_node):
         for ch, child_node in joint_node.children.items():
             prefix = prefix + ch
             if child_node.endOfWord:
-                print prefix
+                print(prefix)
             self.__prefix_search__(prefix, child_node)
             prefix = prefix[:-1]  # Backtracking
 
@@ -125,15 +121,13 @@ class Trie(object):
             cur = child
         self.__prefix_search__(prefix, cur)
 
-
-############################### UPDATE ###############################
-
+    ############################### UPDATE ###############################
 
     # TODO
     def update(self, old_word, new_word):
         pass
 
-############################### PRINT ###############################
+    ############################### PRINT ###############################
 
     # TODO
     def print_trie(self):
@@ -147,20 +141,20 @@ def test():
     for word in words:
         trie.insert(word)
 
-    print "'pars' is present? -", trie.search("pqrs")
-    print "'abef' is present? -", trie.search_recursive("abef")
+    print("'pars' is present? -", trie.search("pqrs"))
+    print("'abef' is present? -", trie.search_recursive("abef"))
 
-    print "\nDeleting 'pqrs'\n"
+    print("\nDeleting 'pqrs'\n")
     trie.delete("pqrs")
 
-    print "'pqrs' is present? -", trie.search("pqrs")
-    print "'pqoj' is present? -", trie.search("pqoj")
+    print("'pqrs' is present? -", trie.search("pqrs"))
+    print("'pqoj' is present? -", trie.search("pqoj"))
 
-    print '\n######################## AUTO-COMPLETE (PREFIX-SEARCH) #########################\n'
+    print('\n######################## AUTO-COMPLETE (PREFIX-SEARCH) #########################\n')
 
     search_prefixes = ["ca", "tr", "tri", "tre"]
     for pr in search_prefixes:
-        print "\nWord(s) starting from '{}' are - ".format(pr)
+        print("\nWord(s) starting from '{}' are - ".format(pr))
         trie.prefix_search(pr)
 
 
@@ -177,32 +171,32 @@ if __name__ == '__main__':
         4: "Delete",
         5: "Exit"
     }
-    choices = '\n'.join(['{}. {}'.format(k,v) for k,v in choices.items()])
+    choices = '\n'.join(['{}. {}'.format(k, v) for k, v in choices.items()])
 
     while True:
-        print "\n" + choices + "\n"
+        print("\n" + choices + "\n")
         try:
-            choice = input("Enter your choice - ") or 0
+            choice = int(input("Enter your choice - ")) or 0
         except:
             choice = 0
 
         if choice == 1:
-            word = raw_input("Please enter a word/sequence to be inserted - ")
+            word = input("Please enter a word/sequence to be inserted - ")
             trie.insert_recursive(word)
         elif choice == 2:
-            word = raw_input("Please enter a word/sequence to be searched - ")
+            word = input("Please enter a word/sequence to be searched - ")
             is_present = trie.search(word)
-            print "{} is {}present".format(word, "" if is_present else "not ")
+            print("{} is {}present".format(word, "" if is_present else "not "))
         elif choice == 3:
-            prefix = raw_input("Please enter a prefix of word/sequence to be searched - ")
-            print "Word(s) starting from '{}' are -".format(prefix)
+            prefix = input("Please enter a prefix of word/sequence to be searched - ")
+            print("Word(s) starting from '{}' are -".format(prefix))
             trie.prefix_search(prefix)
         elif choice == 4:
-            word = raw_input("Please enter a word/sequence to be deleted - ")
+            word = input("Please enter a word/sequence to be deleted - ")
             trie.delete(word)
         elif choice == 5:
-            print "Thank you!"
+            print("Thank you!")
             break
         else:
-            print "Invalid choice"
+            print("Invalid choice")
             continue
